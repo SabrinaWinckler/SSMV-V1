@@ -1,0 +1,14 @@
+<ifModule mod_rewrite.c>
+RewriteEngine on
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+
+ErrorDocument 404 /
+ErrorDocument 500 /
+
+</ifModule>
+
+RewriteEngine on 
+
+RewriteRule ^conexao(|/)$ config.php
+RewriteRule ^pdo(.*)$ ./class/pdo.class.php
