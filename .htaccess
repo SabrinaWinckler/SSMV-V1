@@ -10,5 +10,6 @@ ErrorDocument 500 /
 
 RewriteEngine on 
 
-RewriteRule ^conexao(|/)$ config.php
-RewriteRule ^pdo(.*)$ ./class/pdo.class.php
+RewriteRule ^config(|/)$ config.class.php
+
+RewriteRule ^(.*)$ ./index.php
