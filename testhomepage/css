@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css?family=Pacifico');
+@import url('https://fonts.googleapis.com/css?family=Lobster+Two|Luckiest+Guy|Modak|Passion+One|Titan+One');
+body { 
+  width: relative;
+  height: relative;
+  background-color:#FFFAF0;
+  background-image: url("https://lh5.googleusercontent.com/HTq1HYAU9EJn62sRQiMm4cRUFORZcB70VcPSjez6uQ5kGF5OHRLhyyBtZfaem5pg_GYViyS11TcZ64A=w1366-h662-rw");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: 20% 40%; 
+  opacity: 0.8;
+  background-size: relative;
+  font-family: 'Titan One', cursive, Arial;
+	}
+.barradenavegacao{
+      			overflow: hidden;
+				background-color:#A52A2A;
+  				opacity: 0.75;
+				}
+.barradenavegacao a { 
+  float: left;
+  display: block;
+  color: #EEE9E9;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.barradenavegacao a:hover {
+  background-color: #FF7256;
+  opacity: 0.6;
+  color: black;
+}
+
+.barradenavegacao a.active {
+    background-color:black;
+    color: white;
+}
+.title{ 
+  		position: absolute;
+    	top: 150px;
+    	height: 100px;
+  		font-family:'Pacifico', cursive;
+      	color:#8B8682;
+      	opacity:0.9;
+  		font-size:72px;
+  		text-shadow: 2px 2px black;
+  		text-align: center ;
+    	text-indent: 30px;
+		}
