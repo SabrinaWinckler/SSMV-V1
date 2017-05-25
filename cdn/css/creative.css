@@ -153,7 +153,8 @@ aside {
     color: #F05F40;
   }
 }
-header {
+
+ header {
   position: relative;
   width: 100%;
   min-height: auto;
@@ -165,7 +166,7 @@ header {
   background-image: url('../img/header.svg');
   text-align: center;
   color: white;
-}
+} 
 
 .grad{
   position: absolute;
@@ -436,10 +437,57 @@ body {
   padding-left: 30px;
 }
 
+/* nossa personalização */
+
 .login {
   border: 1px black solid;
   padding: 10px;
   background-color: white;
   border-radius: 25px;
   color: black;
+}
+
+.quemsomos{
+  background-image: url("../img/faq.png");
+}
+
+.quemsomos h1{
+  font-family: Arial;
+}
+
+.faq{  
+  background-image: url("../img/faq.png");
+  background-repeat: no-repeat;
+}
+
+.faq h1{
+  text-align: center;
+  font-family: 'Times New Roman';
+
+}
+.faq p{
+  text-align: left;
+  font-family: ;
+}
+
+.ajuda{
+    background-image: url("../img/faq.png");
+}
+
+.contato{
+    background-image: url("../img/faq.png");
+}
+
+header .quemsomos {
+  position: relative;
+  width: 100%;
+  min-height: auto;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-repeat: no-repeat;
+  -o-background-size: cover;
+  background-position: bottom left;
+  background-image: url('../img/faq.png');
+  text-align: center;
+  color: white;
 }
