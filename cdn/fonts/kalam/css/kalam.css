@@ -1,0 +1,28 @@
+/* Kalam @font-face kit */
+
+/* BEGIN Bold */
+@font-face {
+  font-family: 'Kalam';
+  src: url('../fonts/Kalam-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+/* END Bold */
+
+/* BEGIN Light */
+@font-face {
+  font-family: 'Kalam';
+  src: url('../fonts/Kalam-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+}
+/* END Light */
+
+/* BEGIN Regular */
+@font-face {
+  font-family: 'Kalam';
+  src: url('../fonts/Kalam-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+/* END Regular */

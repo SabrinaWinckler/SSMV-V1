@@ -158,10 +158,11 @@ header {
   min-height: auto;
   -webkit-background-size: cover;
   -moz-background-size: cover;
-  background-size: cover;
+  background-repeat: no-repeat;
   -o-background-size: cover;
-  background-position: center;
-  background-image: url('../img/header.jpg');
+  background-position: bottom left;
+  background-image: url('../img/header.svg');
+  background-color: #E0FFFF;
   text-align: center;
   color: white;
 }

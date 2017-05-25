@@ -15,9 +15,10 @@
     <link href="<?php echo BASECDN; ?>bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
-    <link href="<?php echo BASECDN; ?>font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href='<?php echo BASECDN; ?>open-sans/css/open-sans.css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
-    <link href='<?php echo BASECDN; ?>merriweather/css/merriweather.css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+    <link href="<?php echo BASECDN; ?>fonts/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='<?php echo BASECDN; ?>fonts/open-sans/css/open-sans.css' rel='stylesheet' type='text/css'>
+    <link href='<?php echo BASECDN; ?>fonts/merriweather/css/merriweather.css' rel='stylesheet' type='text/css'>
+    <link href='<?php echo BASECDN; ?>fonts/kalam/css/kalam.css' rel='stylesheet' type='text/css'>
 
     <!-- Plugin CSS -->
     <link href="<?php echo BASECDN; ?>magnific-popup/magnific-popup.css" rel="stylesheet">

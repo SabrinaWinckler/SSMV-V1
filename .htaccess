@@ -12,4 +12,4 @@ RewriteEngine on
 
 RewriteRule ^config(|/)$ config.class.php
 
-RewriteRule ^(.*)$ ./index.php
+RewriteRule ^(|/)$ index.php
