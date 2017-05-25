@@ -6,7 +6,7 @@ Seu sangue, minha vida é um projeto que vem para sanar a necessidade de sangue 
 
 Para começar a usar este repositorio, siga os passos abaixo:
 
-* Clone o repo: `git clone https://GustavoSatheler@bitbucket.org/rpissmv/ssmv.git`
+* Clone o repo: `git clone git@bitbucket.org:rpissmv/ssmv.git`
 
 * E coloque como pasta raiz do seu servidor APACHE
 
