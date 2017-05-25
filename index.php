@@ -70,70 +70,37 @@
     </nav>
 
     <header>
-        <div class="header-content grad"></div>
+        <div class="grad"></div>
         <div class="header-content">
-            <div class="header-content-inner">
-                <h1 id="homeHeading">Your Favorite Source of Free Bootstrap Themes</h1>
-                <hr>
-                <p>Start Bootstrap can help you build better websites using the Bootstrap CSS framework! Just download your template and start going, no strings attached!</p>
-                <a href="#about" class="btn btn-primary btn-xl page-scroll">Find Out More</a>
-            </div>
-        </div>
-    </header>
+            <div class="row">
+                <div class="col-md-9"></div>
+                <div class="col-md-2 login">
+                    <div class="form-group">
+                        <p> FORMULARIO DE LOGIN </p>
+                        <div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="login_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="true" scope="public_profile,email" onlogin="checkLoginState();"></div>
+                        <label for="email">E-mail</label>
+                        <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                            <div class="input-group-addon">@</div>
+                            <input type="text" name="email" id="email" class="form-control" placeholder="Insira seu email" autocomplete="off" require="require" autofocus="autofocus">
+                        </div>
+                    </div>
 
-    <header id="quemsomos">
-        <div class="header-content">
-            <div class="header-content-inner">
-                <h1 id="homeHeading">QUEM SOMOS??</h1>
-                <hr>
-                <p>SIMPLESMENTE ALUNOS DO CURSO DE ENGENHARIA DE SOFTWARE</p>
-                <a href="#faq" class="btn btn-primary btn-xl page-scroll">Leia nosso FAQ</a>
-            </div>
-        </div>
-    </header>
+                    <div class="form-group">
+                        <label for="senha">Senha</label>
+                         <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                            <div class="input-group-addon"><i class="fa fa-key"></i></div>
+                            <input type="password" name="senha" id="senha" class="form-control" placeholder="Insira sua senha" autocomplete="off" require="require">
+                        </div>
+                    </div>
 
-    <header id="faq">
-        <div class="header-content">
-            <div class="header-content-inner">
-                <h1 id="homeHeading">FAQ</h1>
-                <hr>
-                <p>O CERTO É FAQ, POIS "FAQ" SIGNIFICA "Frequently Asked Questions" E JÁ ESTÁ NO PURAL</p>
-                <a href="#ajuda" class="btn btn-primary btn-xl page-scroll">Precisa de ajuda?</a>
-            </div>
-        </div>
-    </header>
-
-    <header id="ajuda">
-        <div class="header-content">
-            <div class="header-content-inner">
-                <h1 id="homeHeading">AJUDA</h1>
-                <hr>
-                <h3> Como cadastrar? </h3>
-                <p>Para se cadastrar é necessário ter um e-mail válido ou uma conta ativa no Facebook. Tendo um dos dois você vai na página Inicial e clica no botão "Cadastro". Depois é só preencher os devidos campos com seus dados e seguir as instruções e pronto!</p>
-                <a href="#ajuda" class="btn btn-primary btn-xl page-scroll">Contatos</a>
-            </div>
-        </div>
-    </header>
-
-    <header id="contato">
-        <div class="header-content">
-            <div class="header-content-inner">
-                <div class="col-lg-8 col-lg-offset-2 text-center">
-                    <h1 id="homeHeading">Entre em contato</h1>
-                    <hr class="primary">
-                    <p>Pronto para começar abraçar esse projeto? Isso é ótimo! Nos ligue ou nos envie um e-mail e vamos retornar o mais breve possível!</p>
+                    <input type="button" id="enviar" class="btn btn-primary" value="Entrar">
+                    <input type="button" id="cadastrar" class="btn btn-error" value="Cadastrar">
                 </div>
-                <div class="col-lg-4 col-lg-offset-2 text-center">
-                    <i class="fa fa-phone fa-3x sr-contact"></i>
-                    <p>+55 (55) 98765-4321</p>
-                </div>
-                <div class="col-lg-4 text-center">
-                    <i class="fa fa-envelope-o fa-3x sr-contact"></i>
-                    <p><a href="mailto:your-email@your-domain.com">contato@ssmv.com.br</a></p>
-                </div>
+                <div class="col-md-1"></div>
             </div>
         </div>
     </header>
+    
 
     <!-- jQuery -->
     <script src="<?php echo BASECDN; ?>jquery/jquery.min.js"></script>
@@ -149,6 +116,25 @@
     <!-- Theme JavaScript -->
     <script src="<?php echo BASECDN; ?>js/creative.min.js"></script>
 
-</body>
 
+    <script>
+    window.fbAsyncInit = function() {
+        FB.init({
+        appId      : '213962312451886',
+        cookie     : true,
+        xfbml      : true,
+        version    : 'v2.8'
+        });
+        FB.AppEvents.logPageView();   
+    };
+
+    (function(d, s, id){
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) {return;}
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/pt_BR/sdk.js";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+    </script>
+</body>
 </html>
