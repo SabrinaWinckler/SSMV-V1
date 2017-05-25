@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt"> 
+ 
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+    <meta charset="utf-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+    <meta name="author" content="">
+ 
+    <title>Seu Sangue Minha Vida </title>
+  	
+  	<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+   	<link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  
+	<link href="vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
+    <link href="css/creative.min.css" rel="stylesheet">
+ 	 
+  	<!--Faltou colocar o java script aqui
+ 	<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+	-->
+  
+ </head>
+
+<body>
+
+  <div class="barradenavegacao">
+  <a href="link">Inicial</a>
+  <a href="link">Quem Somos</a>
+  <a href="link">Contatos</a>
+  <a href="link">FAQ's</a>
+  <a href="link">Ajuda</a>
+</div>
+  
+  <div class="title">Seu Sangue Minha Vida</div>  
+  
+</body>
+
+</html>
