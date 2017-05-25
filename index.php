@@ -49,7 +49,7 @@
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right">
+                <ul class="nav navbar-nav navbar-left">
                     <li>
                         <a class="page-scroll" href="#quemsomos">Quem somos?</a>
                     </li>
@@ -70,6 +70,7 @@
     </nav>
 
     <header>
+        <div class="header-content grad"></div>
         <div class="header-content">
             <div class="header-content-inner">
                 <h1 id="homeHeading">Your Favorite Source of Free Bootstrap Themes</h1>
