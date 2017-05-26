@@ -165,7 +165,7 @@ aside {
 }*/
 
 header .header-content {
-  position: relative;
+  /*position: relative;*/
   text-align: center;
   padding: 100px 15px 100px;
   width: 100%;
@@ -193,7 +193,7 @@ header .header-content .header-content-inner p {
   }
   header .header-content {
     position: absolute;
-    top: 50%;
+    top: 40%;
     -webkit-transform: translateY(-50%);
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
@@ -455,7 +455,7 @@ OBS:      SÓ MEXER DAQUI PARA BAIXO, PARA ALTERAR COISAS DAQUI PARA CIMA
     ALTERAÇÃO DO HEADER ORIGINAL
 -----------------------------------*/
 header{
-  position: fixed;
+  /*position: absolute;*/
   width: 100%;
   min-height: 100%;
   -webkit-background-size: cover;
@@ -481,7 +481,6 @@ header{
     INICIO
 -----------------------------------*/
 .inicio {
-  position: fixed;
   width: 100%;
   min-height: 100%;
   -webkit-background-size: cover;
@@ -490,6 +489,13 @@ header{
   -o-background-size: cover;
   background-position: bottom left;
   background-image: url('../img/header.svg');
+}
+
+@media (min-width: 768px) {
+  .inicio {
+      position: fixed;
+  }
+
 }
 
 /* LOGIN */

@@ -34,7 +34,7 @@
     <![endif]-->
 </head>
 
-<body class="grad">
+<body>
 
     <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
         <div class="container-fluid">
@@ -43,7 +43,7 @@
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand page-scroll pointer" id="inicio">SSMV</a>
+                <a class="navbar-brand page-scroll pointer" id="comeco">SSMV</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -72,16 +72,13 @@
         <div id="design_class" class="inicio">
             <div id="principal" class="header-content">
                 <form id="login">
-                <div class="col-md-2"></div>
-                <div class="col-md-10">
+                <div class="col-md-9"></div>
+                <div class="col-md-3">
                     <div class="main">
-                        <div class="main-section">
                             <div class="login-section">
                                 <h2>Login</h2>
                                 <div class="login-top">
-                                    <ul>
-                                        <li><a class="face" href="#"><span class="face"> </span>Logar com Facebook</a></li>
-                                    </ul>
+                                    <div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="login_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="true"></div>
                                 </div>
                                 <div class="login-middle">
                                     <p>Entre informando seu email e sua senha</p>
@@ -96,104 +93,16 @@
                                         <a href="#">Cadastre-se agora!</a>
                                     </div>
                                     <div class="login-right">
-                                        <form>
                                         <input type="button" value="Entrar">
-                                        </form>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    </div>
                 </form>
             </div>
         </div>
-    </header>
-
-    <header>
-        <div id="design_class" class="inicio">
-            <div id="principal" class="header-content">
-                <form id="login">
-                <div class="col-md-2"></div>
-                <div class="col-md-10">
-                    <div class="main">
-                        <div class="main-section">
-                            <div class="login-section">
-                                <h2>Login</h2>
-                                <div class="login-top">
-                                    <ul>
-                                        <li><a class="face" href="#"><span class="face"> </span>Logar com Facebook</a></li>
-                                    </ul>
-                                </div>
-                                <div class="login-middle">
-                                    <p>Entre informando seu email e sua senha</p>
-                                    <form>
-                                        <input type="text" id="email" placeholder="Digite seu email">
-                                        <input type="password" id="senha" placeholder="Digite sua senha">
-                                    </form>
-                                </div>
-                                <div class="login-bottom">
-                                    <div class="login-left">
-                                        <p>Esqueceu sua senha?</p>
-                                        <a href="#">Cadastre-se agora!</a>
-                                    </div>
-                                    <div class="login-right">
-                                        <form>
-                                        <input type="button" value="Entrar">
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </header>
-
-    <header>
-        <div id="design_class" class="inicio">
-            <div id="principal" class="header-content">
-                <form id="login">
-                <div class="col-md-2"></div>
-                <div class="col-md-10">
-                    <div class="main">
-                        <div class="main-section">
-                            <div class="login-section">
-                                <h2>Login</h2>
-                                <div class="login-top">
-                                    <ul>
-                                        <li><a class="face" href="#"><span class="face"> </span>Logar com Facebook</a></li>
-                                    </ul>
-                                </div>
-                                <div class="login-middle">
-                                    <p>Entre informando seu email e sua senha</p>
-                                    <form>
-                                        <input type="text" id="email" placeholder="Digite seu email">
-                                        <input type="password" id="senha" placeholder="Digite sua senha">
-                                    </form>
-                                </div>
-                                <div class="login-bottom">
-                                    <div class="login-left">
-                                        <p>Esqueceu sua senha?</p>
-                                        <a href="#">Cadastre-se agora!</a>
-                                    </div>
-                                    <div class="login-right">
-                                        <form>
-                                        <input type="button" value="Entrar">
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </header>
-    
+    </header>    
 
     <!-- jQuery -->
     <script src="<?php echo BASECDN; ?>jquery/jquery.min.js"></script>
@@ -231,9 +140,15 @@
     </script>
 
     <script>
-        var inicio = $("#principal").html();
+        inicio = $("#principal").html();
 
-        $("#inicio").on("click", function(){
+        $(document).ready(function(){
+            setTimeout(function() {
+                inicio = $("#principal").html();
+            }, 1000);
+        });
+
+        $("#comeco").on("click", function(){
             $("title").text("Página Inicial :: Seu Sangue, Minha Vida");
             $("#design_class").removeClass().addClass("inicio");
             $("#principal").html(inicio);
