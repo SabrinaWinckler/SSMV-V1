@@ -16,38 +16,43 @@ De inicio tem vários bug's.
 
 ## Desenvolvedores responsáveis
 
-**[Fabricio Trindade da Silva](mailto:fabriciotrindadea7x@gmail.com)**
+** Emails:
+
+* Facilitador para email
+fabriciotrindadea7x@gmail.com; gustavo.satheler@alunos.unipampa.edu.br; jessicafaveror@gmail.com; roliveira.loki@gmail.com; sabrinacarlew@gmail.com;
+
+**[Fabricio Trindade da Silva](mailto:fabriciotrindadea7x@gmail.com)** (fabriciotrindadea7x@gmail.com)
 
 * https://facebook.com/fabriciotrindade1999
 * https://bitbucket.org/fabriciotrindade1999
 
 
-**[Gustavo Bittencourt Satheler](mailto:gustavo.satheler@alunos.unipampa.edu.br)**
+**[Gustavo Bittencourt Satheler](mailto:gustavo.satheler@alunos.unipampa.edu.br)** (gustavo.satheler@alunos.unipampa.edu.br)
 
 * https://facebook.com/gustavo.satheler
 * https://bitbucket.org/GustavoSatheler
 
 
-**[Jessica Favero Ribeiro](mailto:jessicafaveror@gmail.com)**
+**[Jessica Favero Ribeiro](mailto:jessicafaveror@gmail.com)** (jessicafaveror@gmail.com)
 
 * https://facebook.com/JehFavero
 * https://bitbucket.org/jessicafaveror
 
 
-**[Rodrigo de Oliveira Barbosa](mailto:roliveira.loki@gmail.com)**
+**[Rodrigo de Oliveira Barbosa](mailto:roliveira.loki@gmail.com)** (roliveira.loki@gmail.com)
 
 * https://facebook.com/rodrigo.oliveira.12979431
 * https://bitbucket.org/roliveiraloki
 
 
-**[Sabrina Carlé Winckler](mailto:sabrinacarlew@gmail.com)**
+**[Sabrina Carlé Winckler](mailto:sabrinacarlew@gmail.com)** (sabrinacarlew@gmail.com)
 
 * https://facebook.com/sabrina.carlewinckler
 * https://bitbucket.org/sabrinawinckler
 
 
 ## Professor responsável
-**[Maicon Bernardino da Silveira](mailto:maiconbernardino@unipampa.edu.br)**
+**[Maicon Bernardino da Silveira](mailto:maiconbernardino@unipampa.edu.br)** (maiconbernardino@unipampa.edu.br)
 
 * https://bitbucket.org/maiconbernardino
 
