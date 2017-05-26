@@ -181,7 +181,7 @@
         $("#contato").on("click", function(){
             $("#title").text("Contato :: Seu Sangue, Minha Vida");
             $("#design_class").removeClass().addClass("contato");
-            $("#principal").html('<body> <div class="background"> <h3>Fale Conosco:</h3> <div class="contato"><form action="/action_page.php"><label for="nome"></label><h2>Nome:</h2><input type="text" id="nome" name="nome" placeholder="Digite seu nome..."><label for="sobrenome"></label><h2>Sobrenome:</h2><input type="text" id="sobrenome" name="sobrenome" placeholder="Digite seu sobrenome.."><label for="email"></label><h2>Email:</h2><input type="text" id="sobrenome" name="sobrenome" placeholder="Digite seu sobrenome.."><label for="assunto"></label><h2>Assunto:</h2><textarea id="assunto" name="assunto" placeholder="Escreva aqui sua mensagem..." style="height:200px"></textarea><br><input type="submit" value="Enviar"></form></div></body>");
+            $("#principal").html('<div class="background"> <h3>Fale Conosco:</h3> <div class="contato"><form action="/action_page.php"><label for="nome"></label><h2>Nome:</h2><input type="text" id="nome" name="nome" placeholder="Digite seu nome..."><label for="sobrenome"></label><h2>Sobrenome:</h2><input type="text" id="sobrenome" name="sobrenome" placeholder="Digite seu sobrenome.."><label for="email"></label><h2>Email:</h2><input type="text" id="sobrenome" name="sobrenome" placeholder="Digite seu sobrenome.."><label for="assunto"></label><h2>Assunto:</h2><textarea id="assunto" name="assunto" placeholder="Escreva aqui sua mensagem..." style="height:200px"></textarea><br><input type="submit" value="Enviar"></form></div>');
         });
     </script>
 </body>
