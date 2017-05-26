@@ -16,7 +16,11 @@ De inicio tem vários bug's.
 
 ## Desenvolvedores responsáveis
 
-**[Fabricio Trindade da Silva](mailto:fabriciotrindadea7x@gmail.com)**
+** Emails: **
+* Facilitador para email
+fabriciotrindadea7x@gmail.com; gustavo.satheler@alunos.unipampa.edu.br; jessicafaveror@gmail.com; roliveira.loki@gmail.com; sabrinacarlew@gmail.com;
+
+**[Fabricio Trindade da Silva](mailto:fabriciotrindadea7x@gmail.com)**(fabriciotrindadea7x@gmail.com)
 
 * https://facebook.com/fabriciotrindade1999
 * https://bitbucket.org/fabriciotrindade1999
