@@ -2,14 +2,13 @@
 <html lang="pt-br">
 
 <head>
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title id="t_mudar">Página Inicial :: Seu Sangue, Minha Vida</title>
+    <title>Página Inicial :: Seu Sangue, Minha Vida</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="<?php echo BASECDN; ?>bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -32,10 +31,9 @@
         <script src="<?php echo BASECDN; ?>libs/html5shiv/html5shiv.js"></script>
         <script src="<?php echo BASECDN; ?>libs/respond.js/respond.min.js"></script>
     <![endif]-->
-
 </head>
 
-<body id="page-top">
+<body>
 
     <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
         <div class="container-fluid">
@@ -44,23 +42,23 @@
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand page-scroll" href="#page-top">Seu sangue, minha vida</a>
+                <a class="navbar-brand page-scroll pointer" id="inicio">SSMV</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-left">
                     <li>
-                        <a class="page-scroll" id="quemsomos">Quem somos?</a>
+                        <a class="page-scroll pointer" id="quemsomos">Quem somos?</a>
                     </li>
                     <li>
-                        <a class="page-scroll" id="faq">FAQ</a>
+                        <a class="page-scroll pointer" id="faq">FAQ</a>
                     </li>
                     <li>
-                        <a class="page-scroll" id="ajuda">Ajuda</a>
+                        <a class="page-scroll pointer" id="ajuda">Ajuda</a>
                     </li>
                     <li>
-                        <a class="page-scroll" id="contato">Contato</a>
+                        <a class="page-scroll pointer" id="contato">Contato</a>
                     </li>
                 </ul>
             </div>
@@ -69,34 +67,10 @@
         <!-- /.container-fluid -->
     </nav>
 
-    <header>
-        <div class="grad"></div>
-        <div class="header-content">
-            <div class="row">
-                <div class="col-md-9"></div>
-                <div class="col-md-2 login">
-                    <div class="form-group">
-                        <p> FORMULARIO DE LOGIN </p>
-                        <div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="login_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="true" scope="public_profile,email" onlogin="checkLoginState();"></div>
-                        <label for="email">E-mail</label>
-                        <div class="input-group mb-2 mr-sm-2 mb-sm-0">
-                            <div class="input-group-addon">@</div>
-                            <input type="text" name="email" id="email" class="form-control" placeholder="Insira seu email" autocomplete="off" require="require" autofocus="autofocus">
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="senha">Senha</label>
-                         <div class="input-group mb-2 mr-sm-2 mb-sm-0">
-                            <div class="input-group-addon"><i class="fa fa-key"></i></div>
-                            <input type="password" name="senha" id="senha" class="form-control" placeholder="Insira sua senha" autocomplete="off" require="require">
-                        </div>
-                    </div>
-
-                    <input type="button" id="enviar" class="btn btn-primary" value="Entrar">
-                    <input type="button" id="cadastrar" class="btn btn-error" value="Cadastrar">
-                </div>
-                <div class="col-md-1"></div>
+    <header class="grad">
+        <div id="design_class" class="inicio">
+            <div id="principal" class="header-content">
+                OI EU SOU A PÁG INICIAL E SOU RESPONSIVO :)
             </div>
         </div>
     </header>
@@ -138,27 +112,37 @@
     </script>
 
     <script>
+        var inicio = $("#principal").html();
 
-    $("#quemsomos").on("click", function(){
-        $(".header-content").html('<div class="quemsomos"> <h1>Quem Somos:</h1> <p></p> </div>');
-        $("#t_mudar").text("Quem somos :: Seu Sangue, Minha Vida");
-    });
+        $("#inicio").on("click", function(){
+            $("title").text("Página Inicial :: Seu Sangue, Minha Vida");
+            $("#design_class").removeClass().addClass("inicio");
+            $("#principal").html(inicio);
+        });
 
-    $("#faq").on("click", function(){
-        $(".header-content").html("<div class='faq'> <h1> Perguntas Frequentes</h1> <p>- Doar sangue engorda ou faz emagrecer?<br>Ao doar sangue você não engorda nem emagrece.<br>- Doar sangue engrossa ou afina o sangue?<br>Não engrossa nem afina o sangue, é apenas um mito.<br>- Doar sangue vicia?<br>Não. A doação de sangue não está relacionada a nenhuma dependência.<br>- É preciso algum documento de identidade?<br>Sim. O candidato deve apresentar documento original com foto, expedido pelo órgão oficial. Exemplos: Carteira de Identidade (RG ou RNE), passaporte, Carteira de Trabalho, Carteira de <>Identidade de Profissional, Carteira Nacional de Habilitação com foto e Certificado de Reservista.<br>- Fiz uma tatuagem há um ano. Posso doar?<br>Sim. Quem fez tatuagem há mais de um ano pode doar sangue.<br>- Há substituto para o sangue?<br>Não. Ainda não há nenhum substituto do sangue.<br>- O que é sangue universal?<br>Hoje sabemos que não existe sangue universal. Todas as pessoas têm características diferentes e por isso, quando necessitam de transfusão de sangue,precisamos fazer exames pré-transfusionais independente do grupo sanguíneo do doador e do receptor.<br>- O que é feito com o sangue que doamos?<br>Após a coleta, a bolsa coletada é fracionada em componentes sangüíneos (concentrado de hemácias, de plaquetas e plasma). Esses componentes são liberados para uso somente após o resultado dos exames. As unidades que apresentam reatividade sorológica são descartadas. Uma única unidade doada pode beneficiar três pacientes.<br>- O que é sangue raro?<br>É um sangue com característica especifica de baixa frequência na população e algumas vezes, pode ser uma característica familiar.<br>- O que se consegue em troca da doação de sangue?<br>A satisfação de beneficiar pessoas que não têm outra opção e dependem do gesto de pessoas como você para se sentir melhor.<br>- Tomei vacina para Hepatite B. Posso doar sangue?<br>A vacinação para Hepatite B impede a doação por 48 horas.<br>- A mulher pode doar sangue durante o período menstrual?<br>Sim.<br>- Doar sangue dói?<br>Não.<br>- O que acontece se uma pessoa que não sabe se está anêmica quiser doar sangue?<br>O candidato à doação é atendido por um profissional do Serviço de Hemoterapia, que realiza um teste rápido para verificar se o doador está ou não anêmico.<br>- O que são situações de risco acrescido para se transmitir doenças através da doação de sangue?<br>Ter múltiplos parceiros sexuais ocasionais ou eventuais sem uso de preservativo, usar drogas ilícitas, ter feito sexo em troca de dinheiro ou droga, ter sido vítima de estupro, ser parceiro sexual de pessoa que tenha exame reagente para infecções de transmissão sexual e sangüínea, ter parceiro sexual que pertença a alguma das situações acima, dentre outras.<br>- O uso de medicamento pode impedir alguém de doar?<br>O uso de medicamento deve ser analisado caso a caso. Portanto, antes de doar consulte o Serviço de Hemoterapia.<br>- Quanto tempo dura a doação?<br>O procedimento todo (cadastro, aferição de sinais vitais, teste de anemia, triagem clínica, coleta do sangue e lanche) leva cerca de 40 minutos.<br>- Quanto tempo leva para o organismo repor o sangue doador?<br>O organismo repõe o volume de sangue doado nas primeiras 24 horas após a doação.<br>- Quem está fazendo regime para emagrecer ou dieta pode doar sangue?<br>Sim. Dietas para emagrecimento não impedem a doação de sangue, desde que a perda não tenha comprometido a saúde.<br>- Quem estiver fazendo tratamento homeopático pode doar sangue?<br>Sim.<br>- Quem estiver fazendo tratamento com algum antibiótico pode doar sangue?<br>Depende do porquê a pessoa está tomando antibióticos. Em linhas gerais, para infecções simples e sem complicações, o doador deve aguardar 15 dias após a última dose do antibiótico para doar sangue. Infecções mais graves como pneumonia, meningite, entre outras, podem necessitar de um tempo maior para liberação do candidato à doação.<br>- Quem estiver fazendo tratamento com algum anti-inflamatório pode doar sangue?<br>Dependendo do motivo, a doação pode ser realizada normalmente. Não se esqueça de informar o nome do anti-inflamatório que você esta tomando.<br>- Quem faz tratamento para acne pode doar sangue?<br>Depende do tipo de tratamento. Caso o tratamento inclua o uso de antibióticos ou outros remédios de uso oral, não será posspivel doar.<br>- Quem tomou analgésico pode doar sangue?<br>Pode, mas é importante que no dia da doação o doador esteja sem dores.<br>- Grávidas podem doar sangue?<br>Não. Mas se o parto for normal, a mulher pode doar depois de três meses. Em caso de cesariana, após seis meses. Se estiver amamentando, aguardar 12 meses após o parto.<br>- É necessário estar em jejum para doar sangue?<br>O doador não deve estar em jejum. Tem que estar alimentado e descansado, evitar alimentação gordurosa nas quatro horas que antecedem a doação.<br>- Quem está gripado pode doar sangue?<br>Recomenda-se aguardar sete dias após a cura para poder doar.<br>- Quem tem diabete pode doar sangue?<br>Se a pessoa que tenha diabetes estiver controlando apenas com alimentação ou hipoglicemiantes orais e não apresente alterações vasculares, poderá doar. Caso ela tenha utilizado insulina<br>uma única vez, não poderá doar.</p> </div>");
-        $("#t_mudar").text("FAQ :: Seu Sangue, Minha Vida");
-    });
+        $("#quemsomos").on("click", function(){
+            $("title").text("Quem somos? :: Seu Sangue, Minha Vida");
+            $("#design_class").removeClass().addClass("quemsomos");
+            $("#principal").html("");
+        });
 
-    $("#ajuda").on("click", function(){
-        $(".header-content").html("");
-        $("#t_mudar").text("Ajuda :: Seu Sangue, Minha Vida");
-    });
+        $("#faq").on("click", function(){
+            $("title").text("FAQ :: Seu Sangue, Minha Vida");
+            $("#design_class").removeClass().addClass("faq");
+            $("#principal").html("<h1> Perguntas Frequentes</h1> <p>- Doar sangue engorda ou faz emagrecer?<br>Ao doar sangue você não engorda nem emagrece.<br>- Doar sangue engrossa ou afina o sangue?<br>Não engrossa nem afina o sangue, é apenas um mito.<br>- Doar sangue vicia?<br>Não. A doação de sangue não está relacionada a nenhuma dependência.<br>- É preciso algum documento de identidade?<br>Sim. O candidato deve apresentar documento original com foto, expedido pelo órgão oficial. Exemplos: Carteira de Identidade (RG ou RNE), passaporte, Carteira de Trabalho, Carteira de <>Identidade de Profissional, Carteira Nacional de Habilitação com foto e Certificado de Reservista.<br>- Fiz uma tatuagem há um ano. Posso doar?<br>Sim. Quem fez tatuagem há mais de um ano pode doar sangue.<br>- Há substituto para o sangue?<br>Não. Ainda não há nenhum substituto do sangue.<br>- O que é sangue universal?<br>Hoje sabemos que não existe sangue universal. Todas as pessoas têm características diferentes e por isso, quando necessitam de transfusão de sangue,precisamos fazer exames pré-transfusionais independente do grupo sanguíneo do doador e do receptor.<br>- O que é feito com o sangue que doamos?<br>Após a coleta, a bolsa coletada é fracionada em componentes sangüíneos (concentrado de hemácias, de plaquetas e plasma). Esses componentes são liberados para uso somente após o resultado dos exames. As unidades que apresentam reatividade sorológica são descartadas. Uma única unidade doada pode beneficiar três pacientes.<br>- O que é sangue raro?<br>É um sangue com característica especifica de baixa frequência na população e algumas vezes, pode ser uma característica familiar.<br>- O que se consegue em troca da doação de sangue?<br>A satisfação de beneficiar pessoas que não têm outra opção e dependem do gesto de pessoas como você para se sentir melhor.<br>- Tomei vacina para Hepatite B. Posso doar sangue?<br>A vacinação para Hepatite B impede a doação por 48 horas.<br>- A mulher pode doar sangue durante o período menstrual?<br>Sim.<br>- Doar sangue dói?<br>Não.<br>- O que acontece se uma pessoa que não sabe se está anêmica quiser doar sangue?<br>O candidato à doação é atendido por um profissional do Serviço de Hemoterapia, que realiza um teste rápido para verificar se o doador está ou não anêmico.<br>- O que são situações de risco acrescido para se transmitir doenças através da doação de sangue?<br>Ter múltiplos parceiros sexuais ocasionais ou eventuais sem uso de preservativo, usar drogas ilícitas, ter feito sexo em troca de dinheiro ou droga, ter sido vítima de estupro, ser parceiro sexual de pessoa que tenha exame reagente para infecções de transmissão sexual e sangüínea, ter parceiro sexual que pertença a alguma das situações acima, dentre outras.<br>- O uso de medicamento pode impedir alguém de doar?<br>O uso de medicamento deve ser analisado caso a caso. Portanto, antes de doar consulte o Serviço de Hemoterapia.<br>- Quanto tempo dura a doação?<br>O procedimento todo (cadastro, aferição de sinais vitais, teste de anemia, triagem clínica, coleta do sangue e lanche) leva cerca de 40 minutos.<br>- Quanto tempo leva para o organismo repor o sangue doador?<br>O organismo repõe o volume de sangue doado nas primeiras 24 horas após a doação.<br>- Quem está fazendo regime para emagrecer ou dieta pode doar sangue?<br>Sim. Dietas para emagrecimento não impedem a doação de sangue, desde que a perda não tenha comprometido a saúde.<br>- Quem estiver fazendo tratamento homeopático pode doar sangue?<br>Sim.<br>- Quem estiver fazendo tratamento com algum antibiótico pode doar sangue?<br>Depende do porquê a pessoa está tomando antibióticos. Em linhas gerais, para infecções simples e sem complicações, o doador deve aguardar 15 dias após a última dose do antibiótico para doar sangue. Infecções mais graves como pneumonia, meningite, entre outras, podem necessitar de um tempo maior para liberação do candidato à doação.<br>- Quem estiver fazendo tratamento com algum anti-inflamatório pode doar sangue?<br>Dependendo do motivo, a doação pode ser realizada normalmente. Não se esqueça de informar o nome do anti-inflamatório que você esta tomando.<br>- Quem faz tratamento para acne pode doar sangue?<br>Depende do tipo de tratamento. Caso o tratamento inclua o uso de antibióticos ou outros remédios de uso oral, não será posspivel doar.<br>- Quem tomou analgésico pode doar sangue?<br>Pode, mas é importante que no dia da doação o doador esteja sem dores.<br>- Grávidas podem doar sangue?<br>Não. Mas se o parto for normal, a mulher pode doar depois de três meses. Em caso de cesariana, após seis meses. Se estiver amamentando, aguardar 12 meses após o parto.<br>- É necessário estar em jejum para doar sangue?<br>O doador não deve estar em jejum. Tem que estar alimentado e descansado, evitar alimentação gordurosa nas quatro horas que antecedem a doação.<br>- Quem está gripado pode doar sangue?<br>Recomenda-se aguardar sete dias após a cura para poder doar.<br>- Quem tem diabete pode doar sangue?<br>Se a pessoa que tenha diabetes estiver controlando apenas com alimentação ou hipoglicemiantes orais e não apresente alterações vasculares, poderá doar. Caso ela tenha utilizado insulina<br>uma única vez, não poderá doar.</p>");
+        });
 
-    $("#contato").on("click", function(){
-        $(".header-content").html("");
-        $("#t_mudar").text("Contato :: Seu Sangue, Minha Vida");
-    });
+        $("#ajuda").on("click", function(){
+            $("#title").text("Ajuda :: Seu Sangue, Minha Vida");
+            $("#design_class").removeClass().addClass("ajuda");
+            $("#principal").html("");
+        });
 
+        $("#contato").on("click", function(){
+            $("#title").text("Contato :: Seu Sangue, Minha Vida");
+            $("#design_class").removeClass().addClass("contato");
+            $("#principal").html("");
+        });
     </script>
 </body>
  <!-- http://www.inca.gov.br/conteudo_view.asp?id=2013 -->

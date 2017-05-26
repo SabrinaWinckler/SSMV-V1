@@ -1,14 +1,9 @@
+@charset "UTF-8";
 /*!
  * Start Bootstrap - Creative v3.3.7+1 (http://startbootstrap.com/template-overviews/creative)
  * Copyright 2013-2016 Start Bootstrap
  * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)
  */
-
- ::-webkit-scrollbar {
-    width: 0.5px;
-    background: #F4F4F4;
-}
-
 html,
 body {
   height: 100%;
@@ -113,9 +108,10 @@ aside {
 }
 @media (min-width: 768px) {
   .navbar-default {
+    /*background-color: transparent;
+    border-color: rgba(255, 255, 255, 0.3);*/
     background-color: #A52A2A;
     opacity: 0.8;
-    /*border-color: rgba(255, 255, 255, 0.3);*/
   }
   .navbar-default .navbar-header .navbar-brand {
     color: rgba(0, 0, 0, 0.7);
@@ -154,27 +150,19 @@ aside {
   }
 }
 
- header {
+/*header {
   position: relative;
   width: 100%;
   min-height: auto;
   -webkit-background-size: cover;
   -moz-background-size: cover;
-  background-repeat: no-repeat;
+  background-size: cover;
   -o-background-size: cover;
-  background-position: bottom left;
-  background-image: url('../img/header.svg');
+  background-position: center;
+  background-image: url('../img/header.jpg');
   text-align: center;
   color: white;
-} 
-
-.grad{
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background-image: linear-gradient(to right, #F9B7B0, #F99F96, #F37E72);
-  z-index: -9999;
-}
+}*/
 
 header .header-content {
   position: relative;
@@ -205,7 +193,7 @@ header .header-content .header-content-inner p {
   }
   header .header-content {
     position: absolute;
-    top: 20%;
+    top: 50%;
     -webkit-transform: translateY(-50%);
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
@@ -437,57 +425,155 @@ body {
   padding-left: 30px;
 }
 
-/* nossa personalização */
+/* 
+==========================================================================
+--- NOSSA PERSONALIZAÇÃO
 
-.login {
+OBS:      SÓ MEXER DAQUI PARA BAIXO, PARA ALTERAR COISAS DAQUI PARA CIMA
+          COMENTE A LINHA QUE VOCÊ QUER ALTERAR E ADICIONE A SUA 
+          PERSONALIZAÇÃO AQUI EM BAIXO
+========================================================================== 
+*/
+
+/*-----------------------------------
+    BARRA DE ROLAGEM OCULTA
+-----------------------------------*/
+/*::-webkit-scrollbar {
+  width: 0.5px;
+  background: rgba(255, 255, 255, 1);
+  overflow: visible;
+}*/
+
+/*-----------------------------------
+    PONTEIRO DE INDICAÇÃO
+-----------------------------------*/
+.pointer {
+  cursor: pointer;
+}
+
+/*-----------------------------------
+    ALTERAÇÃO DO HEADER ORIGINAL
+-----------------------------------*/
+header{
+  position: fixed;
+  width: 100%;
+  min-height: 100%;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-repeat: no-repeat;
+  -o-background-size: cover;
+  background-position: bottom left;
+  background-image: -webkit-linear-gradient(left, #F9B7B0, #F99F96, #F37E72);
+  background-image: -moz-linear-gradient(left, #F9B7B0, #F99F96, #F37E72);
+  background-image: -o-linear-gradient(left, #F9B7B0, #F99F96, #F37E72);
+  background-image: linear-gradient(to right, #F9B7B0, #F99F96, #F37E72);
+  text-align: center;
+  color: white;
+}
+
+/* 
+==========================================================================
+--- PÁGINA INICIAL
+========================================================================== 
+*/
+
+/*-----------------------------------
+    INICIO
+-----------------------------------*/
+.inicio {
+  position: fixed;
+  width: 100%;
+  min-height: 100%;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-repeat: no-repeat;
+  -o-background-size: cover;
+  background-position: bottom left;
+  background-image: url('../img/header.svg');
+}
+
+/* LOGIN */
+/*.login {
   border: 1px black solid;
   padding: 10px;
   background-color: white;
   border-radius: 25px;
   color: black;
+}*/
+
+/*-----------------------------------
+    QUEM SOMOS
+-----------------------------------*/
+.quemsomos {
+  position: fixed;
+  width: 100%;
+  min-height: 100%;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-repeat: no-repeat;
+  -o-background-size: cover;
+  background-position: bottom left;
+  background-image: url('../img/header.svg');
 }
 
-.quemsomos{
-  background-image: url("../img/faq.png");
-}
-
-.quemsomos h1{
+.quemsomos h1 {
   font-family: Arial;
 }
 
-.faq{  
-  background-image: url("../img/faq.png");
-  background-repeat: no-repeat;
-}
 
-.faq h1{
-  text-align: center;
-  font-family: 'Times New Roman';
-
-}
-.faq p{
-  text-align: left;
-  font-family: ;
-}
-
-.ajuda{
-    background-image: url("../img/faq.png");
-}
-
-.contato{
-    background-image: url("../img/faq.png");
-}
-
-header .quemsomos {
-  position: relative;
+/*-----------------------------------
+    FAQ
+-----------------------------------*/
+.faq {  
+  position: fixed;
   width: 100%;
-  min-height: auto;
+  min-height: 100%;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   background-repeat: no-repeat;
   -o-background-size: cover;
   background-position: bottom left;
   background-image: url('../img/faq.png');
+}
+
+.faq h1 {
   text-align: center;
-  color: white;
+  font-family: 'Times New Roman';
+
+}
+.faq p {
+  text-align: left;
+  font-family: ;
+}
+
+
+/*-----------------------------------
+    AJUDA
+-----------------------------------*/
+.ajuda {
+  position: fixed;
+  width: 100%;
+  min-height: 100%;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-repeat: no-repeat;
+  -o-background-size: cover;
+  background-position: bottom left;
+  background-image: url('../img/header.svg');
+}
+
+
+/*-----------------------------------
+    CONTATO
+-----------------------------------*/
+.contato {
+  position: fixed;
+  width: 100%;
+  min-height: 100%;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-repeat: no-repeat;
+  -o-background-size: cover;
+  background-position: bottom left;
+  background-image: url('../img/header.svg');
 }
