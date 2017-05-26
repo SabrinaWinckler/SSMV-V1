@@ -24,6 +24,7 @@
 
     <!-- Theme CSS -->
     <link href="<?php echo BASECDN; ?>css/creative.css" rel="stylesheet">
+    <link href="<?php echo BASECDN; ?>css/login.css" rel="stylesheet">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -33,7 +34,7 @@
     <![endif]-->
 </head>
 
-<body>
+<body class="grad">
 
     <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
         <div class="container-fluid">
@@ -67,10 +68,128 @@
         <!-- /.container-fluid -->
     </nav>
 
-    <header class="grad">
+    <header>
         <div id="design_class" class="inicio">
             <div id="principal" class="header-content">
-                OI EU SOU A PÁG INICIAL E SOU RESPONSIVO :)
+                <form id="login">
+                <div class="col-md-2"></div>
+                <div class="col-md-10">
+                    <div class="main">
+                        <div class="main-section">
+                            <div class="login-section">
+                                <h2>Login</h2>
+                                <div class="login-top">
+                                    <ul>
+                                        <li><a class="face" href="#"><span class="face"> </span>Logar com Facebook</a></li>
+                                    </ul>
+                                </div>
+                                <div class="login-middle">
+                                    <p>Entre informando seu email e sua senha</p>
+                                    <form>
+                                        <input type="text" id="email" placeholder="Digite seu email">
+                                        <input type="password" id="senha" placeholder="Digite sua senha">
+                                    </form>
+                                </div>
+                                <div class="login-bottom">
+                                    <div class="login-left">
+                                        <p>Esqueceu sua senha?</p>
+                                        <a href="#">Cadastre-se agora!</a>
+                                    </div>
+                                    <div class="login-right">
+                                        <form>
+                                        <input type="button" value="Entrar">
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </header>
+
+    <header>
+        <div id="design_class" class="inicio">
+            <div id="principal" class="header-content">
+                <form id="login">
+                <div class="col-md-2"></div>
+                <div class="col-md-10">
+                    <div class="main">
+                        <div class="main-section">
+                            <div class="login-section">
+                                <h2>Login</h2>
+                                <div class="login-top">
+                                    <ul>
+                                        <li><a class="face" href="#"><span class="face"> </span>Logar com Facebook</a></li>
+                                    </ul>
+                                </div>
+                                <div class="login-middle">
+                                    <p>Entre informando seu email e sua senha</p>
+                                    <form>
+                                        <input type="text" id="email" placeholder="Digite seu email">
+                                        <input type="password" id="senha" placeholder="Digite sua senha">
+                                    </form>
+                                </div>
+                                <div class="login-bottom">
+                                    <div class="login-left">
+                                        <p>Esqueceu sua senha?</p>
+                                        <a href="#">Cadastre-se agora!</a>
+                                    </div>
+                                    <div class="login-right">
+                                        <form>
+                                        <input type="button" value="Entrar">
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </header>
+
+    <header>
+        <div id="design_class" class="inicio">
+            <div id="principal" class="header-content">
+                <form id="login">
+                <div class="col-md-2"></div>
+                <div class="col-md-10">
+                    <div class="main">
+                        <div class="main-section">
+                            <div class="login-section">
+                                <h2>Login</h2>
+                                <div class="login-top">
+                                    <ul>
+                                        <li><a class="face" href="#"><span class="face"> </span>Logar com Facebook</a></li>
+                                    </ul>
+                                </div>
+                                <div class="login-middle">
+                                    <p>Entre informando seu email e sua senha</p>
+                                    <form>
+                                        <input type="text" id="email" placeholder="Digite seu email">
+                                        <input type="password" id="senha" placeholder="Digite sua senha">
+                                    </form>
+                                </div>
+                                <div class="login-bottom">
+                                    <div class="login-left">
+                                        <p>Esqueceu sua senha?</p>
+                                        <a href="#">Cadastre-se agora!</a>
+                                    </div>
+                                    <div class="login-right">
+                                        <form>
+                                        <input type="button" value="Entrar">
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                </form>
             </div>
         </div>
     </header>
