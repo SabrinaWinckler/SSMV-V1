@@ -82,7 +82,7 @@ img{max-width:100%;}
 	background:#26A6D5;
 }
 .login-top ul li a span.face {
-  background: url(../img/face.png) no-repeat 0px 0px;
+  background: url(../img/png/face.png) no-repeat 0px 0px;
   width:32px;
   height:32px;
   display:inline-block;

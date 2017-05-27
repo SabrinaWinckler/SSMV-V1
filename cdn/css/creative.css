@@ -488,7 +488,7 @@ header{
   background-repeat: no-repeat;
   -o-background-size: cover;
   background-position: bottom left;
-  background-image: url('../img/header.svg');
+  background-image: url('../img/svg/header.svg');
 }
 
 @media (min-width: 768px) {
@@ -519,7 +519,7 @@ header{
   background-repeat: no-repeat;
   -o-background-size: cover;
   background-position: bottom left;
-  background-image: url('../img/header.svg');
+  background-image: url('../img/svg/header.svg');
 }
 
 .quemsomos h1 {
@@ -539,7 +539,7 @@ header{
   background-repeat: no-repeat;
   -o-background-size: cover;
   background-position: bottom left;
-  background-image: url('../img/faq.png');
+  background-image: url('../img/png/faq.png');
 }
 
 .faq h1 {
@@ -549,7 +549,7 @@ header{
 }
 .faq p {
   text-align: left;
-  font-family: ;
+  font-family: 'Tw Cent MT';
 }
 
 
@@ -565,7 +565,7 @@ header{
   background-repeat: no-repeat;
   -o-background-size: cover;
   background-position: bottom left;
-  background-image: url('../img/header.svg');
+  background-image: url('../img/svg/header.svg');
 }
 
 
@@ -581,7 +581,7 @@ header{
   background-repeat: no-repeat;
   -o-background-size: cover;
   background-position: bottom left;
-  background-image: url('../img/header.svg');
+  background-image: url('../img/svg/header.svg');
 }
 
 .contato h1{
@@ -677,7 +677,7 @@ input[type=text], select, textarea {
     margin-left: 300px;
     margin-right: 300px;
 }
-h3 {
+.contato-titulo {
  font-family: 'Pacifico', cursive, Timer New Roman;
  font-size: 36px;
  text-align: left;
@@ -695,9 +695,22 @@ input[type=submit] {
     font-family: open sans, Timer New Roman;
     
 }
-h2{
+.contato-sub{
  font-family:'merriweather',open sans,Timer New Roman;
  font-size: 20px;
  text-align: left;
  text-shadow: 1px 1px #696969;
+}
+
+/*-----------------------------------
+    LOGOMARCA
+-----------------------------------*/
+
+.logo {
+  width: 150px;
+  background: url('../img/svg/logo-ex.svg');
+  background-size: 72%;
+  float: left;
+  background-repeat: no-repeat;
+  background-position: center;
 }
