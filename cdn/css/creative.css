@@ -293,7 +293,7 @@ header .header-content .header-content-inner p {
   padding-right: 0;
   padding-left: 0;
 }
-.btn-default {
+/*.btn-default {
   color: #222222;
   background-color: white;
   border-color: white;
@@ -398,7 +398,7 @@ fieldset[disabled] .btn-primary.active {
 }
 .btn-xl {
   padding: 15px 30px;
-}
+}*/
 ::-moz-selection {
   color: white;
   text-shadow: none;
@@ -529,8 +529,23 @@ header{
 /*-----------------------------------
     FAQ
 -----------------------------------*/
-.faq {  
-  position: fixed;
+
+.faq {
+  width: 100%;
+  min-height: 100%;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-repeat: no-repeat;
+  -o-background-size: cover;
+  background-position: bottom left;
+  background-image: url('../img/svg/header.svg');
+}
+
+.faq .header-content {
+  top: 54%;
+}
+
+/*.faq {  
   width: 100%;
   min-height: 100%;
   -webkit-background-size: cover;
@@ -549,7 +564,7 @@ header{
 .faq p {
   text-align: left;
   font-family: 'Tw Cent MT';
-}
+}*/
 
 
 /*-----------------------------------
@@ -730,9 +745,17 @@ input:checked + .slider:before {
   background-position: center;
 }
 
+/*-----------------------------------
+    ALTO CONTRASTE
+-----------------------------------*/
+
 .alto-contraste  {
   background: black !important;
   background-image: none !important;
   color: white !important;
-  border: 1px solid #FFFFFF !important;
+  border-color: #FFFFFF !important;
+}
+
+div .alto-contraste .main {
+    border: 1px solid transparent;
 }

@@ -54,7 +54,7 @@ img{max-width:100%;}
     opacity: 0.8;
     font-size: 1.5em;
     color: #fff;
-	font-family: 'Josefin Sans', sans-serif;
+	font-family: sans-serif, 'Open Sans';
 }
 .login-top p {
     font-size: .85em;
@@ -276,4 +276,8 @@ img{max-width:100%;}
 .footer p {
     font-size: .85em;
 }
+}
+
+.btn-tiny{
+    font-size: 9px !important;
 }
