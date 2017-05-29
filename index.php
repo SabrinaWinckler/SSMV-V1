@@ -3,7 +3,15 @@
     <header>
         <div id="design_class" class="inicio">
             <div id="principal" class="header-content">
-                <div class="col-md-9"></div>
+                <div class="col-md-9">
+                    <div class="header-content-inner">
+                        <h1 id="homeHeading">Seu sangue, minha vida</h1>
+                        <hr>
+                        <p>Faça a diferença hoje!</p>
+                        <a href="#quemsomos" id="quemsomos" class="btn btn-primary btn-xl page-scroll">Saiba mais</a>
+                    </div>
+                </div>
+                
                 <div class="col-md-3">
                     <div class="main">
                         <form id="login">
