@@ -58,7 +58,7 @@
                         <a class="page-scroll pointer" id="faq" href="#faq">FAQ</a>
                     </li>
                     <li>
-                        <a class="page-scroll pointer" data-toggle="modal" data-target="#ajuda" href="#ajuda">Ajuda</a>
+                        <a class="page-scroll pointer" id="ajuda" href="#ajuda">Ajuda</a>
                     </li>
                     <li>
                         <a class="page-scroll pointer" id="contato" href="#contato">Contato</a>

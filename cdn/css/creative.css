@@ -578,7 +578,6 @@ header{
     AJUDA
 -----------------------------------*/
 .ajuda {
-  position: fixed;
   width: 100%;
   min-height: 100%;
   -webkit-background-size: cover;
@@ -589,6 +588,14 @@ header{
   background-image: url('../img/svg/header.svg');
 }
 
+@media (min-width: 768px) {
+  .ajuda .header-content {
+  top: 50%;
+}
+ .ajuda {
+      position: fixed;
+  }
+}
 
 /*-----------------------------------
     CONTATO
@@ -745,8 +752,9 @@ input:checked + .slider:before {
 
 .logo {
   width: 150px;
-  background: url('../img/svg/logo-ex.svg');
-  background-size: 72%;
+  background: url('../img/svg/logo.svg');
+  background-size: 100%;
+  margin-left: 0px !important;
   float: left;
   background-repeat: no-repeat;
   background-position: center;
@@ -760,9 +768,29 @@ input:checked + .slider:before {
   background: black !important;
   background-image: none !important;
   color: white !important;
-  border-color: #FFFFFF !important;
+  border-color: white !important;
 }
 
 div .alto-contraste .main {
     border: 1px solid transparent;
+}
+
+.alto-contraste .logo {
+  background: url('../img/svg/logo-ac.svg') !important;
+  background-size: 100% !important;
+  margin-left: 0px !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+}
+
+.alto-contraste .login-right input[type="button"] {
+  border: 1px solid white;
+}
+
+.alto-contraste .login-section h2 {
+  border-bottom: 1px solid white;
+}
+
+.alto-contraste .info-box {
+  border: 1px solid white;
 }
