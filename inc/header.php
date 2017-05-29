@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
 
@@ -14,12 +14,7 @@
     <link href="<?php echo BASECDN; ?>bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
-    <link href='<?php echo BASECDN; ?>fonts/fonts.css' rel='stylesheet' type='text/css'>
-    <!--<link href="<?php echo BASECDN; ?>fonts/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href='<?php echo BASECDN; ?>fonts/open-sans/css/open-sans.css' rel='stylesheet' type='text/css'>
-    <link href='<?php echo BASECDN; ?>fonts/merriweather/css/merriweather.css' rel='stylesheet' type='text/css'>
-    <link href='<?php echo BASECDN; ?>fonts/pacifico/css/pacifico.css' rel='stylesheet' type='text/css'>-->
-    
+    <link href='<?php echo BASECDN; ?>fonts/fonts.css' rel='stylesheet' type='text/css'>        
 
     <!-- Plugin CSS -->
     <link href="<?php echo BASECDN; ?>magnific-popup/magnific-popup.css" rel="stylesheet">
