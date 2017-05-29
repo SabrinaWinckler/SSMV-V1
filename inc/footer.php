@@ -12,7 +12,7 @@
 
     <!-- Plugins personalizados -->
     <script src="<?php echo BASECDN; ?>js/acessibilidade.js"></script>
-    <script src="<?php echo BASECDN; ?>js/text_expand.js"></script>
+    <script src="<?php echo BASECDN; ?>js/creative.js"></script>
 
     <script>
     jQuery.fbInit = function() {
@@ -90,6 +90,9 @@
                 if($.cookie("acessibilidade") == "TRUE"){
                     acessibilidade("SIM");
                 }
+                $(".navbar-toggle").attr("aria-expanded", "false");
+                $(".navbar-toggle").addClass("collapsed");
+
                 $("#principal").fadeIn("slow");
             });
         });

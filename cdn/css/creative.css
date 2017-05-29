@@ -783,14 +783,18 @@ div .alto-contraste .main {
   background-position: center !important;
 }
 
-.alto-contraste .login-right input[type="button"] {
-  border: 1px solid white;
-}
-
 .alto-contraste .login-section h2 {
   border-bottom: 1px solid white;
 }
 
-.alto-contraste .info-box {
+.alto-contraste .info-box,
+.alto-contraste button,
+.alto-contraste .login-right input[type="button"],
+.alto-contraste button,
+.alto-contraste input[type=button] {
   border: 1px solid white;
+}
+
+.alto-contraste .fade.in {
+  opacity: 0.8;
 }
