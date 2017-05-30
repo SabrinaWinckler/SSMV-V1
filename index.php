@@ -7,7 +7,7 @@
                     <div class="header-content-inner">
                         <h1 id="homeHeading">Seu sangue, minha vida</h1>
                         <hr>
-                        <p>Faça a diferença hoje!</p>
+                        <p>Unindo tecnologia e solidariedade para melhorar vidas!</p>
                         <a href="#quemsomos" id="quemsomos" class="btn btn-primary btn-xl page-scroll">Saiba mais</a>
                     </div>
                 </div>

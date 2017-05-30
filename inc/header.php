@@ -61,7 +61,7 @@
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a class="page-scroll pointer" onclick="acessibilidade()"><i class="fa fa-universal-access fa-lg" aria-hidden="true"></i>&nbsp;&nbsp;Acessibilidade</a>
+                        <a class="page-scroll pointer" onclick="acessibilidade()"><i class="fa fa-eye-slash fa-lg" aria-hidden="true"></i>&nbsp;&nbsp;Acessibilidade</a>
                     </li>
                     <!--<li>
                         <label class="switch">

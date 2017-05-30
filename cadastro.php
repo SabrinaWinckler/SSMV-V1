@@ -14,30 +14,30 @@
                     <li role="presentation" class="active">
                         <a href="#step1" data-toggle="tab" aria-controls="step1" role="tab" title="Selecione">
                             <span class="round-tab">
-                                <i class="glyphicon glyphicon-record i-middle"></i>
+                                <i class="fa fa-id-card icone-centralizado"></i>
                             </span>
                         </a>
                     </li>
 
                     <li role="presentation" class="disabled">
-                        <a href="#step2" data-toggle="tab" aria-controls="step2" role="tab" title="Step 2">
+                        <a href="#step2" data-toggle="tab" aria-controls="step2" role="tab" title="Informações gerais">
                             <span class="round-tab">
-                                <i class="glyphicon glyphicon-user i-middle"></i>
+                                <i class="glyphicon glyphicon-user icone-centralizado"></i>
                             </span>
                         </a>
                     </li>
                     <li role="presentation" class="disabled">
-                        <a href="#step3" data-toggle="tab" aria-controls="step3" role="tab" title="Step 3">
+                        <a href="#step3" data-toggle="tab" aria-controls="step3" role="tab" title="Questionário">
                             <span class="round-tab">
-                                <i class="glyphicon glyphicon-check i-middle"></i>
+                                <i class="fa fa-check-square-o icone-centralizado"></i>
                             </span>
                         </a>
                     </li>
 
                     <li role="presentation" class="disabled">
-                        <a href="#complete" data-toggle="tab" aria-controls="complete" role="tab" title="Complete">
+                        <a href="#complete" data-toggle="tab" aria-controls="complete" role="tab" title="Confira seus dados">
                             <span class="round-tab">
-                                <i class="glyphicon glyphicon-ok-circle i-middle"></i>
+                                <i class="fa fa-check-circle icone-centralizado"></i>
                             </span>
                         </a>
                     </li>
@@ -45,17 +45,29 @@
             </div>
 
             <form role="form">
+                <input type="hidden" value="" id="pessoa_selecionada">
                 <div class="tab-content">
                     <div class="tab-pane active" role="tabpanel" id="step1">
-                        <h3>Você é Pessoa Fisica ou Pessoa Juridica?</h3>
+                        <h3>Selecione</h3>
                         <div class="col-md-6">
-                            <div class="info-box pointer">
-                                <h4>Pessoa Fisica</h4>
+                            <div class="sel-cad-left">
+                                <div class="selecionar-cadastro">
+                                    <div class="selecionar-cadastro-img pointer" data-choose="pf">
+                                        <i class="fa fa-user-circle fa-5x icone-centralizado" aria-hidden="true"></i>
+                                    </div>
+                                    <p class="selecionar-cadastro-p">Pessoa fisica</p>
+                                </div>
                             </div>
                         </div>
+
                         <div class="col-md-6">
-                            <div class="info-box pointer">
-                                <h4>Pessoa Juridica</h4>
+                            <div class="sel-cad-right">
+                                <div class="selecionar-cadastro">
+                                    <div class="selecionar-cadastro-img pointer" data-choose="pj">
+                                        <i class="fa fa-university fa-5x icone-centralizado" aria-hidden="true"></i>
+                                    </div>
+                                    <p class="selecionar-cadastro-p">Pessoa juridica</p>
+                                </div>
                             </div>
                         </div>
                         <ul class="list-inline pull-right">
