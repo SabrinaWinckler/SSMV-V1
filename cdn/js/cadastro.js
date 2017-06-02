@@ -98,6 +98,12 @@ $(".selecionar-cadastro-img").on("click", function(){
         $("#bpainel4").css("display", "flex");
         $("#bpainel5").css("display", "none");
         $("#bpainel6").css("display", "none");
+
+        $("#apainel1").removeClass("active");
+        $("#painel1").removeClass("active");
+
+        $("#apainel2").addClass("active");
+        $("#painel2").addClass("active");
     }
     if(escolha == "pj"){
         $("[data-choose=pf]").removeClass("ativo");
@@ -108,5 +114,11 @@ $(".selecionar-cadastro-img").on("click", function(){
         $("#bpainel4").css("display", "none");
         $("#bpainel5").css("display", "flex");
         $("#bpainel6").css("display", "flex");
+
+        $("#apainel1").removeClass("active");
+        $("#painel1").removeClass("active");
+
+        $("#apainel5").addClass("active");
+        $("#painel5").addClass("active");
     }
 });

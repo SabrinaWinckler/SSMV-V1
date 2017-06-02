@@ -66,18 +66,18 @@
                     <div class="span10 offset1">
                         <div class="tabbable custom-tabs tabs-animated  flat flat-all hide-label-980 shadow track-url auto-scroll">
                             <ul class="nav nav-tabs">
-                                <li class="active"><a href="#painel1" "painel1" data-toggle="tab"><i class="fa fa-id-card"></i>&nbsp;<span>Selecione</span></a></li>
-                                <li class=""><a href="#painel2" id="bpainel2" data-toggle="tab"><i class="fa fa-user"></i>&nbsp;<span>Dados pessoais</span></a></li>
-                                <li class=""><a href="#painel3" id="bpainel3" data-toggle="tab"><i class="fa fa-check-square-o"></i>&nbsp;<span>Questionário</span></a></li>
-                                <li class=""><a href="#painel4" id="bpainel4" data-toggle="tab"><i class="fa fa-check-circle"></i>&nbsp;<span>Confira seus dados</span></a></li>
-                                <li class=""><a href="#painel5" id="bpainel5" data-toggle="tab"><i class="fa fa-check-circle"></i>&nbsp;<span>Informações gerais</span></a></li>
-                                <li class=""><a href="#painel6" id="bpainel6" data-toggle="tab"><i class="fa fa-check-circle"></i>&nbsp;<span>Confira seus dados</span></a></li>
+                                <li class="active" id="apainel1"><a href="#painel1" "painel1" data-toggle="tab"><i class="fa fa-id-card"></i>&nbsp;<span>Selecione</span></a></li>
+                                <li class="" id="apainel2"><a href="#painel2" id="bpainel2" data-toggle="tab"><i class="fa fa-user"></i>&nbsp;<span>Dados pessoais</span></a></li>
+                                <li class="" id="apainel3"><a href="#painel3" id="bpainel3" data-toggle="tab"><i class="fa fa-check-square-o"></i>&nbsp;<span>Questionário</span></a></li>
+                                <li class="" id="apainel4"><a href="#painel4" id="bpainel4" data-toggle="tab"><i class="fa fa-check-circle"></i>&nbsp;<span>Confira seus dados</span></a></li>
+                                <li class="" id="apainel5"><a href="#painel5" id="bpainel5" data-toggle="tab"><i class="fa fa-university"></i>&nbsp;<span>Informações gerais</span></a></li>
+                                <li class="" id="apainel6"><a href="#painel6" id="bpainel6" data-toggle="tab"><i class="fa fa-check-circle"></i>&nbsp;<span>Confira seus dados</span></a></li>
                             </ul>
                             <form id="formcadastro">
                             <div class="tab-content">
                                 <div class="tab-pane active" id="painel1">
                                     <div class="row-fluid">
-                                        <h4><i class="fa fa-user"></i>&nbsp;&nbsp; Selecione</h4>
+                                        <h4><i class="fa fa-id-card"></i>&nbsp;&nbsp; Selecione</h4>
                                         <div class="col-md-6">
                                             <div class="sel-cad-left">
                                                 <div class="selecionar-cadastro">
