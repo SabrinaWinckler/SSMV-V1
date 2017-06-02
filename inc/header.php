@@ -14,7 +14,7 @@
     <link href="<?php echo BASECDN; ?>bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
-    <link href='<?php echo BASECDN; ?>fonts/fonts.css' rel='stylesheet' type='text/css'>        
+    <link href='<?php echo BASECDN; ?>fonts/fonts.css' rel='stylesheet' type='text/css'>
 
     <!-- Plugin CSS -->
     <link href="<?php echo BASECDN; ?>magnific-popup/magnific-popup.css" rel="stylesheet">

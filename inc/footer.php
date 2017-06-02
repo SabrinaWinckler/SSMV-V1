@@ -117,23 +117,6 @@
             $("#titulo_modalAjuda").text($("[push=" + a + "]").text());
              $("#body_modalAjuda").text($("[push=" + a + "]").attr("ptext"));
         }
-
-        // CADASTRO
-
-        $(".selecionar-cadastro-img").on("click", function(){
-            var escolha = $(this).attr("data-choose");
-
-            if(escolha == "pf"){
-                $("[data-choose=pj]").removeClass("ativo");
-                $("[data-choose=pf]").addClass("ativo");
-                $("#pessoa_selecionada").val("pf");
-            }
-            if(escolha == "pj"){
-                $("[data-choose=pf]").removeClass("ativo");
-                $("[data-choose=pj]").addClass("ativo");
-                $("#pessoa_selecionada").val("pj");
-            }
-        });
     </script>
 
 
