@@ -432,3 +432,13 @@ table.dataTable thead .sorting:after {
     border-left-width: 0;
   }
 }
+
+.logo {
+  width: 150px;
+  background: url('../img/svg/logo.svg');
+  background-size: 100%;
+  margin-left: 0px !important;
+  float: left;
+  background-repeat: no-repeat;
+  background-position: center;
+}
