@@ -24,7 +24,7 @@
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                         <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
                     </button>
-                    <a class="navbar-brand page-scroll pointer logo" id="comeco" href="#"></a>
+                    <a class="navbar-brand page-scroll pointer logo" id="comeco" href="<?php echo BASEURL; ?>"></a>
                 </div>
 
                 <!-- Coletar os links de navegação, formulários e outros conteúdos para alternar -->
@@ -59,6 +59,7 @@
             </div>
             <!-- /.container-fluid -->
         </nav>
+
         <form id="formcadastro">
             <input type="hidden" value="" id="pessoa_selecionada">
             <div class="container cadastro">
@@ -66,7 +67,7 @@
                     <div class="span10 offset1">
                         <div class="tabbable custom-tabs tabs-animated  flat flat-all hide-label-980 shadow track-url auto-scroll">
                             <ul class="nav nav-tabs">
-                                <li class="active" id="apainel1"><a href="#painel1" "painel1" data-toggle="tab"><i class="fa fa-id-card"></i>&nbsp;<span>Selecione</span></a></li>
+                                <li class="active" id="apainel1"><a href="#painel1" id="bpainel1" data-toggle="tab"><i class="fa fa-id-card"></i>&nbsp;<span>Selecione</span></a></li>
                                 <li class="" id="apainel2"><a href="#painel2" id="bpainel2" data-toggle="tab"><i class="fa fa-user"></i>&nbsp;<span>Dados pessoais</span></a></li>
                                 <li class="" id="apainel3"><a href="#painel3" id="bpainel3" data-toggle="tab"><i class="fa fa-check-square-o"></i>&nbsp;<span>Questionário</span></a></li>
                                 <li class="" id="apainel4"><a href="#painel4" id="bpainel4" data-toggle="tab"><i class="fa fa-check-circle"></i>&nbsp;<span>Confira seus dados</span></a></li>
@@ -104,50 +105,141 @@
 
                                 <div class="tab-pane" id="painel2">
                                     <div class="row-fluid">
-                                        <div class="span5">
-                                            <h4><i class="icon-user"></i>&nbsp;&nbsp; Register Here</h4>
-
-
-                                            <label>Username</label>
-                                            <input type="text" class="input-block-level">
-                                            <label>Password </label>
-                                            <input type="password" class="input-block-level">
-                                            <label>Repeat Password</label>
-                                            <input type="password" class="input-block-level">
-                                            <label>
-                                                <button type="button" data-toggle="button" class="btn btn-mini custom-checkbox active"><i class="icon-ok"></i></button>
-                                                &nbsp;&nbsp;&nbsp;I Aggree With <a href="#">Terms &amp; Conditions</a>
-                                            </label>
-                                            <br>
-
-                                            <a href="#" class=" btn  ">Register Now&nbsp;&nbsp;&nbsp;<i class="icon-chevron-sign-right"></i></a>
-
-                                        </div>
-                                        <div class="span3">
-                                            <h4><i class="icon-expand-alt"></i>&nbsp;&nbsp;Social</h4>
-                                            <!--<div class="socials clearfix">
-                                                <a class="icon-facebook facebook"></a>
-                                                <a class="icon-twitter twitter"></a>
-                                                <a class="icon-google-plus google-plus"></a>
-                                                <a class="icon-pinterest pinterest"></a>
-                                                <a class="icon-linkedin linked-in"></a>
-                                                <a class="icon-github github"></a>
-                                            </div>-->
-                                        </div>
-                                        <div class="span4">
-                                            <h4><i class="icon-question"></i>&nbsp;&nbsp;Login</h4>
-                                            <div class="box">
-                                                <p>
-                                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit fusce vel.
-                                                </p>
-                                                <p>
-                                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit fusce vel sapien elit in.
-                                                </p>
+                                        <div class="span12">
+                                            <div class="row">
+                                                <div class="col-md-9">
+                                                    <h4><i class="fa fa-user"></i>&nbsp;&nbsp; Dados Pessoais</h4>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="socials">
+                                                        <a class="facebook">Vincular <span class="fa fa-facebook"></span>acebook</a>
+                                                    </div>
+                                                </div>
                                             </div>
-                                            <div class="box">
-                                                Already Have An Account.<br>
-                                                Click Here For <a href="#" data-toggle="tab">Login</a>
+
+                                            <div class="row">
+                                                <div class="col-md-2">
+                                                    <div class="form-group">
+                                                        <label>Nome</label>
+                                                        <input type="text" id="pf_nome" name="pf_nome" class="form-control">
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-5">
+                                                    <div class="form-group">
+                                                        <label>Sobrenome</label>
+                                                        <input type="text" id="pf_sobrenome" name="pf_sobrenome" class="form-control">
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-2">
+                                                    <div class="form-group">
+                                                        <label>CPF</label>
+                                                        <input type="text" id="pf_CPF" name="pf_CPF" class="form-control">
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-3">
+                                                    <div class="form-group">
+                                                        <label>Data de nascimento</label>
+                                                        <input type="date" id="pf_nascimento" name="pf_nascimento" class="form-control">
+                                                    </div>
+                                                </div>
                                             </div>
+
+                                            <div class="row">
+                                                <div class="col-md-6 centro">
+                                                    <label>Gênero</label>
+                                                    <div class="form-group">
+                                                        <input type="radio" id="pf_genero_feminino" name="pf_genero" value="F">
+                                                        <label for="pf_genero_feminino">Feminino</label>
+                                                        <input type="radio" id="pf_genero_masculino" name="pf_genero" value="M">
+                                                        <label for="pf_genero_masculino">Masculino</label>
+                                                        <input type="radio" id="pf_genero_outro" name="pf_genero" value="O">
+                                                        <label for="pf_genero_outro">Não especificado</label>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-3">
+                                                    <div class="form-group">
+                                                        <label>Estado</label>
+                                                        <select id="pf_estado" name="pf_estado" class="form-control">
+                                                            <option value="RS">Rio Grande do Sul</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+
+                                                 <div class="col-md-3">
+                                                    <div class="form-group">
+                                                        <label>Cidade</label>
+                                                        <select id="pf_cidade" name="pf_cidade" class="form-control">
+                                                            <option value="alegrete">Alegrete</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                                
+                                            <div class="row">
+                                                
+
+                                                <div class="col-md-2">
+                                                    <div class="form-group">
+                                                        <label>Telefone fixo</label>
+                                                        <input type="text" id="pf_telefone_fixo" name="pf_telefone_fixo" class="form-control">
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-2">
+                                                    <div class="form-group">
+                                                        <label>Telefone celular</label>
+                                                        <input type="text" id="pf_telefone_celular" name="pf_telefone_celular" class="form-control">
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-2">
+                                                    <div class="form-group">
+                                                        <label>Tipo sanguíneo</label>
+                                                        <select id="pf_tipo_sangue" name="tipo_sangue" class="form-control">
+                                                            <option value="n">Não sei</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-1">
+                                                    <div class="form-group">
+                                                        <label>Peso</label>
+                                                        <input type="text" id="pf_peso" name="pf_peso" class="form-control">
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-5">
+                                                    <div class="form-group">
+                                                        <label>Email</label>
+                                                        <input type="text" id="pf_email" name="pf_email" class="form-control">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-md-3"></div>
+                                                <div class="col-md-3">
+                                                    <div class="form-group">
+                                                        <label>Digite sua senha</label>
+                                                        <input type="password" id="pf_senha" name="pf_senha" class="form-control">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="form-group">
+                                                        <label>Repita sua senha</label>
+                                                        <input type="password" id="pf_repita_senha" name="pf_repita_senha" class="form-control">
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-3"></div>
+                                            </div>
+                                            <input type="button" id="eapainel2" value="Anterior">
+                                            <input type="button" id="eppainel2" value="Proximo">
                                         </div>
                                     </div>
                                 </div>
@@ -155,7 +247,7 @@
                                 <div class="tab-pane" id="painel3">
                                     <div class="row-fluid">
                                         <div class="span5">
-                                            <h4><i class="icon-unlock"></i>&nbsp;&nbsp;Password Recovery</h4>
+                                            <h4><i class="fa fa-check-square-o"></i>&nbsp;&nbsp;Questionário</h4>
 
                                             <label>Email</label>
                                             <input type="text" class="input-block-level">

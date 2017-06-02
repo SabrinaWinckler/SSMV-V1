@@ -33,7 +33,7 @@
                                     <div class="login-left">
                                         <a class="btn-tiny pointer">Esqueceu sua senha?</a>
                                         <br />
-                                        <a href="#">Cadastre-se agora!</a>
+                                        <a href="<?php echo BASEURL."cadastro"; ?>">Cadastre-se agora!</a>
                                     </div>
 
                                     <div class="login-right">

@@ -108,18 +108,6 @@
 }
 
 @media(min-width:1200px) {
-    .row {
-        margin-left: -30px;
-        *zoom: 1
-    }
-    .row:before, .row:after {
-        display: table;
-        line-height: 0;
-        content: ""
-    }
-    .row:after {
-        clear: both
-    }
     [class*="span"] {
         float: left;
         min-height: 1px;
@@ -369,16 +357,16 @@
         *margin-left: 16.98763411529369%
     }
     .row-fluid .offset1 {
-        margin-left: 11.11111111111111%;
+        margin-left: 11.11111111111
         *margin-left: 11.004728132387708%
     }
     .row-fluid .offset1:first-child {
         margin-left: 8.547008547008547%;
         *margin-left: 8.440625568285142%
     }
-    input, textarea, .uneditable-input {
+    /*input, textarea, .uneditable-input {
         margin-left: 0
-    }
+    }*/
     .controls-row [class*="span"]+[class*="span"] {
         margin-left: 30px
     }
@@ -430,18 +418,6 @@
 }
 
 @media(min-width:768px) and (max-width:979px) {
-    .row {
-        margin-left: -20px;
-        *zoom: 1
-    }
-    .row:before, .row:after {
-        display: table;
-        line-height: 0;
-        content: ""
-    }
-    .row:after {
-        clear: both
-    }
     [class*="span"] {
         float: left;
         min-height: 1px;
@@ -758,9 +734,6 @@
     }
     .row-fluid {
         width: 100%
-    }
-    .row, .thumbnails {
-        margin-left: 0
     }
     .thumbnails>li {
         float: none;
@@ -1327,20 +1300,22 @@
   display: block;
   border: none;
   margin: 0;
-  padding: 30px 0;
+  padding: 11px 0;
   -ms-box-sizing: border-box;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
-  width: 49.99%;
+  /*width: 49.99%;*/
+  width: 100%;
   text-align: center;
   vertical-align: middle;
-  font-size: 1.5em;
+  /*font-size: 1.5em;*/
   -moz-transition-duration: .5s;
   -o-transition-duration: .5s;
   -webkit-transition-duration: .5s;
   transition-duration: .5s;
-  float: left
+  float: left;
+  font-family: 'Merriweather';
 }
 
 @media screen and (max-width:980px) {
@@ -1598,9 +1573,9 @@
   border-radius: 0
 }
 
-.tabbable.custom-tabs.flat-all>.tab-content>.tab-pane input, .tabbable.custom-tabs.flat-all>.tab-content>.tab-pane select, .tabbable.custom-tabs.flat-all>.tab-content>.tab-pane textarea, .tabbable.custom-tabs.flat-all>.tab-content>.tab-pane .add-on, .tabbable.custom-tabs.flat-all>.tab-content>.tab-pane label, .tabbable.custom-tabs.flat-all>.tab-content>.tab-pane .btn, .tabbable.custom-tabs.flat-all>.tab-content>.tab-pane .btn-mini, .tabbable.custom-tabs.flat-all>.tab-content>.tab-pane .btn-small, .tabbable.custom-tabs.flat-all>.tab-content>.tab-pane .btn-large {
+/*.tabbable.custom-tabs.flat-all>.tab-content>.tab-pane input, .tabbable.custom-tabs.flat-all>.tab-content>.tab-pane select, .tabbable.custom-tabs.flat-all>.tab-content>.tab-pane textarea, .tabbable.custom-tabs.flat-all>.tab-content>.tab-pane .add-on, .tabbable.custom-tabs.flat-all>.tab-content>.tab-pane label, .tabbable.custom-tabs.flat-all>.tab-content>.tab-pane .btn, .tabbable.custom-tabs.flat-all>.tab-content>.tab-pane .btn-mini, .tabbable.custom-tabs.flat-all>.tab-content>.tab-pane .btn-small, .tabbable.custom-tabs.flat-all>.tab-content>.tab-pane .btn-large {
   border-radius: 0
-}
+}*/
 
 .tabbable.custom-tabs.mini>.nav-tabs>li>a {
   padding: 8px 10px
@@ -2140,3 +2115,12 @@ body{
     background-image: -o-linear-gradient(left, #F9B7B0, #F99F96, #F37E72);
     background-image: linear-gradient(to right, #F9B7B0, #F99F96, #F37E72);
 }
+
+   input[value=Anterior]{
+    float: left;
+   }
+
+   input[value=Proximo]{
+    float: right;
+   }
+   

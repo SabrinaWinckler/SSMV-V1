@@ -93,9 +93,9 @@ $(".selecionar-cadastro-img").on("click", function(){
         $("[data-choose=pj]").removeClass("ativo");
         $("[data-choose=pf]").addClass("ativo");
         $("#pessoa_selecionada").val("pf");
-        $("#bpainel2").css("display", "flex");
-        $("#bpainel3").css("display", "flex");
-        $("#bpainel4").css("display", "flex");
+        $("#bpainel2").css("display", "block");
+        $("#bpainel3").css("display", "block");
+        $("#bpainel4").css("display", "block");
         $("#bpainel5").css("display", "none");
         $("#bpainel6").css("display", "none");
 
@@ -112,8 +112,8 @@ $(".selecionar-cadastro-img").on("click", function(){
         $("#bpainel2").css("display", "none");
         $("#bpainel3").css("display", "none");
         $("#bpainel4").css("display", "none");
-        $("#bpainel5").css("display", "flex");
-        $("#bpainel6").css("display", "flex");
+        $("#bpainel5").css("display", "block");
+        $("#bpainel6").css("display", "block");
 
         $("#apainel1").removeClass("active");
         $("#painel1").removeClass("active");
@@ -121,4 +121,12 @@ $(".selecionar-cadastro-img").on("click", function(){
         $("#apainel5").addClass("active");
         $("#painel5").addClass("active");
     }
+});
+
+$("#eppainel2").on("click", function(){
+    $("#bpainel3").click();
+});
+
+$("#eapainel2").on("click", function(){
+    $("#bpainel1").click();
 });
