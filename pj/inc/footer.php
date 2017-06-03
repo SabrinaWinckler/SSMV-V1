@@ -1,6 +1,10 @@
     </div>
     <!-- /#wrapper -->
-
+    <script>
+        function myConfirmar() {
+            alert("Marcado com sucesso!");
+        }
+    </script>
     <!-- jQuery -->
     <script src="<?php echo BASECDN; ?>jquery/jquery.min.js"></script>
 

@@ -5,7 +5,7 @@
                 <div class="col-lg-12">
                     <h1 class="page-header">Cronograma</h1>
                 </div>
-                <!-- /.col-lg-12 -->
+                <p>Selecione uma data</p>
             </div>
         </div>
         <!-- /#page-wrapper -->
