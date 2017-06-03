@@ -1,9 +1,14 @@
 <?php
 
-$server     = "localhost";
-$user       = "root";
-$password   = "";
-$database   = "imob_web";
+// $server     = "localhost";
+// $user       = "root";
+// $password   = "";
+// $database   = "imob_web";
+
+$server     = "db4free.net";
+$user       = "rp1unipampa";
+$password   = "esunipampa";
+$database   = "dbssmv";
 
 // Conecta ao banco de dados
 $con = new mysqli($server, $user, $password, $database);

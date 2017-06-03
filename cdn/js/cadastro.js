@@ -130,3 +130,12 @@ $("#eppainel2").on("click", function(){
 $("#eapainel2").on("click", function(){
     $("#bpainel1").click();
 });
+
+$("#eppainel3").on("click", function(){
+    $("#bpainel4").click();
+});
+
+$("#eapainel3").on("click", function(){
+    $("#bpainel2").click();
+});
+

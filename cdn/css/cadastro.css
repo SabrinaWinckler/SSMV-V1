@@ -357,7 +357,7 @@
         *margin-left: 16.98763411529369%
     }
     .row-fluid .offset1 {
-        margin-left: 11.11111111111
+        margin-left: 11.11111111111;
         *margin-left: 11.004728132387708%
     }
     .row-fluid .offset1:first-child {
@@ -1226,7 +1226,8 @@
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
-  border-radius: 0 4px 4px 4px
+  border-radius: 0 4px 4px 4px;
+  margin-bottom: 5px;
 }
 
 .tabbable.custom-tabs>.tab-content>.tab-pane {

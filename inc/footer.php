@@ -13,8 +13,6 @@
     <!-- Plugins personalizados -->
     <script src="<?php echo BASECDN; ?>js/acessibilidade.js"></script>
     <script src="<?php echo BASECDN; ?>js/creative.js"></script>
-    <script src="<?php echo BASECDN; ?>js/cadastro.js"></script>
-
     <script>
     jQuery.fbInit = function() {
         window.fbAsyncInit = function() {

@@ -15,6 +15,7 @@
         <!-- Theme CSS -->
         <link href='<?php echo BASECDN; ?>css/creative.css' rel='stylesheet' type='text/css'>
         <link href='<?php echo BASECDN; ?>css/cadastro.css' rel='stylesheet' type='text/css'>
+        <link href='<?php echo BASECDN; ?>css/checkradio.css' rel='stylesheet' type='text/css'>
     </head>
     <body>
         <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
@@ -75,34 +76,40 @@
                                 <li class="" id="apainel6"><a href="#painel6" id="bpainel6" data-toggle="tab"><i class="fa fa-check-circle"></i>&nbsp;<span>Confira seus dados</span></a></li>
                             </ul>
                             <form id="formcadastro">
+                                
                             <div class="tab-content">
+
+                               <!-- SELECIONE -->
                                 <div class="tab-pane active" id="painel1">
                                     <div class="row-fluid">
                                         <h4><i class="fa fa-id-card"></i>&nbsp;&nbsp; Selecione</h4>
-                                        <div class="col-md-6">
-                                            <div class="sel-cad-left">
-                                                <div class="selecionar-cadastro">
-                                                    <div class="selecionar-cadastro-img pointer" data-choose="pf">
-                                                        <i class="fa fa-user-circle fa-5x icone-centralizado" aria-hidden="true"></i>
-                                                    </div>
-                                                    <p class="selecionar-cadastro-p">Pessoa fisica</p>
-                                                </div>
-                                            </div>
-                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
 
-                                        <div class="col-md-6">
-                                            <div class="sel-cad-right">
-                                                <div class="selecionar-cadastro">
-                                                    <div class="selecionar-cadastro-img pointer" data-choose="pj">
-                                                        <i class="fa fa-university fa-5x icone-centralizado" aria-hidden="true"></i>
+                                                    <div class="selecionar-cadastro">
+                                                        <div class="selecionar-cadastro-img pointer" data-choose="pf">
+                                                            <i class="fa fa-user-circle fa-5x icone-centralizado" aria-hidden="true"></i>
+                                                        </div>
+                                                        <p class="selecionar-cadastro-p">Pessoa fisica</p>
                                                     </div>
-                                                    <p class="selecionar-cadastro-p">Pessoa juridica</p>
-                                                </div>
+
+                                            </div>
+
+                                            <div class="col-md-6">
+ 
+                                                    <div class="selecionar-cadastro">
+                                                        <div class="selecionar-cadastro-img pointer" data-choose="pj">
+                                                            <i class="fa fa-university fa-5x icone-centralizado" aria-hidden="true"></i>
+                                                        </div>
+                                                        <p class="selecionar-cadastro-p">Pessoa juridica</p>
+                                                    </div>
+
                                             </div>
                                         </div>
                                     </div>
                                 </div>
 
+                                <!-- PF:DADOS PESSOAIS -->
                                 <div class="tab-pane" id="painel2">
                                     <div class="row-fluid">
                                         <div class="span12">
@@ -181,8 +188,6 @@
                                             </div>
                                                 
                                             <div class="row">
-                                                
-
                                                 <div class="col-md-2">
                                                     <div class="form-group">
                                                         <label>Telefone fixo</label>
@@ -238,155 +243,141 @@
 
                                                 <div class="col-md-3"></div>
                                             </div>
-                                            <input type="button" id="eapainel2" value="Anterior">
-                                            <input type="button" id="eppainel2" value="Proximo">
+
+                                            <div class="row">
+                                                <input type="button" id="eapainel2" value="Anterior">
+                                                <input type="button" id="eppainel2" value="Proximo">
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
 
+                                <!-- PF:QUESTIONARIO -->
                                 <div class="tab-pane" id="painel3">
                                     <div class="row-fluid">
-                                        <div class="span5">
-                                            <h4><i class="fa fa-check-square-o"></i>&nbsp;&nbsp;Questionário</h4>
+                                        <div class="span12">
+                                        <h4><i class="fa fa-check-square-o"></i>&nbsp;&nbsp;Marque as opções que forem verdadeiras </h4>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="checkbox custom">
+                                                        <input id="resp1" value="1" class="css-checkbox" type="checkbox">
+                                                        <label for="resp1" class="css-label"></label>
+                                                        Você tem ou teve um teste positivo para HIV?
+                                                    </div>
 
-                                            <label>Email</label>
-                                            <input type="text" class="input-block-level">
-                                            <label>Security Question</label>
-                                            <select class="input-block-level">
-                                                <option disabled="disabled" selected="selected">---Select---</option>
-                                                <option>Which Is Your First Mobile</option>
-                                                <option>What Is Your Pet Name</option>
-                                                <option>What Is Your Mother Name</option>
-                                                <option>Which Is Your First Game</option>
-                                            </select>
-                                            <label>Answer</label>
-                                            <input type="text" class="input-block-level">
-                                            <br>
-                                            <br>
-                                            <a href="#" class=" btn  ">Recover Password&nbsp;&nbsp;&nbsp;<i class="icon-chevron-sign-right"></i></a>
-                                        </div>
-                                        <div class="span7">
-                                            <h4><i class="icon-question"></i>&nbsp;&nbsp;Help</h4>
-                                            <div class="box">
-                                                <p>Getting Error With Password Recovery Click Here For <a href="#">Support</a></p>
-                                                <ul>
+                                                    <div class="checkbox custom">
+                                                        <input id="resp2" value="1" class="css-checkbox" type="checkbox">
+                                                        <label for="resp2" class="css-label"></label>
+                                                        Você teve hepatite após os 10 anos de idade?
+                                                    </div>
 
+                                                    <div class="checkbox custom">
+                                                        <input id="resp3" value="1" class="css-checkbox" type="checkbox">
+                                                        <label for="resp3" class="css-label"></label>
+                                                        Você já teve malária?
+                                                    </div>
 
-                                                    <li>Vestibulum pharetra lectus montes lacus!</li>
-                                                    <li>Iaculis lectus augue pulvinar taciti.</li>
-                                                </ul>
+                                                    <div class="checkbox custom">
+                                                        <input id="resp4" value="1" class="css-checkbox" type="checkbox">
+                                                        <label for="resp4" class="css-label"></label>
+                                                        Você tem doença de chagas?
+                                                    </div>
 
-                                            </div>
-                                            <div class="box">
-                                                <ul>
-                                                    <li>Potenti facilisis felis sociis blandit euismod.</li>
-                                                    <li>Odio mi hendrerit ad nostra.</li>
-                                                    <li>Rutrum mi commodo molestie taciti.</li>
-                                                    <li>Interdum ipsum ad risus conubia, porttitor.</li>
-                                                    <li>Placerat litora, proin hac hendrerit ac volutpat.</li>
-                                                    <li>Ornare, aliquam condimentum  habitasse.</li>
-                                                </ul>
+                                                    <div class="checkbox custom">
+                                                        <input id="resp5" value="1" class="css-checkbox" type="checkbox">
+                                                        <label for="resp5" class="css-label"></label>
+                                                        Você recebeu enxerto de duramater?
+                                                    </div>
 
+                                                    <div class="checkbox custom">
+                                                        <input id="resp6" value="1" class="css-checkbox" type="checkbox">
+                                                        <label for="resp6" class="css-label"></label>
+                                                        Você tem ou teve algum tipo de câncer, incluindo leucemia?
+                                                    </div>
+
+                                                    <div class="checkbox custom">
+                                                        <input id="resp7" value="1" class="css-checkbox" type="checkbox">
+                                                        <label for="resp7" class="css-label"></label>
+                                                        Você tem graves problemas no pulmão, coração, rins ou fígado?
+                                                    </div>
+
+                                                    <div class="checkbox custom">
+                                                        <input id="resp8" value="1" class="css-checkbox" type="checkbox">
+                                                        <label for="resp8" class="css-label"></label>
+                                                        Você tem problema de coagulação de sangue?
+                                                    </div>
+
+                                                    <div class="checkbox custom">
+                                                        <input id="resp9" value="1" class="css-checkbox" type="checkbox">
+                                                        <label for="resp9" class="css-label"></label>
+                                                        Você é diabético com complicações vasculares ou está em uso de insulina?
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+
+                                                    <div class="checkbox custom">
+                                                        <input id="resp10" value="1" class="css-checkbox" type="checkbox">
+                                                        <label for="resp10" class="css-label"></label>
+                                                        Você teve tuberculose extra-pulmonar?
+                                                    </div>
+
+                                                    <div class="checkbox custom">
+                                                        <input id="resp11" value="1" class="css-checkbox" type="checkbox">
+                                                        <label for="resp11" class="css-label"></label>
+                                                        Você já teve elefantíase?
+                                                    </div>
+
+                                                    <div class="checkbox custom">
+                                                        <input id="resp12" value="1" class="css-checkbox" type="checkbox">
+                                                        <label for="resp12" class="css-label"></label>
+                                                        Você já teve hanseníase?
+                                                    </div>
+
+                                                    <div class="checkbox custom">
+                                                        <input id="resp13" value="1" class="css-checkbox" type="checkbox">
+                                                        <label for="resp13" class="css-label"></label>
+                                                        Você já teve calazar (leishmaniose visceral)?
+                                                    </div>
+
+                                                    <div class="checkbox custom">
+                                                        <input id="resp14" value="1" class="css-checkbox" type="checkbox">
+                                                        <label for="resp14" class="css-label"></label>
+                                                        Você já teve brucelose?
+                                                    </div>
+
+                                                    <div class="checkbox custom">
+                                                        <input id="resp15" value="1" class="css-checkbox" type="checkbox">
+                                                        <label for="resp15" class="css-label"></label>
+                                                        Você já teve esquistossomose hepatoesplênica?
+                                                    </div>
+
+                                                    <div class="checkbox custom">
+                                                        <input id="resp16" value="1" class="css-checkbox" type="checkbox">
+                                                        <label for="resp16" class="css-label"></label>
+                                                        Você tem alguma doença que gere inimputabilidade jurídica?
+                                                    </div>
+
+                                                    <div class="checkbox custom">
+                                                        <input id="resp17" value="1" class="css-checkbox" type="checkbox">
+                                                        <label for="resp17" class="css-label"></label>
+                                                        Você já foi submetido a transplante de órgãos ou de medula?
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <input type="button" id="eapainel3" value="Anterior">
+                                                    <input type="button" id="eppainel3" value="Proximo">
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-
-
-                                </div>
-                                <div id="painel5" class="tab-pane">
-                                    <div class="row-fluid">
-                                        <div class="span5">
-                                            <h4><i class="icon-envelope-alt"></i>&nbsp;&nbsp;O Us</h4>
-                                            <label>Name</label>
-                                            <input type="text" value="" id="" class="input-block-level">
-                                            <label>Email</label>
-                                            <input type="text" value="" id="Text1" class="input-block-level">
-                                            <label>Mobile No</label>
-                                            <input type="text" value="" id="Text2" class="input-block-level">
-                                            <label>Message</label>
-                                            <textarea class="input-block-level" rows="5"></textarea>
-                                            <a href="#" class=" btn ">Send Message&nbsp;&nbsp;&nbsp;<i class="icon-chevron-sign-right"></i></a>
-                                            <br class="visible-phone">
-                                            <br class="visible-phone">
-                                        </div>
-                                        <div class="span7">
-                                            <div class="row-fluid">
-                                                <div class="span12">
-                                                    <h4><i class="icon-location-arrow"></i>&nbsp;&nbsp;Locate Us</h4>
-
-                                                    <div class="map"></div>
-
-                                                </div>
-                                            </div>
-                                            <div class="row-fluid">
-                                                <div class="span6">
-                                                    <h4><i class="icon-envelope-alt"></i>&nbsp;&nbsp;Contact Us</h4>
-                                                    <address>
-                                                        <strong>Full Name</strong><br>
-                                                        <a href="mailto:#">first.last@example.com</a>
-                                                    </address>
-                                                </div>
-                                                <div class="span6">
-                                                    <h4><i class="icon-location-arrow"></i>&nbsp;&nbsp;Our Address</h4>
-
-                                                    <address>
-                                                        <strong>Twitter, Inc.</strong><br>
-                                                        795 Folsom Ave, Suite 600<br>
-                                                        San Francisco, CA 94107<br>
-                                                        <abbr title="Phone">P:</abbr>
-                                                        (123) 456-7890
-                                                    </address>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
                                 </div>
 
+                                <!-- PF:CONFIRA SEUS DADOS -->
                                 <div id="painel4" class="tab-pane">
                                     <div class="row-fluid">
-                                        <div class="span5">
-                                            <h4><i class="icon-envelope-alt"></i>&nbsp;&nbsp;Contact Us</h4>
-                                            <label>Name</label>
-                                            <input type="text" value="" id="" class="input-block-level">
-                                            <label>Email</label>
-                                            <input type="text" value="" id="Text1" class="input-block-level">
-                                            <label>Mobile No</label>
-                                            <input type="text" value="" id="Text2" class="input-block-level">
-                                            <label>Message</label>
-                                            <textarea class="input-block-level" rows="5"></textarea>
-                                            <a href="#" class=" btn ">Send Message&nbsp;&nbsp;&nbsp;<i class="icon-chevron-sign-right"></i></a>
-                                            <br class="visible-phone">
-                                            <br class="visible-phone">
-                                        </div>
-                                        <div class="span7">
-                                            <div class="row-fluid">
-                                                <div class="span12">
-                                                    <h4><i class="icon-location-arrow"></i>&nbsp;&nbsp;Locate Us</h4>
-
-                                                    <div class="map"></div>
-
-                                                </div>
-                                            </div>
-                                            <div class="row-fluid">
-                                                <div class="span6">
-                                                    <h4><i class="icon-envelope-alt"></i>&nbsp;&nbsp;Contact Us</h4>
-                                                    <address>
-                                                        <strong>Full Name</strong><br>
-                                                        <a href="mailto:#">first.last@example.com</a>
-                                                    </address>
-                                                </div>
-                                                <div class="span6">
-                                                    <h4><i class="icon-location-arrow"></i>&nbsp;&nbsp;Our Address</h4>
-
-                                                    <address>
-                                                        <strong>Twitter, Inc.</strong><br>
-                                                        795 Folsom Ave, Suite 600<br>
-                                                        San Francisco, CA 94107<br>
-                                                        <abbr title="Phone">P:</abbr>
-                                                        (123) 456-7890
-                                                    </address>
-                                                </div>
-                                            </div>
+                                        <div class="span12">
+                                            PAINEL 4 - CONFIRA SEUS DADOS
                                         </div>
                                     </div>
                                 </div>
@@ -400,11 +391,13 @@
 
     <!-- jQuery -->
     <script src="<?php echo BASECDN; ?>jquery/jquery.min.js"></script>
+    <script src="<?php echo BASECDN; ?>jquery/jquery.cookie.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
     <script src="<?php echo BASECDN; ?>bootstrap/js/bootstrap.min.js"></script>
 
     <!-- Plugins personalizados -->
     <script src="<?php echo BASECDN; ?>js/cadastro.js"></script>
+    <script src="<?php echo BASECDN; ?>js/creative.js"></script>
     <script src="<?php echo BASECDN; ?>js/acessibilidade.js"></script>
 </html>
