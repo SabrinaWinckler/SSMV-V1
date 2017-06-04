@@ -32,16 +32,16 @@
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav navbar-left">
                         <li>
-                            <a class="page-scroll pointer" id="quemsomos" href="#quemsomos">Quem somos?</a>
+                            <a class="page-scroll pointer" id="quemsomos" href="<?php echo BASEURL; ?>#quemsomos">Quem somos?</a>
                         </li>
                         <li>
-                            <a class="page-scroll pointer" id="faq" href="#faq">FAQ</a>
+                            <a class="page-scroll pointer" id="faq" href="<?php echo BASEURL; ?>#faq">FAQ</a>
                         </li>
                         <li>
-                            <a class="page-scroll pointer" id="ajuda" href="#ajuda">Ajuda</a>
+                            <a class="page-scroll pointer" id="ajuda" href="<?php echo BASEURL; ?>#ajuda">Ajuda</a>
                         </li>
                         <li>
-                            <a class="page-scroll pointer" id="contato" href="#contato">Contato</a>
+                            <a class="page-scroll pointer" id="contato" href="<?php echo BASEURL; ?>#contato">Contato</a>
                         </li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
@@ -115,7 +115,7 @@
                                         <div class="span12">
                                             <div class="row">
                                                 <div class="col-md-9">
-                                                    <h4><i class="fa fa-user"></i>&nbsp;&nbsp; Dados Pessoais</h4>
+                                                    <h4><i class="fa fa-user"></i>&nbsp;&nbsp; Informe seus dados</h4>
                                                 </div>
                                                 <div class="col-md-3">
                                                     <div class="socials">
@@ -171,7 +171,20 @@
                                                     <div class="form-group">
                                                         <label>Estado</label>
                                                         <select id="pf_estado" name="pf_estado" class="form-control">
-                                                            <option value="RS">Rio Grande do Sul</option>
+                                                            <?php 
+                                                            
+                                                            require_once DB;
+
+                                                            if ($sql = $con->prepare("SELECT `idestado`, `nome` FROM  `ssmv`.`estados`;")) {
+                                                                $sql->execute();
+                                                                $sql->bind_result($idestado, $nome);
+                                                                while ($sql->fetch()) {
+                                                                    echo "<option value=" . $idestado . ">" . $nome . "</option>";
+                                                                }
+                                                                $sql->close();
+                                                            }
+                                                            
+                                                            ?>
                                                         </select>
                                                     </div>
                                                 </div>
@@ -205,22 +218,22 @@
                                                 <div class="col-md-2">
                                                     <div class="form-group">
                                                         <label>Tipo sanguíneo</label>
-                                                        <select id="pf_tipo_sangue" name="tipo_sangue" class="form-control">
+                                                        <select id="pf_tipo_sangue" name="pf_tipo_sangue" class="form-control">
                                                             <option value="n">Não sei</option>
                                                         </select>
                                                     </div>
                                                 </div>
 
-                                                <div class="col-md-1">
+                                                <div class="col-md-2">
                                                     <div class="form-group">
-                                                        <label>Peso</label>
+                                                        <label>Peso (kg)</label>
                                                         <input type="text" id="pf_peso" name="pf_peso" class="form-control">
                                                     </div>
                                                 </div>
 
-                                                <div class="col-md-5">
+                                                <div class="col-md-4">
                                                     <div class="form-group">
-                                                        <label>Email</label>
+                                                        <label>E-mail</label>
                                                         <input type="text" id="pf_email" name="pf_email" class="form-control">
                                                     </div>
                                                 </div>
@@ -243,7 +256,7 @@
 
                                                 <div class="col-md-3"></div>
                                             </div>
-
+                                            
                                             <div class="row">
                                                 <input type="button" id="eapainel2" value="Anterior">
                                                 <input type="button" id="eppainel2" value="Proximo">
@@ -313,6 +326,7 @@
                                                         Você é diabético com complicações vasculares ou está em uso de insulina?
                                                     </div>
                                                 </div>
+
                                                 <div class="col-md-6">
 
                                                     <div class="checkbox custom">
@@ -363,11 +377,11 @@
                                                         Você já foi submetido a transplante de órgãos ou de medula?
                                                     </div>
                                                 </div>
-
-                                                <div class="row">
-                                                    <input type="button" id="eapainel3" value="Anterior">
-                                                    <input type="button" id="eppainel3" value="Proximo">
-                                                </div>
+                                            </div>
+                                            <br /><br />
+                                            <div class="row">
+                                                <input type="button" id="eapainel3" value="Anterior">
+                                                <input type="button" id="eppainel3" value="Proximo">
                                             </div>
                                         </div>
                                     </div>
@@ -376,8 +390,85 @@
                                 <!-- PF:CONFIRA SEUS DADOS -->
                                 <div id="painel4" class="tab-pane">
                                     <div class="row-fluid">
-                                        <div class="span12">
-                                            PAINEL 4 - CONFIRA SEUS DADOS
+                                        <h4><i class="fa fa-user"></i>&nbsp;&nbsp; Verifique os dados informados</h4>
+                                        <div class="span8">
+
+                                            <div class="row">
+                                                <div class="col-md-8">
+                                                    <div class="form-group">
+                                                        <label>Nome completo</label>
+                                                        <p id="v_pf_nome_sobrenome" class="form-control">Gustavo Bittencourt Satheler</p>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label>CPF</label>
+                                                        <p id="v_pf_cpf" class="form-control">115.794.086-21</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-md-3">
+                                                    <div class="form-group">
+                                                        <label>Data de Nascimento</label>
+                                                        <p id="v_pf_nascimento" class="form-control">04/07/1998</p>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label>Gênero</label>
+                                                        <p id="v_pf_genero" class="form-control">Masculino</p>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-5">
+                                                    <div class="form-group">
+                                                        <label>Estado</label>
+                                                        <p id="v_pf_estado" class="form-control">Rio Grande do Sul</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-5">
+                                                    <div class="form-group">
+                                                        <label>Cidade</label>
+                                                        <p id="v_pf_cidade" class="form-control">Alegrete</p>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="form-group">
+                                                        <label>Telefone Fixo</label>
+                                                        <p id="v_pf_telefone_fixo" class="form-control">(55) 0000-0000</p>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label>Telefone Celular</label>
+                                                        <p id="v_pf_telefone_celular" class="form-control">(55) 99936-7788</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-md-2">
+                                                    <div class="form-group">
+                                                        <label>Sangue</label>
+                                                        <p id="v_pf_tipo_sangue" class="form-control">O-</p>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <div class="form-group">
+                                                        <label>Peso</label>
+                                                        <p id="v_pf_peso" class="form-control">46.2kg</p>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-8">
+                                                    <div class="form-group">
+                                                        <label>E-mail</label>
+                                                        <p id="v_pf_email" class="form-control">gustavosatheler@gmail.com</p>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -389,15 +480,24 @@
         </form>
     </body>
 
-    <!-- jQuery -->
+       <!-- jQuery -->
     <script src="<?php echo BASECDN; ?>jquery/jquery.min.js"></script>
-    <script src="<?php echo BASECDN; ?>jquery/jquery.cookie.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
     <script src="<?php echo BASECDN; ?>bootstrap/js/bootstrap.min.js"></script>
 
+    <!-- Plugin JavaScript -->
+    <script src="<?php echo BASECDN; ?>libs/jquery-easing/jquery.easing.min.js"></script>
+    <script src="<?php echo BASECDN; ?>scrollreveal/scrollreveal.min.js"></script>
+    <script src="<?php echo BASECDN; ?>magnific-popup/jquery.magnific-popup.min.js"></script>
+    <script src="<?php echo BASECDN; ?>jquery/jquery.cookie.js"></script>
+
     <!-- Plugins personalizados -->
-    <script src="<?php echo BASECDN; ?>js/cadastro.js"></script>
-    <script src="<?php echo BASECDN; ?>js/creative.js"></script>
     <script src="<?php echo BASECDN; ?>js/acessibilidade.js"></script>
+    <script src="<?php echo BASECDN; ?>js/creative.js"></script>
+    <script src="<?php echo BASECDN; ?>js/fbInit.js"></script>
+    <script src="<?php echo BASECDN; ?>js/index.js"></script>
+    <script src="<?php echo BASECDN; ?>js/cadastro.js"></script>
+
+    
 </html>

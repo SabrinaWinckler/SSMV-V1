@@ -5,10 +5,10 @@
 // $password   = "";
 // $database   = "imob_web";
 
-$server     = "db4free.net";
-$user       = "rp1unipampa";
-$password   = "esunipampa";
-$database   = "dbssmv";
+$server     = "localhost";
+$user       = "root";
+$password   = "";
+$database   = "ssmv";
 
 // Conecta ao banco de dados
 $con = new mysqli($server, $user, $password, $database);
