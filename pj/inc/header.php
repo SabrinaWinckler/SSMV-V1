@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Pessoa juridica :: Seu sangue, minha vida</title>
+    <title><?php echo $titulo; ?></title>
 
     <!-- Bootstrap Core CSS -->
     <link href="<?php echo BASECDN; ?>bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -57,9 +57,9 @@
                         <li>
                             <a href="#">
                                 <div>
-                                    <strong>John Smith</strong>
+                                    <strong>Notificação 1</strong>
                                     <span class="pull-right text-muted">
-                                        <em>Yesterday</em>
+                                        <em>Ontem</em>
                                     </span>
                                 </div>
                                 <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
@@ -69,9 +69,9 @@
                         <li>
                             <a href="#">
                                 <div>
-                                    <strong>John Smith</strong>
+                                    <strong>Notificação 2</strong>
                                     <span class="pull-right text-muted">
-                                        <em>Yesterday</em>
+                                        <em>Ontem</em>
                                     </span>
                                 </div>
                                 <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
@@ -81,9 +81,9 @@
                         <li>
                             <a href="#">
                                 <div>
-                                    <strong>John Smith</strong>
+                                    <strong>Notificação 3</strong>
                                     <span class="pull-right text-muted">
-                                        <em>Yesterday</em>
+                                        <em>Ontem</em>
                                     </span>
                                 </div>
                                 <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
@@ -92,7 +92,7 @@
                         <li class="divider"></li>
                         <li>
                             <a class="text-center" href="#">
-                                <strong>Read All Messages</strong>
+                                <strong>Ver todas as notificações</strong>
                                 <i class="fa fa-angle-right"></i>
                             </a>
                         </li>

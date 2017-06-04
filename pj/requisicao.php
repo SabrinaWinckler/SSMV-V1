@@ -1,4 +1,9 @@
-<?php require_once("inc/header.php"); ?>
+<?php 
+
+$titulo = "Requisição :: Pessoa juridica :: Seu sangue, minha vida";
+require_once("inc/header.php"); 
+
+?>
 
         <form>
             <div id="page-wrapper">

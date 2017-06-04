@@ -1,4 +1,9 @@
-<?php require_once("inc/header.php"); ?>
+<?php 
+
+$titulo = "Principal :: Pessoa juridica :: Seu sangue, minha vida";
+require_once("inc/header.php"); 
+
+?>
 
         <div id="page-wrapper">
             <div class="row">
