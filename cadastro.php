@@ -16,6 +16,13 @@
         <link href='<?php echo BASECDN; ?>css/creative.css' rel='stylesheet' type='text/css'>
         <link href='<?php echo BASECDN; ?>css/cadastro.css' rel='stylesheet' type='text/css'>
         <link href='<?php echo BASECDN; ?>css/checkradio.css' rel='stylesheet' type='text/css'>
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+            <script src="<?php echo BASECDN; ?>libs/html5shiv/html5shiv.js"></script>
+            <script src="<?php echo BASECDN; ?>libs/respond.js/respond.min.js"></script>
+        <![endif]-->
     </head>
     <body>
         <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
@@ -193,7 +200,28 @@
                                                     <div class="form-group">
                                                         <label>Cidade</label>
                                                         <select id="pf_cidade" name="pf_cidade" class="form-control">
-                                                            <option value="alegrete">Alegrete</option>
+                                                            <option value="Acrelândia">Acrelândia</option>
+                                                            <option value="Assis Brasil">Assis Brasil</option>
+                                                            <option value="Brasiléia">Brasiléia</option>
+                                                            <option value="Bujari">Bujari</option>
+                                                            <option value="Capixaba">Capixaba</option>
+                                                            <option value="Cruzeiro do Sul">Cruzeiro do Sul</option>
+                                                            <option value="Epitaciolândia">Epitaciolândia</option>
+                                                            <option value="Feijó">Feijó</option>
+                                                            <option value="Jordão">Jordão</option>
+                                                            <option value="Mâncio Lima">Mâncio Lima</option>
+                                                            <option value="Manoel Urbano">Manoel Urbano</option>
+                                                            <option value="Marechal Thaumaturgo">Marechal Thaumaturgo</option>
+                                                            <option value="Plácido de Castro">Plácido de Castro</option>
+                                                            <option value="Porto Acre">Porto Acre</option>
+                                                            <option value="Porto Walter">Porto Walter</option>
+                                                            <option value="Rio Branco">Rio Branco</option>
+                                                            <option value="Rodrigues Alves">Rodrigues Alves</option>
+                                                            <option value="Santa Rosa do Purus">Santa Rosa do Purus</option>
+                                                            <option value="Sena Madureira">Sena Madureira</option>
+                                                            <option value="Senador Guiomard">Senador Guiomard</option>
+                                                            <option value="Tarauacá">Tarauacá</option>
+                                                            <option value="Xapuri">Xapuri</option>
                                                         </select>
                                                     </div>
                                                 </div>
@@ -220,6 +248,18 @@
                                                         <label>Tipo sanguíneo</label>
                                                         <select id="pf_tipo_sangue" name="pf_tipo_sangue" class="form-control">
                                                             <option value="n">Não sei</option>
+                                                            <?php 
+
+                                                            if ($sql = $con->prepare("SELECT `idtipoSangue`, `tipo` FROM  `ssmv`.`tipoSangue`;")) {
+                                                                $sql->execute();
+                                                                $sql->bind_result($idtipoSangue, $tipo);
+                                                                while ($sql->fetch()) {
+                                                                    echo "<option value=" . $idtipoSangue . ">" . $tipo . "</option>";
+                                                                }
+                                                                $sql->close();
+                                                            }
+                                                            
+                                                            ?>
                                                         </select>
                                                     </div>
                                                 </div>
@@ -227,7 +267,7 @@
                                                 <div class="col-md-2">
                                                     <div class="form-group">
                                                         <label>Peso (kg)</label>
-                                                        <input type="text" id="pf_peso" name="pf_peso" class="form-control">
+                                                        <input type="number" id="pf_peso" name="pf_peso" class="form-control">
                                                     </div>
                                                 </div>
 
@@ -491,6 +531,7 @@
     <script src="<?php echo BASECDN; ?>scrollreveal/scrollreveal.min.js"></script>
     <script src="<?php echo BASECDN; ?>magnific-popup/jquery.magnific-popup.min.js"></script>
     <script src="<?php echo BASECDN; ?>jquery/jquery.cookie.js"></script>
+    <script src="<?php echo BASECDN; ?>js/jquery.maskedinput.min.js"></script>
 
     <!-- Plugins personalizados -->
     <script src="<?php echo BASECDN; ?>js/acessibilidade.js"></script>
@@ -498,6 +539,7 @@
     <script src="<?php echo BASECDN; ?>js/fbInit.js"></script>
     <script src="<?php echo BASECDN; ?>js/index.js"></script>
     <script src="<?php echo BASECDN; ?>js/cadastro.js"></script>
+    
 
     
 </html>

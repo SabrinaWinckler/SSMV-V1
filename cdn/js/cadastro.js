@@ -1,95 +1,59 @@
-﻿$(function ()
-{
-    if ($(".custom-tabs.track-url").length > 0)
-    {
-        if (location.hash.length > 0)
-        {
-            if ($(location.hash).length > 0)
-            {
-                var currentPanel = $(location.hash, $(".custom-tabs.track-url .tab-content"));
-                if (!currentPanel.hasClass("active"))
-                {
-                    $(">.tab-pane", currentPanel.closest(".tab-content")).each(function ()
-                    {
-                        $(this).removeClass("active");
-                    });
-                    currentPanel.addClass("active");
-                }
-                var currentTrigger = $("a[href='" + location.hash + "']", $(".custom-tabs.track-url .nav-tabs")).closest("li");
-                $(">li", currentTrigger.closest(".nav-tabs")).removeClass("active");
-                currentTrigger.addClass("active");
-                var masterContainer = currentPanel.closest(".custom-tabs.track-url");
-                if (masterContainer.hasClass("auto-scroll"))
-                {
-                    $("body,html").animate({scrollTop:masterContainer.offset().top-80},500);
-                }
-            }
-        }
-    }
+﻿$(function () {
+    $("#pf_CPF").mask("999.999.999-99");
+    $("#pf_telefone_fixo").mask("(99) 9999-9999");
+    $("#pf_telefone_celular").mask("(99) 99999-9999");
 });
 
-$(function ()
-{
-    $("a[href^='#cad']").click(function (evt)
-    {
+$(function () {
+    $("a[href^='#cad']").click(function (evt) {
         evt.preventDefault();
         var scroll_to = $($(this).attr("href")).offset().top;
         $("html,body").animate({ scrollTop: scroll_to - 80 }, 600);
     });
-    $("a[href^='#bg']").click(function (evt)
-    {
+    $("a[href^='#bg']").click(function (evt) {
         evt.preventDefault();
         $("body").removeClass("light").removeClass("dark").addClass($(this).data("class")).css("background-image", "url('bgs/" + $(this).data("file") + "')");
         console.log($(this).data("file"));
     });
-    $("a[href^='#color']").click(function (evt)
-    {
+    $("a[href^='#color']").click(function (evt) {
         evt.preventDefault();
         var elm = $(".tabbable");
         elm.removeClass("grey").removeClass("dark").removeClass("dark-input").addClass($(this).data("class"));
-        if (elm.hasClass("dark dark-input"))
-        {
+        if (elm.hasClass("dark dark-input")) {
             $(".btn", elm).addClass("btn-inverse");
         }
-        else
-        {
+        else {
             $(".btn", elm).removeClass("btn-inverse");
         }
     });
-    $(".color-swatch div").each(function ()
-    {
+    $(".color-swatch div").each(function () {
         $(this).css("background-color", $(this).data("color"));
     });
-    $(".color-swatch div").click(function (evt)
-    {
+    $(".color-swatch div").click(function (evt) {
         evt.stopPropagation();
         $("body").removeClass("light").removeClass("dark").addClass($(this).data("class")).css("background-color", $(this).data("color"));
     });
-    $("#texture-check").mouseup(function (evt)
-    {
+    $("#texture-check").mouseup(function (evt) {
         evt.preventDefault();
-        if (!$(this).hasClass("active"))
-        {
+        if (!$(this).hasClass("active")) {
             $("body").css("background-image", "url(bgs/n1.png)");
         }
-        else
-        {
+        else {
             $("body").css("background-image", "none");
         }
     });
-    $("a[href='#']").click(function (evt)
-    {
+    $("a[href='#']").click(function (evt) {
         evt.preventDefault();
     });
     $("a[data-toggle='popover']").popover({
-        trigger:"hover",html:true,placement:"top"
+        trigger: "hover", html: true, placement: "top"
     });
 });
 
-$(".selecionar-cadastro-img").on("click", function(){
+$(".selecionar-cadastro-img").on("click", function () {
     var escolha = $(this).attr("data-choose");
 
-    if(escolha == "pf"){
+    if (escolha == "pf") {
         $("[data-choose=pj]").removeClass("ativo");
         $("[data-choose=pf]").addClass("ativo");
         $("#pessoa_selecionada").val("pf");
@@ -105,7 +69,7 @@ $(".selecionar-cadastro-img").on("click", function(){
         $("#apainel2").addClass("active");
         $("#painel2").addClass("active");
     }
-    if(escolha == "pj"){
+    if (escolha == "pj") {
         $("[data-choose=pf]").removeClass("ativo");
         $("[data-choose=pj]").addClass("ativo");
         $("#pessoa_selecionada").val("pj");
@@ -123,19 +87,59 @@ $(".selecionar-cadastro-img").on("click", function(){
     }
 });
 
-$("#eppainel2").on("click", function(){
+$("#eppainel2").on("click", function () {
     $("#bpainel3").click();
 });
 
-$("#eapainel2").on("click", function(){
+$("#eapainel2").on("click", function () {
     $("#bpainel1").click();
 });
 
-$("#eppainel3").on("click", function(){
+$("#eppainel3").on("click", function () {
     $("#bpainel4").click();
 });
 
-$("#eapainel3").on("click", function(){
+$("#eapainel3").on("click", function () {
     $("#bpainel2").click();
+});
+
+$("#bpainel4").on("click", function () {
+    $("#v_pf_nome_sobrenome").text($("#pf_nome").val() + " " + $("#pf_sobrenome").val());
+    $("#v_pf_cpf").text($("#pf_CPF").val());
+    $("#v_pf_nascimento").text($("#pf_nascimento").val());
+
+    if($("[name=pf_genero]:checked").val() == 'M'){
+        var genero = "Masculino";
+    } else if ($("[name=pf_genero]:checked").val() == 'F') {
+        var genero = "Feminino";
+    } else if ($("[name=pf_genero]:checked").val() == 'O') {
+        var genero = "Não especificado";
+    }
+    $("#v_pf_genero").text(genero);
+
+    $("#v_pf_estado").text($('#pf_estado').find(":selected").text());
+    $("#v_pf_cidade").text($("#pf_cidade").val());
+    $("#v_pf_telefone_fixo").text($("#pf_telefone_fixo").val());
+    $("#v_pf_telefone_celular").text($("#pf_telefone_celular").val());
+    $("#v_pf_tipo_sangue").text($('#pf_tipo_sangue').find(":selected").text());
+    $("#v_pf_peso").text($("#pf_peso").val());
+    $("#v_pf_email").text($("#pf_email").val());
+});
+
+$("#pf_estado").on("change", function () {
+    var idestado = $("#pf_estado").val() - 1;
+
+    $.getJSON('/estado/', {}, function (data) {
+        $('#pf_cidade option').remove();
+        if (data != 'null') {
+            $.each(data.estados[idestado].cidades, function (k, v) {
+                // console.log(idestado);
+                // console.log(data.estados[idestado].cidades[k]);
+                $('<option/>').val(data.estados[idestado].cidades[k]).text(data.estados[idestado].cidades[k]).appendTo($('#pf_cidade'));
+                $('#pf_cidade').prop('disabled', false);
+                $('#pf_cidade').trigger("chosen:updated");
+            });
+        }
+    });
 });
 

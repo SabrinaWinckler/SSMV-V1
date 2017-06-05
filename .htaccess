@@ -1,5 +1,4 @@
 <ifModule mod_rewrite.c>
-RewriteEngine on
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f
 
@@ -15,3 +14,5 @@ RewriteRule ^config(|/)$ config.class.php
 RewriteRule ^(|/)$ index.php
 RewriteRule ^cadastro(.*)$ cadastro.php
 RewriteRule ^enviarcontato(.*)$ post.php?contato=enviar
+
+RewriteRule ^estado/(.*)$ ./api/json/estados-cidades.json
