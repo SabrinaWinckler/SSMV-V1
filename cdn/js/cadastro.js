@@ -124,7 +124,16 @@ $("#bpainel4").on("click", function () {
     $("#v_pf_tipo_sangue").text($('#pf_tipo_sangue').find(":selected").text());
     $("#v_pf_peso").text($("#pf_peso").val());
     $("#v_pf_email").text($("#pf_email").val());
+
+    $("#v_questionario").html('<h5><i class="fa fa-check-circle"></i> Questionário </h5>');
+    for (var i = 1; i <= 17; i++){
+        if($('#resp' + i).prop("checked")){
+            $("#v_questionario").html($("#v_questionario").html() + '<a><i class="fa fa-check"></i> ' + $('#resp' + i).attr("texto") + '</a>');
+            $("#v_questionario").html($("#v_questionario").html() + '<br />');
+        }
+    }
 });
+
 
 $("#pf_estado").on("change", function () {
     var idestado = $("#pf_estado").val() - 1;

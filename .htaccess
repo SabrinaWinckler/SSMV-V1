@@ -11,8 +11,11 @@ RewriteEngine on
 
 RewriteRule ^config(|/)$ config.class.php
 
-RewriteRule ^(|/)$ index.php
+RewriteRule ^(|/)$ ./index.php
 RewriteRule ^cadastro(.*)$ cadastro.php
 RewriteRule ^enviarcontato(.*)$ post.php?contato=enviar
 
-RewriteRule ^estado/(.*)$ ./api/json/estados-cidades.json
+RewriteRule ^estado/(.*)$ api/json/estados-cidades.json
+
+RewriteRule ^facebook(.*)$ api/Facebook/
+RewriteRule ^loginfb(.*)$ post.php?fb=login

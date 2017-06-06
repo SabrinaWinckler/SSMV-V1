@@ -267,7 +267,7 @@
                                                 <div class="col-md-2">
                                                     <div class="form-group">
                                                         <label>Peso (kg)</label>
-                                                        <input type="number" id="pf_peso" name="pf_peso" class="form-control">
+                                                        <input type="number" id="pf_peso" name="pf_peso" placeholder="50.0" class="form-control">
                                                     </div>
                                                 </div>
 
@@ -313,55 +313,55 @@
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="checkbox custom">
-                                                        <input id="resp1" value="1" class="css-checkbox" type="checkbox">
+                                                        <input id="resp1" name="resp1" value="1" texto="Você tem ou teve um teste positivo para HIV" class="css-checkbox" type="checkbox">
                                                         <label for="resp1" class="css-label"></label>
                                                         Você tem ou teve um teste positivo para HIV?
                                                     </div>
 
                                                     <div class="checkbox custom">
-                                                        <input id="resp2" value="1" class="css-checkbox" type="checkbox">
+                                                        <input id="resp2" name="resp2" value="1" texto="Você teve hepatite após os 10 anos de idade" class="css-checkbox" type="checkbox">
                                                         <label for="resp2" class="css-label"></label>
                                                         Você teve hepatite após os 10 anos de idade?
                                                     </div>
 
                                                     <div class="checkbox custom">
-                                                        <input id="resp3" value="1" class="css-checkbox" type="checkbox">
+                                                        <input id="resp3" name="resp3" value="1" texto="Você já teve malária" class="css-checkbox" type="checkbox">
                                                         <label for="resp3" class="css-label"></label>
                                                         Você já teve malária?
                                                     </div>
 
                                                     <div class="checkbox custom">
-                                                        <input id="resp4" value="1" class="css-checkbox" type="checkbox">
+                                                        <input id="resp4" name="resp4" value="1" texto="Você tem doença de chagas" class="css-checkbox" type="checkbox">
                                                         <label for="resp4" class="css-label"></label>
                                                         Você tem doença de chagas?
                                                     </div>
 
                                                     <div class="checkbox custom">
-                                                        <input id="resp5" value="1" class="css-checkbox" type="checkbox">
+                                                        <input id="resp5" name="resp5" value="1" texto="Você recebeu enxerto de duramater" class="css-checkbox" type="checkbox">
                                                         <label for="resp5" class="css-label"></label>
                                                         Você recebeu enxerto de duramater?
                                                     </div>
 
                                                     <div class="checkbox custom">
-                                                        <input id="resp6" value="1" class="css-checkbox" type="checkbox">
+                                                        <input id="resp6" name="resp6" value="1" texto="Você tem ou teve algum tipo de câncer, incluindo leucemia" class="css-checkbox" type="checkbox">
                                                         <label for="resp6" class="css-label"></label>
                                                         Você tem ou teve algum tipo de câncer, incluindo leucemia?
                                                     </div>
 
                                                     <div class="checkbox custom">
-                                                        <input id="resp7" value="1" class="css-checkbox" type="checkbox">
+                                                        <input id="resp7" name="resp7" value="1" texto="Você tem graves problemas no pulmão, coração, rins ou fígado" class="css-checkbox" type="checkbox">
                                                         <label for="resp7" class="css-label"></label>
                                                         Você tem graves problemas no pulmão, coração, rins ou fígado?
                                                     </div>
 
                                                     <div class="checkbox custom">
-                                                        <input id="resp8" value="1" class="css-checkbox" type="checkbox">
+                                                        <input id="resp8" name="resp8" value="1" texto="Você tem problema de coagulação de sangue" class="css-checkbox" type="checkbox">
                                                         <label for="resp8" class="css-label"></label>
                                                         Você tem problema de coagulação de sangue?
                                                     </div>
 
                                                     <div class="checkbox custom">
-                                                        <input id="resp9" value="1" class="css-checkbox" type="checkbox">
+                                                        <input id="resp9" name="resp9" value="1" texto="Você é diabético com complicações vasculares ou está em uso de insulina" class="css-checkbox" type="checkbox">
                                                         <label for="resp9" class="css-label"></label>
                                                         Você é diabético com complicações vasculares ou está em uso de insulina?
                                                     </div>
@@ -370,49 +370,49 @@
                                                 <div class="col-md-6">
 
                                                     <div class="checkbox custom">
-                                                        <input id="resp10" value="1" class="css-checkbox" type="checkbox">
+                                                        <input id="resp10" name="resp10" value="1" texto="Você teve tuberculose extra-pulmonar" class="css-checkbox" type="checkbox">
                                                         <label for="resp10" class="css-label"></label>
                                                         Você teve tuberculose extra-pulmonar?
                                                     </div>
 
                                                     <div class="checkbox custom">
-                                                        <input id="resp11" value="1" class="css-checkbox" type="checkbox">
+                                                        <input id="resp11" name="resp11" value="1" texto="Você já teve elefantíase" class="css-checkbox" type="checkbox">
                                                         <label for="resp11" class="css-label"></label>
                                                         Você já teve elefantíase?
                                                     </div>
 
                                                     <div class="checkbox custom">
-                                                        <input id="resp12" value="1" class="css-checkbox" type="checkbox">
+                                                        <input id="resp12" name="resp12" value="1" texto="Você já teve hanseníase" class="css-checkbox" type="checkbox">
                                                         <label for="resp12" class="css-label"></label>
                                                         Você já teve hanseníase?
                                                     </div>
 
                                                     <div class="checkbox custom">
-                                                        <input id="resp13" value="1" class="css-checkbox" type="checkbox">
+                                                        <input id="resp13" name="resp13" value="1" texto="Você já teve calazar (leishmaniose visceral)" class="css-checkbox" type="checkbox">
                                                         <label for="resp13" class="css-label"></label>
                                                         Você já teve calazar (leishmaniose visceral)?
                                                     </div>
 
                                                     <div class="checkbox custom">
-                                                        <input id="resp14" value="1" class="css-checkbox" type="checkbox">
+                                                        <input id="resp14" name="resp14" value="1" texto="Você já teve brucelose" class="css-checkbox" type="checkbox">
                                                         <label for="resp14" class="css-label"></label>
                                                         Você já teve brucelose?
                                                     </div>
 
                                                     <div class="checkbox custom">
-                                                        <input id="resp15" value="1" class="css-checkbox" type="checkbox">
+                                                        <input id="resp15" name="resp15" value="1" texto="Você já teve esquistossomose hepatoesplênica" class="css-checkbox" type="checkbox">
                                                         <label for="resp15" class="css-label"></label>
                                                         Você já teve esquistossomose hepatoesplênica?
                                                     </div>
 
                                                     <div class="checkbox custom">
-                                                        <input id="resp16" value="1" class="css-checkbox" type="checkbox">
+                                                        <input id="resp16" name="resp16" value="1" texto="Você tem alguma doença que gere inimputabilidade jurídica" class="css-checkbox" type="checkbox">
                                                         <label for="resp16" class="css-label"></label>
                                                         Você tem alguma doença que gere inimputabilidade jurídica?
                                                     </div>
 
                                                     <div class="checkbox custom">
-                                                        <input id="resp17" value="1" class="css-checkbox" type="checkbox">
+                                                        <input id="resp17" name="resp17" value="1" texto="Você já foi submetido a transplante de órgãos ou de medula" class="css-checkbox" type="checkbox">
                                                         <label for="resp17" class="css-label"></label>
                                                         Você já foi submetido a transplante de órgãos ou de medula?
                                                     </div>
@@ -509,6 +509,10 @@
                                                     </div>
                                                 </div>
                                             </div>
+                                        </div>
+                                        <div class="span3meio" id="v_questionario">
+                                            <h5><i class="fa fa-check-circle"></i> Questionário </h5>
+                                            <a><i class="fa fa-check"></i> Nenhum selecionado.<a>
                                         </div>
                                     </div>
                                 </div>

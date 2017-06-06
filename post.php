@@ -6,7 +6,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     require_once DB;
 
     // ENVIAR CONTATO
-    if($_GET['contato'] == 'enviar'){
+    if(@$_GET['contato'] == 'enviar'){
         $nome       = $_POST["nome"];
         $email      = $_POST["email"];
         $assunto    = $_POST["assunto"];
@@ -16,6 +16,10 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
           $sql->execute();
           $sql->close();
         }
+    }
+
+    if($_GET['fb'] == 'login'){
+        // require_once "fb-callback.php";
     }
 
 } else {

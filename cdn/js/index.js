@@ -1,5 +1,4 @@
 $(document).ready(function() {
-    $.fbInit();
     if($.cookie("acessibilidade") == "TRUE"){
         acessibilidade("SIM");
     }
@@ -86,7 +85,6 @@ function box_faq(a){
 function contato() {
     $.post('/enviarcontato', {nome: $("#nome").val(), email: $("#email").val(), assunto: $("#assunto").val()}, function (rs) {
         
-        alert(rs);
         toastr.options = {
                 "closeButton": true,
                 "debug": false,
