@@ -148,7 +148,7 @@
 
                                                 <div class="col-md-2">
                                                     <div class="form-group">
-                                                        <label>CPF</label>
+                                                        <label>CPF</label> <i id="ver_pf_cpf" class=""></i>
                                                         <input type="text" id="pf_CPF" name="pf_CPF" class="form-control">
                                                     </div>
                                                 </div>
@@ -512,7 +512,7 @@
                                         </div>
                                         <div class="span3meio" id="v_questionario">
                                             <h5><i class="fa fa-check-circle"></i> Questionário </h5>
-                                            <a><i class="fa fa-check"></i> Nenhum selecionado.<a>
+                                            <a><i class="fa fa-check"></i> Nada selecionado.<a>
                                         </div>
                                     </div>
                                 </div>
@@ -542,8 +542,8 @@
     <script src="<?php echo BASECDN; ?>js/creative.js"></script>
     <script src="<?php echo BASECDN; ?>js/fbInit.js"></script>
     <script src="<?php echo BASECDN; ?>js/index.js"></script>
-    <script src="<?php echo BASECDN; ?>js/cadastro.js"></script>
-    
+    <script src="<?php echo BASECDN; ?>js/valida_cpf_cnpj.js"></script>
+    <script src="<?php echo BASECDN; ?>js/cadastro.js"></script>    
 
     
 </html>

@@ -125,12 +125,17 @@ $("#bpainel4").on("click", function () {
     $("#v_pf_peso").text($("#pf_peso").val());
     $("#v_pf_email").text($("#pf_email").val());
 
+    nada = false;
     $("#v_questionario").html('<h5><i class="fa fa-check-circle"></i> Questionário </h5>');
     for (var i = 1; i <= 17; i++){
         if($('#resp' + i).prop("checked")){
             $("#v_questionario").html($("#v_questionario").html() + '<a><i class="fa fa-check"></i> ' + $('#resp' + i).attr("texto") + '</a>');
             $("#v_questionario").html($("#v_questionario").html() + '<br />');
         }
+        nada = nada || $('#resp' + i).prop("checked");
+    }
+    if(!nada){
+        $("#v_questionario").html($("#v_questionario").html() + '<a><i class="fa fa-check"></i> Nenhuma opção foi marcada.</a>');
     }
 });
 
@@ -152,3 +157,41 @@ $("#pf_estado").on("change", function () {
     });
 });
 
+// Testando a validação usando jQuery
+$(function(){
+    // ## EXEMPLO 1
+    // Aciona a validação a cada tecla pressionada
+    var temporizador = false;
+    $('#pf_CPF').keypress(function(){
+    
+        // O input que estamos utilizando
+        var input = $(this);
+        var icon = $("#ver_pf_cpf");
+        
+        // Limpa o timeout antigo
+        if ( temporizador ) {
+            clearTimeout( temporizador );
+        }
+        
+        // Cria um timeout novo de 500ms
+        temporizador = setTimeout(function(){
+            // Remove as classes de válido e inválido
+            icon.removeClass('fa fa-check icon-green');
+            icon.removeClass('fa fa-times icon-red');
+        
+            // O CPF ou CNPJ
+            var cpf_cnpj = input.val();
+            
+            // Valida
+            var valida = valida_cpf_cnpj( cpf_cnpj );
+            
+            // Testa a validação
+            if ( valida ) {
+                icon.addClass('fa fa-check icon-green');
+            } else {
+                icon.addClass('fa fa-times icon-red');
+            }
+        }, 500);
+    
+    });
+});
