@@ -25,6 +25,7 @@
         <![endif]-->
     </head>
     <body>
+        <div id="fb-root"></div>
         <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
             <div class="container-fluid">
                 <!-- "Brand" e "toggle" são para uma melhor exibição para dispositivos móveis -->
@@ -125,8 +126,7 @@
                                                     <h4><i class="fa fa-user"></i>&nbsp;&nbsp; Informe seus dados</h4>
                                                 </div>
                                                 <div class="col-md-3">
-                                                    <div class="socials">
-                                                        <a class="facebook">Vincular <span class="fa fa-facebook"></span>acebook</a>
+                                                    <div class="fb-login-button" scope="public_profile,email" onlogin="checkLoginState();" data-max-rows="1" data-size="large" data-button-type="login_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="true">
                                                     </div>
                                                 </div>
                                             </div>
@@ -442,7 +442,7 @@
                                                 </div>
                                                 <div class="col-md-4">
                                                     <div class="form-group">
-                                                        <label>CPF</label>
+                                                        <label>CPF</label> <i id="v_ver_pf_cpf" class=""></i>
                                                         <p id="v_pf_cpf" class="form-control">115.794.086-21</p>
                                                     </div>
                                                 </div>

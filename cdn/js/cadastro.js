@@ -4,6 +4,42 @@
     $("#pf_telefone_celular").mask("(99) 99999-9999");
 });
 
+$(function(){
+    var temporizador = false;
+    $('#pf_CPF').keypress(function(){
+    
+        var input = $(this);
+        var icon = $("#ver_pf_cpf");
+        var vicon = $("#v_ver_pf_cpf");
+        
+        if (temporizador) {
+            clearTimeout(temporizador);
+        }
+        
+        temporizador = setTimeout(function(){
+
+            icon.removeClass('fa fa-check icon-green');
+            icon.removeClass('fa fa-times icon-red');
+            vicon.removeClass('fa fa-check icon-green');
+            vicon.removeClass('fa fa-times icon-red');
+
+            var cpf_cnpj = input.val();
+            
+            var valida = valida_cpf_cnpj( cpf_cnpj );
+            
+            
+            if (valida) {
+                icon.addClass('fa fa-check icon-green');
+                vicon.addClass('fa fa-check icon-green');
+            } else {
+                icon.addClass('fa fa-times icon-red');
+                vicon.addClass('fa fa-times icon-red');
+            }
+        }, 200);
+    
+    });
+});
+
 $(function () {
     $("a[href^='#cad']").click(function (evt) {
         evt.preventDefault();
@@ -154,44 +190,5 @@ $("#pf_estado").on("change", function () {
                 $('#pf_cidade').trigger("chosen:updated");
             });
         }
-    });
-});
-
-// Testando a validação usando jQuery
-$(function(){
-    // ## EXEMPLO 1
-    // Aciona a validação a cada tecla pressionada
-    var temporizador = false;
-    $('#pf_CPF').keypress(function(){
-    
-        // O input que estamos utilizando
-        var input = $(this);
-        var icon = $("#ver_pf_cpf");
-        
-        // Limpa o timeout antigo
-        if ( temporizador ) {
-            clearTimeout( temporizador );
-        }
-        
-        // Cria um timeout novo de 500ms
-        temporizador = setTimeout(function(){
-            // Remove as classes de válido e inválido
-            icon.removeClass('fa fa-check icon-green');
-            icon.removeClass('fa fa-times icon-red');
-        
-            // O CPF ou CNPJ
-            var cpf_cnpj = input.val();
-            
-            // Valida
-            var valida = valida_cpf_cnpj( cpf_cnpj );
-            
-            // Testa a validação
-            if ( valida ) {
-                icon.addClass('fa fa-check icon-green');
-            } else {
-                icon.addClass('fa fa-times icon-red');
-            }
-        }, 500);
-    
     });
 });
