@@ -34,6 +34,7 @@
 </head>
 
 <body>
+    <div id="fb-root"></div>
     <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
         <div class="container-fluid">
             <!-- "Brand" e "toggle" são para uma melhor exibição para dispositivos móveis -->

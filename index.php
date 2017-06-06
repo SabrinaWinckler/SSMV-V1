@@ -20,7 +20,7 @@
                                 <h2>Login</h2>
                                 <div class="login-top">
                                     <p>Entre com o facebook</p>
-                                    <div scope="public_profile,email" onlogin="loginfb();" class="fb-login-button" data-max-rows="1" data-size="medium" data-button-type="login_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="true"></div>
+                                    <div class="fb-login-button" scope="public_profile,email" onlogin="checkLoginState();" data-max-rows="1" data-size="medium" data-button-type="login_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="true"></div>
                                 </div>
 
                                 <div class="login-middle">

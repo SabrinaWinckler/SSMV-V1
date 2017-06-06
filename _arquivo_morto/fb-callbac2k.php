@@ -1,6 +1,8 @@
 <?php 
-
+session_start();
 require_once 'api/facebook/autoload.php';
+use Facebook\FacebookRequest;
+use Facebook\FacebookResponse;
 
 $fb = new \Facebook\Facebook([
   'app_id' => '213962312451886',

@@ -17,7 +17,6 @@
     <script src="<?php echo BASECDN; ?>js/index.js"></script>
     <script src="<?php echo BASECDN; ?>js/toastr.min.js"></script>
 
-
 </body>
 
 <!-- Modal -->
