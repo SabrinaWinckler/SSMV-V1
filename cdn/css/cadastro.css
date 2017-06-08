@@ -2128,6 +2128,10 @@ body{
    input[value=Proximo]{
     float: right;
    }
+
+    input#verificar_pf{
+    float: right;
+   }
    
    .icon-green {
        color: green;

@@ -16,6 +16,8 @@
         <link href='<?php echo BASECDN; ?>css/creative.css' rel='stylesheet' type='text/css'>
         <link href='<?php echo BASECDN; ?>css/cadastro.css' rel='stylesheet' type='text/css'>
         <link href='<?php echo BASECDN; ?>css/checkradio.css' rel='stylesheet' type='text/css'>
+        <link href='<?php echo BASECDN; ?>css/toastr.min.css' rel='stylesheet' type='text/css'>
+
 
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -71,6 +73,7 @@
 
         <form id="formcadastro">
             <input type="hidden" value="" id="pessoa_selecionada">
+            <input type="hidden" value="" id="idfacebook">
             <div class="container cadastro">
                 <div class="row-fluid" id="cad-1">
                     <div class="span10 offset1">
@@ -83,7 +86,6 @@
                                 <li class="" id="apainel5"><a href="#painel5" id="bpainel5" data-toggle="tab"><i class="fa fa-university"></i>&nbsp;<span>Informações gerais</span></a></li>
                                 <li class="" id="apainel6"><a href="#painel6" id="bpainel6" data-toggle="tab"><i class="fa fa-check-circle"></i>&nbsp;<span>Confira seus dados</span></a></li>
                             </ul>
-                            <form id="formcadastro">
                                 
                             <div class="tab-content">
 
@@ -125,7 +127,7 @@
                                                 <div class="col-md-9">
                                                     <h4><i class="fa fa-user"></i>&nbsp;&nbsp; Informe seus dados</h4>
                                                 </div>
-                                                <div class="col-md-3">
+                                                <div>
                                                     <div class="fb-login-button" scope="public_profile,email" onlogin="checkLoginState();" data-max-rows="1" data-size="large" data-button-type="login_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="true">
                                                     </div>
                                                 </div>
@@ -134,36 +136,36 @@
                                             <div class="row">
                                                 <div class="col-md-2">
                                                     <div class="form-group">
-                                                        <label>Nome</label>
-                                                        <input type="text" id="pf_nome" name="pf_nome" class="form-control">
+                                                        <label>Nome*</label>
+                                                        <input type="text" id="pf_nome" name="pf_nome" class="form-control" required="required">
                                                     </div>
                                                 </div>
 
                                                 <div class="col-md-5">
                                                     <div class="form-group">
-                                                        <label>Sobrenome</label>
-                                                        <input type="text" id="pf_sobrenome" name="pf_sobrenome" class="form-control">
+                                                        <label>Sobrenome*</label>
+                                                        <input type="text" id="pf_sobrenome" name="pf_sobrenome" class="form-control" required="required">
                                                     </div>
                                                 </div>
 
                                                 <div class="col-md-2">
                                                     <div class="form-group">
-                                                        <label>CPF</label> <i id="ver_pf_cpf" class=""></i>
-                                                        <input type="text" id="pf_CPF" name="pf_CPF" class="form-control">
+                                                        <label>CPF*</label> <i id="ver_pf_cpf" class=""></i>
+                                                        <input type="text" id="pf_CPF" name="pf_CPF" class="form-control" required="required">
                                                     </div>
                                                 </div>
 
                                                 <div class="col-md-3">
                                                     <div class="form-group">
-                                                        <label>Data de nascimento</label>
-                                                        <input type="date" id="pf_nascimento" name="pf_nascimento" class="form-control">
+                                                        <label>Data de nascimento*</label>
+                                                        <input type="date" id="pf_nascimento" name="pf_nascimento" class="form-control" required="required">
                                                     </div>
                                                 </div>
                                             </div>
 
                                             <div class="row">
                                                 <div class="col-md-6 centro">
-                                                    <label>Gênero</label>
+                                                    <label>Gênero*</label>
                                                     <div class="form-group">
                                                         <input type="radio" id="pf_genero_feminino" name="pf_genero" value="F">
                                                         <label for="pf_genero_feminino">Feminino</label>
@@ -176,8 +178,8 @@
 
                                                 <div class="col-md-3">
                                                     <div class="form-group">
-                                                        <label>Estado</label>
-                                                        <select id="pf_estado" name="pf_estado" class="form-control">
+                                                        <label>Estado*</label>
+                                                        <select id="pf_estado" name="pf_estado" class="form-control" required="required">
                                                             <?php 
                                                             
                                                             require_once DB;
@@ -198,8 +200,8 @@
 
                                                  <div class="col-md-3">
                                                     <div class="form-group">
-                                                        <label>Cidade</label>
-                                                        <select id="pf_cidade" name="pf_cidade" class="form-control">
+                                                        <label>Cidade*</label>
+                                                        <select id="pf_cidade" name="pf_cidade" class="form-control" required="required">
                                                             <option value="Acrelândia">Acrelândia</option>
                                                             <option value="Assis Brasil">Assis Brasil</option>
                                                             <option value="Brasiléia">Brasiléia</option>
@@ -238,16 +240,16 @@
 
                                                 <div class="col-md-2">
                                                     <div class="form-group">
-                                                        <label>Telefone celular</label>
-                                                        <input type="text" id="pf_telefone_celular" name="pf_telefone_celular" class="form-control">
+                                                        <label>Telefone celular*</label>
+                                                        <input type="text" id="pf_telefone_celular" name="pf_telefone_celular" class="form-control" required="required">
                                                     </div>
                                                 </div>
 
                                                 <div class="col-md-2">
                                                     <div class="form-group">
-                                                        <label>Tipo sanguíneo</label>
-                                                        <select id="pf_tipo_sangue" name="pf_tipo_sangue" class="form-control">
-                                                            <option value="n">Não sei</option>
+                                                        <label>Tipo sanguíneo*</label>
+                                                        <select id="pf_tipo_sangue" name="pf_tipo_sangue" class="form-control" required="required">
+                                                            <option value="N">Não sei</option>
                                                             <?php 
 
                                                             if ($sql = $con->prepare("SELECT `idtipoSangue`, `tipo` FROM  `ssmv`.`tipoSangue`;")) {
@@ -266,15 +268,15 @@
 
                                                 <div class="col-md-2">
                                                     <div class="form-group">
-                                                        <label>Peso (kg)</label>
-                                                        <input type="number" id="pf_peso" name="pf_peso" placeholder="50.0" class="form-control">
+                                                        <label>Peso (kg)*</label>
+                                                        <input type="number" id="pf_peso" name="pf_peso" placeholder="50.0" class="form-control" required="required">
                                                     </div>
                                                 </div>
 
                                                 <div class="col-md-4">
                                                     <div class="form-group">
-                                                        <label>E-mail</label>
-                                                        <input type="text" id="pf_email" name="pf_email" class="form-control">
+                                                        <label>E-mail*</label>
+                                                        <input type="text" id="pf_email" name="pf_email" class="form-control" required="required">
                                                     </div>
                                                 </div>
                                             </div>
@@ -283,14 +285,16 @@
                                                 <div class="col-md-3"></div>
                                                 <div class="col-md-3">
                                                     <div class="form-group">
-                                                        <label>Digite sua senha</label>
-                                                        <input type="password" id="pf_senha" name="pf_senha" class="form-control">
+                                                        <label>Digite sua senha*</label>
+                                                        <input type="password" id="pf_senha" name="pf_senha" class="form-control" required="required">
                                                     </div>
                                                 </div>
+                                                    
+
                                                 <div class="col-md-3">
                                                     <div class="form-group">
-                                                        <label>Repita sua senha</label>
-                                                        <input type="password" id="pf_repita_senha" name="pf_repita_senha" class="form-control">
+                                                        <label id="pf_senha_errada">Repita sua senha*</label>
+                                                        <input type="password" id="pf_repita_senha" name="pf_repita_senha" class="form-control" required="required">
                                                     </div>
                                                 </div>
 
@@ -515,6 +519,10 @@
                                             <a><i class="fa fa-check"></i> Nada selecionado.<a>
                                         </div>
                                     </div>
+                                    <div class="row">
+                                        <input type="button" id="eapainel4" value="Anterior">
+                                        <input type="button" id="verificar_pf" value="Cadastre-se">
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -522,9 +530,8 @@
                 </div>
             </div>
         </form>
-    </body>
 
-       <!-- jQuery -->
+    <!-- jQuery -->
     <script src="<?php echo BASECDN; ?>jquery/jquery.min.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
@@ -536,6 +543,7 @@
     <script src="<?php echo BASECDN; ?>magnific-popup/jquery.magnific-popup.min.js"></script>
     <script src="<?php echo BASECDN; ?>jquery/jquery.cookie.js"></script>
     <script src="<?php echo BASECDN; ?>js/jquery.maskedinput.min.js"></script>
+    <script src="<?php echo BASECDN; ?>js/toastr.min.js"></script>
 
     <!-- Plugins personalizados -->
     <script src="<?php echo BASECDN; ?>js/acessibilidade.js"></script>
@@ -544,6 +552,5 @@
     <script src="<?php echo BASECDN; ?>js/index.js"></script>
     <script src="<?php echo BASECDN; ?>js/valida_cpf_cnpj.js"></script>
     <script src="<?php echo BASECDN; ?>js/cadastro.js"></script>    
-
-    
+    </body>
 </html>

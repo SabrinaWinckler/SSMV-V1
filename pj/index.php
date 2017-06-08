@@ -1,7 +1,7 @@
 <?php 
 
 $titulo = "Principal :: Pessoa juridica :: Seu sangue, minha vida";
-require_once("inc/header.php"); 
+require_once "inc/header.php"; 
 
 ?>
 

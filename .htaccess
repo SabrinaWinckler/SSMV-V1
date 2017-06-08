@@ -19,3 +19,5 @@ RewriteRule ^estado/(.*)$ api/json/estados-cidades.json
 
 RewriteRule ^facebook(.*)$ api/Facebook/
 RewriteRule ^loginfb(.*)$ post.php?fb=login
+
+RewriteRule ^confirmarcadastropf(.*)$ post.php?cadastro=pf

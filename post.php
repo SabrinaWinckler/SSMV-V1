@@ -18,8 +18,22 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         }
     }
 
-    if($_GET['fb'] == 'login'){
-        // require_once "fb-callback.php";
+    if(@$_GET['cadastro'] == 'pf'){
+        print_r($_POST);
+        $nome               = $_POST["nome"];
+        $sobrenome          = $_POST["sobrenome"];
+        $cpf                = $_POST["cpf"];
+        $nascimento         = $_POST["nascimento"];
+        $genero             = $_POST["genero"];
+        $estado             = $_POST["estado"];
+        $cidade             = $_POST["cidade"];
+        $telefonefixo       = $_POST["telefonefixo"];
+        $telefonecelular    = $_POST["telefonecelular"];
+        $tiposangue         = $_POST["tiposangue"];
+        $peso               = $_POST["peso"];
+        $email              = $_POST["email"];
+        $senha              = $_POST["senha"];
+
     }
 
 } else {
