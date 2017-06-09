@@ -1,4 +1,4 @@
-<!DOCTYPE html><?php require_once("../config.class.php"); ?>
+<!DOCTYPE html>
 <html lang="pt-br">
 
 <head>
@@ -6,10 +6,10 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="description" content="<?php echo $config->descricao(); ?>">
+    <meta name="author" content="<?php echo $config->autor(); ?>">
 
-    <title><?php echo $titulo; ?></title>
+    <title><?php echo $pagina. " :: " . $tipo; ?> :: Seu sangue, minha vida</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="<?php echo BASECDN; ?>bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -44,7 +44,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand logo" href="<?php echo BASEURL; ?>pj"></a>
+                <a class="navbar-brand logo" href="<?php echo BASEPAINEL; ?>"></a>
             </div>
             <!-- /.navbar-header -->
 
@@ -105,10 +105,10 @@
                         <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-user">
-                        <li><a href="#"><i class="fa fa-user fa-fw"></i> Perfil</a>
+                        <li><a href="<?php echo BASEPAINEL."perfil" ?>"><i class="fa fa-user fa-fw"></i> Perfil</a>
                         </li>
                         <li class="divider"></li>
-                        <li><a href="#sair"><i class="fa fa-sign-out fa-fw"></i> Sair</a>
+                        <li><a href="<?php echo BASEPAINEL."logout" ?>"><i class="fa fa-sign-out fa-fw"></i> Sair</a>
                         </li>
                     </ul>
                     <!-- /.dropdown-user -->
@@ -121,13 +121,10 @@
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
                         <li>
-                            <a href="<?php echo BASEURL."pj/perfil" ?>"><i class="fa fa-dashboard fa-fw"></i> Perfil</a>
+                            <a href="<?php echo BASEPAINEL."requisicao" ?>"><i class="fa fa-heart fa-fw"></i> Requisição</a>
                         </li>
                         <li>
-                            <a href="<?php echo BASEURL."pj/requisicao" ?>"><i class="fa fa-heart fa-fw"></i> Requisição</a>
-                        </li>
-                        <li>
-                            <a href="<?php echo BASEURL."pj/cronograma" ?>"><i class="fa fa-calendar fa-fw"></i> Cronograma</a>
+                            <a href="<?php echo BASEPAINEL."cronograma" ?>"><i class="fa fa-calendar fa-fw"></i> Cronograma</a>
                         </li>
                     </ul>
                 </div>

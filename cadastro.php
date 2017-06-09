@@ -282,7 +282,15 @@
                                             </div>
 
                                             <div class="row">
+                                                <div class="col-md-3">
+                                                    <div class="form-group">
+                                                        <label>Ultima doação</label>
+                                                        <input type="date" id="pf_ultimaDoacao" name="pf_ultimaDoacao" class="form-control">
+                                                    </div>
+                                                </div>
+
                                                 <div class="col-md-3"></div>
+
                                                 <div class="col-md-3">
                                                     <div class="form-group">
                                                         <label>Digite sua senha*</label>
@@ -297,8 +305,6 @@
                                                         <input type="password" id="pf_repita_senha" name="pf_repita_senha" class="form-control" required="required">
                                                     </div>
                                                 </div>
-
-                                                <div class="col-md-3"></div>
                                             </div>
                                             
                                             <div class="row">
@@ -506,7 +512,13 @@
                                                         <p id="v_pf_peso" class="form-control">46.2kg</p>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-8">
+                                                <div class="col-md-3">
+                                                    <div class="form-group">
+                                                        <label>Ultima doação</label>
+                                                        <p id="v_pf_ultima_doacao" class="form-control">Em Março</p>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-5">
                                                     <div class="form-group">
                                                         <label>E-mail</label>
                                                         <p id="v_pf_email" class="form-control">gustavosatheler@gmail.com</p>

@@ -1,7 +1,11 @@
 <?php 
 
-$titulo = "Cronograma :: Pessoa juridica :: Seu sangue, minha vida";
-require_once("inc/header.php"); 
+require_once("../config.class.php");
+
+$pagina = "Cronograma";
+$tipo   = "Pessoa juridica";
+
+require_once "inc/header.php"; 
 
 ?>
 

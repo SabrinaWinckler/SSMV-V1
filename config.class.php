@@ -3,27 +3,32 @@
 /**
  * CLASSE DE CONFIGURAÇÃO
  */
-class config
+class Config
 {
-    private $absPath    = '/';
-    private $baseUrl    = '/';
-    private $baseCdn    = "/cdn/";
+    private $absPath        = '/';
+    private $baseUrl        = '/';
+    private $baseCdn        = "/cdn/";
+    private $basePainel     = "/painel/";
 
-    private $db         = "class/database.class.php";
+    private $db             = "class/database.class.php";
 
-    private $header     = "inc/header.php";
-    private $footer     = "inc/footer.php";
+    private $header         = "inc/header.php";
+    private $footer         = "inc/footer.php";
+
+    private $autor;
+    private $descricao;
     
     public function __construct()
     {
         $this->absPath();
         $this->baseUrl();
         $this->baseCdn();
+        $this->basePainel();
 
         $this->db();
 
-        $this->header();
-        $this->footer();
+        // $this->header();
+        // $this->footer();
     }
 
     /** Caminho absoluto para a pasta do sistema **/
@@ -50,21 +55,35 @@ class config
     /** Caminho do arquivo de banco de dados **/
     private function db(){
         if(!defined('DB')){
-            define('DB', ABSPATH . $this->db);
+            define('DB', $this->db);
         }
     }
 
-    /** Caminho do template do header **/
-    private function header(){
-        define('HEADER', ABSPATH . $this->header);
+    // /** Caminho do template do header **/
+    // private function header(){
+    //     define('HEADER', ABSPATH . $this->header);
+    // }
+
+    // /** Caminho do template do footer **/
+    // private function footer(){
+    //     define('FOOTER', ABSPATH . $this->footer);
+    // }
+
+    private function basePainel(){
+        if(!defined('BASEPAINEL')){
+            define('BASEPAINEL', $this->basePainel);
+        }
     }
 
-    /** Caminho do template do footer **/
-    private function footer(){
-        define('FOOTER', ABSPATH . $this->footer);
+    public function autor(){
+        return "RP1 - Grupo 2 - Engenharia de Software - UNIPAMPA";
+    }
+
+    public function descricao(){
+        return "Unindo tecnologia e solidariedade para melhorar vidas!";
     }
 }
 
-new config;
+$config = new Config;
 
 ?>

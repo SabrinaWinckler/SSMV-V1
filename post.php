@@ -19,21 +19,69 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     }
 
     if(@$_GET['cadastro'] == 'pf'){
-        print_r($_POST);
+        //print_r($_POST);
+        $tipo               = $_GET["cadastro"];
         $nome               = $_POST["nome"];
         $sobrenome          = $_POST["sobrenome"];
-        $cpf                = $_POST["cpf"];
+        $cpf                = preg_replace("/[^0-9]/", "", $_POST["cpf"]);
         $nascimento         = $_POST["nascimento"];
         $genero             = $_POST["genero"];
         $estado             = $_POST["estado"];
-        $cidade             = $_POST["cidade"];
-        $telefonefixo       = $_POST["telefonefixo"];
-        $telefonecelular    = $_POST["telefonecelular"];
+        $municipio          = $_POST["cidade"];
+        $telefonefixo       = preg_replace("/[^0-9]/", "", $_POST["telefonefixo"]);
+        $telefonecelular    = preg_replace("/[^0-9]/", "", $_POST["telefonecelular"]);
         $tiposangue         = $_POST["tiposangue"];
         $peso               = $_POST["peso"];
         $email              = $_POST["email"];
-        $senha              = $_POST["senha"];
+        $senha              = sha1(md5($_POST["senha"]));
+        $resp1              = $_POST["resp1"];
+        $resp2              = $_POST["resp2"];
+        $resp3              = $_POST["resp3"];
+        $resp4              = $_POST["resp4"];
+        $resp5              = $_POST["resp5"];
+        $resp6              = $_POST["resp6"];
+        $resp7              = $_POST["resp7"];
+        $resp8              = $_POST["resp8"];
+        $resp9              = $_POST["resp9"];
+        $resp10             = $_POST["resp10"];
+        $resp11             = $_POST["resp11"];
+        $resp12             = $_POST["resp12"];
+        $resp13             = $_POST["resp13"];
+        $resp14             = $_POST["resp14"];
+        $resp15             = $_POST["resp15"];
+        $resp16             = $_POST["resp16"];
+        $resp17             = $_POST["resp17"];
+        $facebook           = $_POST["idfacebook"];
+        if(empty($facebook)){
+            $facebook = null;
+        }
+        $ultimaDoacao       = $_POST["ultimaDoacao"];
 
+         if ($sql = $con->prepare("INSERT INTO `ssmv`.`usuarios` (`email`, `senha`, `tipo`, `idfacebook`) VALUES (?, ?, ?, ?);")) {
+            $sql->bind_param('ssss', $email, $senha, $tipo, $facebook);
+            // $sql->bind_param('ssss', $email, $senha, $tipo, $facebook);
+            $sql->execute();
+
+            $idusuario = $con->insert_id;
+            
+            $sql->close();
+            echo $con->error;
+        }
+
+        if ($sql1 = $con->prepare("INSERT INTO `ssmv`.`pf` (`idusuario`, `nome`, `sobrenome`, `dataNascimento`, `cpf`, `genero`, `idestado`, `municipio`, `telefoneF`, `telefoneC`, `idtipoSangue`, `peso`, `ultimaDoacao`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);")){
+            $sql1->bind_param('isssisisiiids', $idusuario, $nome, $sobrenome, $nascimento, $cpf, $genero, $estado, $municipio, $telefonefixo, $telefonecelular, $tiposangue, $peso, $ultimaDoacao);
+            $sql1->execute();
+            $sql1->close();
+            echo $con->error;
+        
+        }
+        
+        if ($sql2 = $con->prepare("INSERT INTO `ssmv`.`questionario` (`idusuario`, `resp1`, `resp2`, `resp3`, `resp4`, `resp5`, `resp6`, `resp7`, `resp8`, `resp9`, `resp10`, `resp11`, `resp12`, `resp13`, `resp14`, `resp15`, `resp16`, `resp17`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);")) {
+            $sql2->bind_param('iiiiiiiiiiiiiiiiii', $idusuario, $resp1, $resp2, $resp3, $resp4, $resp5, $resp6, $resp7, $resp8, $resp9, $resp10, $resp11, $resp12, $resp13, $resp14, $resp15, $resp16, $resp17);
+            $sql2->execute();
+            $sql2->close();
+            echo $con->error;
+        }
     }
 
 } else {

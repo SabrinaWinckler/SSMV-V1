@@ -1,6 +1,9 @@
 <?php 
+require_once("../config.class.php");
 
-$titulo = "Principal :: Pessoa juridica :: Seu sangue, minha vida";
+$pagina = "Principal";
+$tipo   = "Pessoa juridica";
+
 require_once "inc/header.php"; 
 
 ?>

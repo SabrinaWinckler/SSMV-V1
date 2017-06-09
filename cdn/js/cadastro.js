@@ -179,7 +179,10 @@ $("#eapainel4").on("click", function () {
 $("#bpainel4").on("click", function () {
     $("#v_pf_nome_sobrenome").text($("#pf_nome").val() + " " + $("#pf_sobrenome").val());
     $("#v_pf_cpf").text($("#pf_CPF").val());
-    $("#v_pf_nascimento").text($("#pf_nascimento").val());
+
+    v_pf_nascimento = parseInt($("#pf_nascimento").val().match(/\d/g).join(''));
+    v_pf_nascimento = v_pf_nascimento.toString().substr(6,2) + "/" + v_pf_nascimento.toString().substr(4,2) + "/" + v_pf_nascimento.toString().substr(0,4);
+    $("#v_pf_nascimento").text(v_pf_nascimento);
 
     if ($("[name=pf_genero]:checked").val() == 'M') {
         var genero = "Masculino";
@@ -197,6 +200,10 @@ $("#bpainel4").on("click", function () {
     $("#v_pf_tipo_sangue").text($('#pf_tipo_sangue').find(":selected").text());
     $("#v_pf_peso").text($("#pf_peso").val());
     $("#v_pf_email").text($("#pf_email").val());
+    v_pf_doacao = parseInt($("#pf_ultimaDoacao").val().match(/\d/g).join(''));
+    v_pf_doacao = v_pf_doacao.toString().substr(6,2) + "/" + v_pf_doacao.toString().substr(4,2) + "/" + v_pf_doacao.toString().substr(0,4);
+    $("#v_pf_ultima_doacao").text(v_pf_doacao);
+
 
     nada = false;
     $("#v_questionario").html('<h5><i class="fa fa-check-circle"></i> Questionário </h5>');
@@ -311,10 +318,15 @@ $("#verificar_pf").on("click", function () {
                                                                 resp14: $('#resp14').prop("checked"),
                                                                 resp15: $('#resp15').prop("checked"),
                                                                 resp16: $('#resp16').prop("checked"),
-                                                                resp17: $('#resp17').prop("checked")
+                                                                resp17: $('#resp17').prop("checked"),
+                                                                idfacebook: $("#idfacebook").val(),
+                                                                ultimaDoacao: $("#pf_ultimaDoacao").val()
                                                             },
                                                             function (rs) {
                                                                 console.log(rs);
+                                                                if($("#idfacebook").val().length > 0){
+                                                                    FB.api('/' + $("#idfacebook").val() + '/notifications?template= Olá @[' + $("#idfacebook").val() + '], O seu facebook foi vinculado com o site SSMV.&href=//localhost&ref=?asdasd&access_token=213962312451886|dM6ZBAut7W2a2DXu9sJJQbnC91A', 'post');
+                                                                }
                                                             }
                                                         );
                                                     } else {
@@ -377,3 +389,42 @@ $("#verificar_pf").on("click", function () {
     }
     //ATÉ AQUI
 });
+
+// FACEBOOK
+
+function checkLoginState() {
+  FB.getLoginStatus(function(response) {
+  if (response.status === 'connected') {
+    console.log(response);
+
+    FB.api('/me', {fields: 'first_name, last_name, email, gender, locale, picture'}, function(response) {
+        $("#idfacebook").val(response["id"]);
+        $("#pf_nome").val(response["first_name"]);
+        $("#pf_sobrenome").val(response["last_name"]);
+
+        if(response["gender"] == 'male'){
+            $("#pf_genero_masculino").prop({checked: true});
+        } else if (response["gender"] == 'female'){
+            $("#pf_genero_feminino").prop({checked: true});
+        } else {
+            $("#pf_genero_outro").prop({checked: true});
+        }
+
+        $("#pf_email").val(response["email"]);
+
+        // FB.api('/' + response["id"] + '/notifications?template= Olá @[' + response["id"] + '], O seu facebook foi vinculado com o site SSMV.&href=//localhost&ref=?asdasd&access_token=213962312451886|dM6ZBAut7W2a2DXu9sJJQbnC91A', 'post'); //TOTALMENTE FUNCIONAL
+        $(".fb-login-button").html('<div class="col-md-3"><div class="socials"><a class="facebook"><span class="fa fa-facebook"></span>acebook vinculado com sucesso!</a></div></div>');
+        $(".fb-login-button").removeClass("fb-login-button fb_iframe_widget");
+    });
+
+    var uid = response.authResponse.userID;
+    var accessToken = response.authResponse.accessToken;
+  } else if (response.status === 'not_authorized') {
+    console.log(response);
+
+  } else {
+    console.log(response);
+
+  }
+ });
+}
