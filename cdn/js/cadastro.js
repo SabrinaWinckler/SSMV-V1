@@ -1,7 +1,21 @@
-﻿$(function () {
+﻿$(document).ready(function () {
+    if (fbcon == true) {
+        $("[data-choose=pf]").click();
+        setTimeout(function () { checkLoginState(); }, 3000);
+    }
+});
+
+$(function () {
     $("#pf_CPF").mask("999.999.999-99");
     $("#pf_telefone_fixo").mask("(99) 9999-9999");
     $("#pf_telefone_celular").mask("(99) 99999-9999");
+
+    $("#pj_telefone_fixo").mask("(99) 9999-9999");
+    $("#pj_telefone_fixo2").mask("(99) 9999-9999");
+
+    $("#pj_CNPJ").mask("99.999.999/9999-99");
+    $("#pj_cep").mask("99.999-999");
+
 });
 
 $(function () {
@@ -23,10 +37,9 @@ $(function () {
             vicon.removeClass('fa fa-check icon-green');
             vicon.removeClass('fa fa-times icon-red');
 
-            var cpf_cnpj = input.val();
+            var cpf = input.val();
 
-            var valida = valida_cpf_cnpj(cpf_cnpj);
-
+            var valida = valida_cpf_cnpj(cpf);
 
             if (valida) {
                 icon.addClass('fa fa-check icon-green');
@@ -36,6 +49,40 @@ $(function () {
                 icon.addClass('fa fa-times icon-red');
                 vicon.addClass('fa fa-times icon-red');
                 validar_cpf = false;
+            }
+        }, 1);
+
+    });
+
+    $('#pj_CNPJ').keypress(function () {
+
+        var input = $(this);
+        var icon = $("#ver_pj_cnpj");
+        //var vicon = $("#v_ver_pj_cnpj");
+
+        if (temporizador) {
+            clearTimeout(temporizador);
+        }
+
+        temporizador = setTimeout(function () {
+
+            icon.removeClass('fa fa-check icon-green');
+            icon.removeClass('fa fa-times icon-red');
+            //vicon.removeClass('fa fa-check icon-green');
+            //vicon.removeClass('fa fa-times icon-red');
+
+            var cnpj = input.val();
+
+            var valida = valida_cpf_cnpj(cnpj);
+
+            if (valida) {
+                icon.addClass('fa fa-check icon-green');
+                //vicon.addClass('fa fa-check icon-green');
+                validar_cnpj = true;
+            } else {
+                icon.addClass('fa fa-times icon-red');
+                //vicon.addClass('fa fa-times icon-red');
+                validar_cnpj = false;
             }
         }, 1);
 
@@ -115,7 +162,7 @@ $(".selecionar-cadastro-img").on("click", function () {
         $("#bpainel3").css("display", "none");
         $("#bpainel4").css("display", "none");
         $("#bpainel5").css("display", "block");
-        $("#bpainel6").css("display", "block");
+        $("#bpainel6").css("display", "none");
 
         $("#apainel1").removeClass("active");
         $("#painel1").removeClass("active");
@@ -176,12 +223,16 @@ $("#eapainel4").on("click", function () {
     $("#bpainel3").click();
 });
 
+$("#eapainel5").on("click", function () {
+    $("#bpainel1").click();
+});
+
 $("#bpainel4").on("click", function () {
     $("#v_pf_nome_sobrenome").text($("#pf_nome").val() + " " + $("#pf_sobrenome").val());
     $("#v_pf_cpf").text($("#pf_CPF").val());
 
     v_pf_nascimento = parseInt($("#pf_nascimento").val().match(/\d/g).join(''));
-    v_pf_nascimento = v_pf_nascimento.toString().substr(6,2) + "/" + v_pf_nascimento.toString().substr(4,2) + "/" + v_pf_nascimento.toString().substr(0,4);
+    v_pf_nascimento = v_pf_nascimento.toString().substr(6, 2) + "/" + v_pf_nascimento.toString().substr(4, 2) + "/" + v_pf_nascimento.toString().substr(0, 4);
     $("#v_pf_nascimento").text(v_pf_nascimento);
 
     if ($("[name=pf_genero]:checked").val() == 'M') {
@@ -201,7 +252,7 @@ $("#bpainel4").on("click", function () {
     $("#v_pf_peso").text($("#pf_peso").val());
     $("#v_pf_email").text($("#pf_email").val());
     v_pf_doacao = parseInt($("#pf_ultimaDoacao").val().match(/\d/g).join(''));
-    v_pf_doacao = v_pf_doacao.toString().substr(6,2) + "/" + v_pf_doacao.toString().substr(4,2) + "/" + v_pf_doacao.toString().substr(0,4);
+    v_pf_doacao = v_pf_doacao.toString().substr(6, 2) + "/" + v_pf_doacao.toString().substr(4, 2) + "/" + v_pf_doacao.toString().substr(0, 4);
     $("#v_pf_ultima_doacao").text(v_pf_doacao);
 
 
@@ -251,6 +302,7 @@ $('#pf_email').keydown(function () {
         validar_email_pf = true;
     }
 });
+
 $('#pf_email').focus(function () {
     $("#pf_email").removeClass("icon-red");
 });
@@ -324,7 +376,7 @@ $("#verificar_pf").on("click", function () {
                                                             },
                                                             function (rs) {
                                                                 console.log(rs);
-                                                                if($("#idfacebook").val().length > 0){
+                                                                if ($("#idfacebook").val().length > 0) {
                                                                     FB.api('/' + $("#idfacebook").val() + '/notifications?template= Olá @[' + $("#idfacebook").val() + '], O seu facebook foi vinculado com o site SSMV.&href=//localhost&ref=?asdasd&access_token=213962312451886|dM6ZBAut7W2a2DXu9sJJQbnC91A', 'post');
                                                                 }
                                                             }
@@ -393,38 +445,206 @@ $("#verificar_pf").on("click", function () {
 // FACEBOOK
 
 function checkLoginState() {
-  FB.getLoginStatus(function(response) {
-  if (response.status === 'connected') {
-    console.log(response);
+    FB.getLoginStatus(function (response) {
+        if (response.status === 'connected') {
+            console.log(response);
 
-    FB.api('/me', {fields: 'first_name, last_name, email, gender, locale, picture'}, function(response) {
-        $("#idfacebook").val(response["id"]);
-        $("#pf_nome").val(response["first_name"]);
-        $("#pf_sobrenome").val(response["last_name"]);
+            FB.api('/me', { fields: 'first_name, last_name, email, gender, locale, picture' }, function (response) {
+                $("#idfacebook").val(response["id"]);
+                $("#pf_nome").val(response["first_name"]);
+                $("#pf_sobrenome").val(response["last_name"]);
 
-        if(response["gender"] == 'male'){
-            $("#pf_genero_masculino").prop({checked: true});
-        } else if (response["gender"] == 'female'){
-            $("#pf_genero_feminino").prop({checked: true});
+                if (response["gender"] == 'male') {
+                    $("#pf_genero_masculino").prop({ checked: true });
+                } else if (response["gender"] == 'female') {
+                    $("#pf_genero_feminino").prop({ checked: true });
+                } else {
+                    $("#pf_genero_outro").prop({ checked: true });
+                }
+
+                $("#pf_email").val(response["email"]);
+
+                // FB.api('/' + response["id"] + '/notifications?template= Olá @[' + response["id"] + '], O seu facebook foi vinculado com o site SSMV.&href=//localhost&ref=?asdasd&access_token=213962312451886|dM6ZBAut7W2a2DXu9sJJQbnC91A', 'post'); //TOTALMENTE FUNCIONAL
+                $(".fb-login-button").html('<div class="col-md-3"><div class="socials"><a class="facebook">Facebook vinculado com sucesso!</a></div><br /><br /></div>');
+                $(".fb-login-button").removeClass("fb-login-button fb_iframe_widget");
+            });
+
+            var uid = response.authResponse.userID;
+            var accessToken = response.authResponse.accessToken;
+        } else if (response.status === 'not_authorized') {
+            toastr.options = {
+                "closeButton": true,
+                "debug": false,
+                "newestOnTop": false,
+                "progressBar": true,
+                "positionClass": "toast-top-right",
+                "preventDuplicates": true,
+                "onclick": null,
+                "showDuration": "300",
+                "hideDuration": "1000",
+                "timeOut": "5000",
+                "extendedTimeOut": "1000",
+                "showEasing": "swing",
+                "hideEasing": "linear",
+                "showMethod": "fadeIn",
+                "hideMethod": "fadeOut"
+            };
+
+            toastr["error"]("Não autorizado", "Ops...");
+
         } else {
-            $("#pf_genero_outro").prop({checked: true});
+            toastr.options = {
+                "closeButton": true,
+                "debug": false,
+                "newestOnTop": false,
+                "progressBar": true,
+                "positionClass": "toast-top-right",
+                "preventDuplicates": true,
+                "onclick": null,
+                "showDuration": "300",
+                "hideDuration": "1000",
+                "timeOut": "5000",
+                "extendedTimeOut": "1000",
+                "showEasing": "swing",
+                "hideEasing": "linear",
+                "showMethod": "fadeIn",
+                "hideMethod": "fadeOut"
+            };
+
+            toastr["error"]("Erro desconhecido.", "Error...");
         }
-
-        $("#pf_email").val(response["email"]);
-
-        // FB.api('/' + response["id"] + '/notifications?template= Olá @[' + response["id"] + '], O seu facebook foi vinculado com o site SSMV.&href=//localhost&ref=?asdasd&access_token=213962312451886|dM6ZBAut7W2a2DXu9sJJQbnC91A', 'post'); //TOTALMENTE FUNCIONAL
-        $(".fb-login-button").html('<div class="col-md-3"><div class="socials"><a class="facebook"><span class="fa fa-facebook"></span>acebook vinculado com sucesso!</a></div></div>');
-        $(".fb-login-button").removeClass("fb-login-button fb_iframe_widget");
     });
-
-    var uid = response.authResponse.userID;
-    var accessToken = response.authResponse.accessToken;
-  } else if (response.status === 'not_authorized') {
-    console.log(response);
-
-  } else {
-    console.log(response);
-
-  }
- });
 }
+
+$("#pj_estado").on("change", function () {
+    var idestado = $("#pj_estado").val() - 1;
+    $.getJSON('/estado/', {}, function (data) {
+        $('#pj_cidade option').remove();
+        if (data != 'null') {
+            $.each(data.estados[idestado].cidades, function (k, v) {
+                $('<option/>').val(data.estados[idestado].cidades[k]).text(data.estados[idestado].cidades[k]).appendTo($('#pj_cidade'));
+                $('#pj_cidade').trigger("chosen:updated");
+            });
+        }
+    });
+});
+
+$("#pj_cep").keyup(function () {
+    v_cep = parseInt($("#pj_cep").val().match(/\d/g).join(''));
+    if (v_cep.toString().length == 8) {
+        $.getJSON("//viacep.com.br/ws/" + v_cep + "/json/?callback=?", function (dados) {
+            if (!("erro" in dados)) {
+                console.log(dados);
+                //Atualiza os campos com os valores da consulta.
+                $("#pj_logradouro").val(dados.logradouro);
+                $("#pj_bairro").val(dados.bairro);
+                $("#pj_estado").val($("#pj_estado [sigla=" + dados.uf + "]").val());
+                var idestado = $("#pj_estado").val() - 1;
+                $.getJSON('/estado/', {}, function (data) {
+                    $('#pj_cidade option').remove();
+                    if (data != 'null') {
+                        $.each(data.estados[idestado].cidades, function (k, v) {
+                            $('<option/>').val(data.estados[idestado].cidades[k]).text(data.estados[idestado].cidades[k]).appendTo($('#pj_cidade'));
+                            $('#pj_cidade').trigger("chosen:updated");
+                        });
+                    }
+                });
+                setTimeout(function () { $("#pj_cidade").val(dados.localidade); }, 500);
+                $("#pj_logradouro_numero").focus();
+
+                // $("#ibge").val(dados.ibge);
+            } else {
+                //CEP pesquisado não foi encontrado.
+                $("#pj_cep").val('');
+                $("#pj_cep").focus();
+                toastr.options = {
+                    "closeButton": true,
+                    "debug": false,
+                    "newestOnTop": false,
+                    "progressBar": true,
+                    "positionClass": "toast-top-right",
+                    "preventDuplicates": true,
+                    "onclick": null,
+                    "showDuration": "300",
+                    "hideDuration": "1000",
+                    "timeOut": "5000",
+                    "extendedTimeOut": "1000",
+                    "showEasing": "swing",
+                    "hideEasing": "linear",
+                    "showMethod": "fadeIn",
+                    "hideMethod": "fadeOut"
+                };
+
+                toastr["error"]("CEP não encontrado.", "Error...");
+            }
+        });
+    }
+});
+
+$("#pj_repita_senha").keyup(function () {
+    if ($("#pj_repita_senha").val() != $("#pj_senha").val()) {
+        $("#pj_senha_errada").addClass("icon-red");
+        validar_senha_pj = false;
+    }
+
+    if (!($("#pj_repita_senha").val() != $("#pj_senha").val())) {
+        $("#pj_senha_errada").removeClass("icon-red");
+        validar_senha_pj = true;
+    }
+});
+
+$('#pj_email').keydown(function () {
+    $("form").submit(function () { return false; });
+    //atribuindo o valor do campo
+    var sEmail = $("#pj_email").val();
+    // filtros
+    var emailFilter = /^.+@.+\..{2,}$/;
+    var illegalChars = /[\(\)\<\>\,\;\:\\\/\"\[\]]/
+    // condição
+    if (!(emailFilter.test(sEmail)) || sEmail.match(illegalChars)) {
+        $("#pj_email").addClass("icon-red");
+        validar_email_pj = false;
+
+    } else {
+        $("#pj_email").removeClass("icon-red");
+        validar_email_pj = true;
+    }
+});
+
+$('#pj_email').focus(function () {
+    $("#pj_email").removeClass("icon-red");
+});
+
+validar_senha_pj = false;
+validar_email_pj = false;
+validar_cnpj = false;
+
+$("#eppainel5").on("click", function () {
+    if (validar_senha_pj && validar_email_pj && validar_cnpj) {
+        $("#bpainel6").css("display", "block");
+        $("#bpainel6").click();
+    } else {
+
+        toastr.options = {
+            "closeButton": true,
+            "debug": false,
+            "newestOnTop": false,
+            "progressBar": true,
+            "positionClass": "toast-top-right",
+            "preventDuplicates": true,
+            "onclick": null,
+            "showDuration": "300",
+            "hideDuration": "1000",
+            "timeOut": "5000",
+            "extendedTimeOut": "1000",
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+        };
+
+        toastr["warning"]("Preencha as informações necessárias.", "Ops...");
+
+        return false;
+    }
+});

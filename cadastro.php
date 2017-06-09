@@ -95,25 +95,21 @@
                                         <h4><i class="fa fa-id-card"></i>&nbsp;&nbsp; Selecione</h4>
                                         <div class="row">
                                             <div class="col-md-6">
-
-                                                    <div class="selecionar-cadastro">
-                                                        <div class="selecionar-cadastro-img pointer" data-choose="pf">
-                                                            <i class="fa fa-user-circle fa-5x icone-centralizado" aria-hidden="true"></i>
-                                                        </div>
-                                                        <p class="selecionar-cadastro-p">Pessoa fisica</p>
+                                                <div class="selecionar-cadastro">
+                                                    <div class="selecionar-cadastro-img pointer" data-choose="pf">
+                                                        <i class="fa fa-user-circle fa-5x icone-centralizado" aria-hidden="true"></i>
                                                     </div>
-
+                                                    <p class="selecionar-cadastro-p">Pessoa fisica</p>
+                                                </div>
                                             </div>
 
                                             <div class="col-md-6">
- 
-                                                    <div class="selecionar-cadastro">
-                                                        <div class="selecionar-cadastro-img pointer" data-choose="pj">
-                                                            <i class="fa fa-university fa-5x icone-centralizado" aria-hidden="true"></i>
-                                                        </div>
-                                                        <p class="selecionar-cadastro-p">Pessoa juridica</p>
+                                                <div class="selecionar-cadastro">
+                                                    <div class="selecionar-cadastro-img pointer" data-choose="pj">
+                                                        <i class="fa fa-university fa-5x icone-centralizado" aria-hidden="true"></i>
                                                     </div>
-
+                                                    <p class="selecionar-cadastro-p">Pessoa juridica</p>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -438,7 +434,7 @@
                                 </div>
 
                                 <!-- PF:CONFIRA SEUS DADOS -->
-                                <div id="painel4" class="tab-pane">
+                                <div class="tab-pane" id="painel4">
                                     <div class="row-fluid">
                                         <h4><i class="fa fa-user"></i>&nbsp;&nbsp; Verifique os dados informados</h4>
                                         <div class="span8">
@@ -528,12 +524,190 @@
                                         </div>
                                         <div class="span3meio" id="v_questionario">
                                             <h5><i class="fa fa-check-circle"></i> Questionário </h5>
-                                            <a><i class="fa fa-check"></i> Nada selecionado.<a>
+                                            <a><i class="fa fa-check"></i> Nada selecionado.</a>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <input type="button" id="eapainel4" value="Anterior">
                                         <input type="button" id="verificar_pf" value="Cadastre-se">
+                                    </div>
+                                </div>
+                                
+                                <!-- PJ:DADOS PESSOAIS -->
+                                <div class="tab-pane" id="painel5">
+                                    <div class="row-fluid">
+                                        <div class="span12">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <h4><i class="fa fa-user"></i>&nbsp;&nbsp; Informações Gerais</h4>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label>Nome empresarial*</label>
+                                                        <input type="text" id="pj_nome" name="pj_nome" class="form-control" required="required">
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-5">
+                                                    <div class="form-group">
+                                                        <label>Nome fantasia*</label>
+                                                        <input type="text" id="pj_sobrenome" name="pj_sobrenome" class="form-control" required="required">
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-3">
+                                                    <div class="form-group">
+                                                        <label>CNPJ*</label> <i id="ver_pj_cnpj" class=""></i>
+                                                        <input type="text" id="pj_CNPJ" name="pj_CNPJ" class="form-control" required="required">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-md-2">
+                                                    <div class="form-group">
+                                                        <label>CEP*</label>
+                                                        <input type="text" id="pj_cep" name="pj_cep" class="form-control">
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-3">
+                                                    <div class="form-group">
+                                                        <label>Estado*</label>
+                                                        <select id="pj_estado" name="pj_estado" class="form-control" required="required">
+                                                            <?php 
+                
+                                                            require_once DB;
+
+                                                            if ($sql = $con->prepare("SELECT `idestado`, `nome`, `sigla` FROM  `ssmv`.`estados`;")) {
+                                                                $sql->execute();
+                                                                $sql->bind_result($idestado, $nome, $sigla);
+                                                                while ($sql->fetch()) {
+                                                                    echo "<option sigla=". $sigla ." value=" . $idestado . ">" . $nome . "</option>";
+                                                                }
+                                                                $sql->close();
+                                                            }
+                                                            
+                                                            ?>
+                                                        </select>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-3">
+                                                    <div class="form-group">
+                                                        <label>Cidade*</label>
+                                                        <select id="pj_cidade" name="pj_cidade" class="form-control" required="required">
+                                                            <option value="Acrelândia">Acrelândia</option>
+                                                            <option value="Assis Brasil">Assis Brasil</option>
+                                                            <option value="Brasiléia">Brasiléia</option>
+                                                            <option value="Bujari">Bujari</option>
+                                                            <option value="Capixaba">Capixaba</option>
+                                                            <option value="Cruzeiro do Sul">Cruzeiro do Sul</option>
+                                                            <option value="Epitaciolândia">Epitaciolândia</option>
+                                                            <option value="Feijó">Feijó</option>
+                                                            <option value="Jordão">Jordão</option>
+                                                            <option value="Mâncio Lima">Mâncio Lima</option>
+                                                            <option value="Manoel Urbano">Manoel Urbano</option>
+                                                            <option value="Marechal Thaumaturgo">Marechal Thaumaturgo</option>
+                                                            <option value="Plácido de Castro">Plácido de Castro</option>
+                                                            <option value="Porto Acre">Porto Acre</option>
+                                                            <option value="Porto Walter">Porto Walter</option>
+                                                            <option value="Rio Branco">Rio Branco</option>
+                                                            <option value="Rodrigues Alves">Rodrigues Alves</option>
+                                                            <option value="Santa Rosa do Purus">Santa Rosa do Purus</option>
+                                                            <option value="Sena Madureira">Sena Madureira</option>
+                                                            <option value="Senador Guiomard">Senador Guiomard</option>
+                                                            <option value="Tarauacá">Tarauacá</option>
+                                                            <option value="Xapuri">Xapuri</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label>Logradouro*</label>
+                                                        <input type="text" id="pj_logradouro" name="pj_logradouro" class="form-control">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label>Bairro*</label>
+                                                        <input type="text" id="pj_bairro" name="pj_bairro" class="form-control">
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-2">
+                                                    <div class="form-group">
+                                                        <label>Número*</label>
+                                                        <input type="text" id="pj_logradouro_numero" name="pj_logradouro_numero" class="form-control">
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-2">
+                                                    <div class="form-group">
+                                                        <label>Complemento</label>
+                                                        <input type="text" id="pj_logradouro_complemento" name="pj_logradouro_complemento" class="form-control">
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-2">
+                                                    <div class="form-group">
+                                                        <label>Telefone Fixo*</label>
+                                                        <input type="text" id="pj_telefone_fixo" name="pf_telefone_fixo" class="form-control" required="required">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <div class="form-group">
+                                                        <label>Telefone Fixo 2</label>
+                                                        <input type="text" id="pj_telefone_fixo2" name="pf_telefone_fixo2" class="form-control" required="required">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label>E-mail*</label>
+                                                        <input type="text" id="pj_email" name="pj_email" class="form-control" required="required">
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-3">
+                                                    <div class="form-group">
+                                                        <label>Digite sua senha*</label>
+                                                        <input type="password" id="pj_senha" name="pj_senha" class="form-control" required="required">
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="col-md-3">
+                                                    <div class="form-group">
+                                                        <label id="pj_senha_errada">Repita sua senha*</label>
+                                                        <input type="password" id="pj_repita_senha" name="pj_repita_senha" class="form-control" required="required">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <input type="button" id="eapainel5" value="Anterior">
+                                                <input type="button" id="eppainel5" value="Proximo">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- PJ:CONFIRA SEUS DADOS -->
+                                <div class="tab-pane" id="painel6">
+                                    <div class="row-fluid">
+                                        <h4><i class="fa fa-id-card"></i>&nbsp;&nbsp; Selecione</h4>
+                                        A FAZER
                                     </div>
                                 </div>
                             </div>
@@ -563,6 +737,8 @@
     <script src="<?php echo BASECDN; ?>js/fbInit.js"></script>
     <script src="<?php echo BASECDN; ?>js/index.js"></script>
     <script src="<?php echo BASECDN; ?>js/valida_cpf_cnpj.js"></script>
-    <script src="<?php echo BASECDN; ?>js/cadastro.js"></script>    
+    <script src="<?php echo BASECDN; ?>js/cadastro.js"></script>
+
+    <?php if(strlen(@$_GET['fb']) >= 16){ echo "<script> var fbcon = true </script>"; } else {echo "<script> var fbcon = false </script>";} ?>
     </body>
 </html>

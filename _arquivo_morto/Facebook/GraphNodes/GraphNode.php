@@ -106,17 +106,17 @@ class GraphNode extends Collection
         return json_encode($this->uncastItems(), $options);
     }
 
-    /**
-     * Detects an ISO 8601 formatted string.
-     *
-     * @param string $string
-     *
-     * @return boolean
-     *
-     * @see https://developers.facebook.com/docs/graph-api/using-graph-api/#readmodifiers
-     * @see http://www.cl.cam.ac.uk/~mgk25/iso-time.html
-     * @see http://en.wikipedia.org/wiki/ISO_8601
-     */
+    // /**
+    //  * Detects an ISO 8601 formatted string.
+    //  *
+    //  * @param string $string
+    //  *
+    //  * @return boolean
+    //  *
+    //  * @see https://developers.facebook.com/docs/graph-api/using-graph-api/#readmodifiers
+    //  * @see http://www.cl.cam.ac.uk/~mgk25/iso-time.html
+    //  * @see http://en.wikipedia.org/wiki/ISO_8601
+    //  */
     public function isIso8601DateString($string)
     {
         // This insane regex was yoinked from here:

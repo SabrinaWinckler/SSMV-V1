@@ -14,3 +14,4 @@ RewriteRule ^(|/)$ index.php
 RewriteRule ^perfil(.*)$ perfil.php
 RewriteRule ^cronograma(.*)$ cronograma.php
 RewriteRule ^requisicao(.*)$ requisicao.php
+RewriteRule ^logout(.*)$ ../post.php?login=logout

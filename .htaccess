@@ -18,8 +18,9 @@ RewriteRule ^enviarcontato(.*)$ post.php?contato=enviar
 RewriteRule ^estado/(.*)$ api/json/estados-cidades.json
 
 RewriteRule ^facebook(.*)$ api/Facebook/
-RewriteRule ^loginfb(.*)$ post.php?logar=fb
 
 RewriteRule ^confirmarcadastropf(.*)$ post.php?cadastro=pf
+RewriteRule ^confirmarcadastropf(.*)$ post.php?cadastro=pj
 
 RewriteRule ^logar(.*)$ post.php?login=entrar
+RewriteRule ^fblogar(.*)$ post.php?login=fb

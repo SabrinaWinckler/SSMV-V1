@@ -19,7 +19,7 @@
 
 </body>
 
-<!-- Modal -->
+<!-- Modal AJUDA/FAQ -->
 <div class="modal fade" id="modalAjuda" tabindex="-1" role="dialog" aria-labelledby="modalAjuda">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -34,6 +34,27 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Facebook -->
+<div class="modal fade" id="modalFb" tabindex="-1" role="dialog" aria-labelledby="modalFb">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title" id="titulo_modalFb">Ops...</h4>
+            </div>
+            <div class="modal-body" id="body_modalFb">
+                Este facebook não está vinculado a nenhuma conta.
+            </div>
+            <div class="modal-footer" id="footer_modalFb">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+                <button type="submit" onclick="cadastrar_fb()" id="cadastrar_fb" class="btn btn-primary">Cadastrar</button>
             </div>
         </div>
     </div>

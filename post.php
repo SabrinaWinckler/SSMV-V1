@@ -112,7 +112,45 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         }
     }
 
+    if(@$_GET['login'] == 'fb'){
+
+        if(isset($_POST["fb"])){
+            $fb = $con->real_escape_string(preg_replace('/[^0-9]/', '', $_POST["fb"]));
+
+            if ($sql = $con->prepare("SELECT `idusuario`, `tipo`, `idfacebook` FROM  `ssmv`.`usuarios` WHERE idfacebook = ?;")) {
+                $sql->bind_param('i', $fb);
+                $sql->execute();
+                $sql->bind_result($_id, $_tipo, $_facebook);
+                $sql->fetch();
+
+                if(isset($_facebook)){
+                    session_start();
+                    $_SESSION['id'] = $_id;
+                    $_SESSION['tipo'] = $_tipo;
+                    echo BASEPAINEL;
+                } else {
+                    echo "Err1"; //Usuário não vinculou o facebook
+                }
+                $sql->close();
+            }
+        } else {
+             echo "Err2"; //Não foi possivel identificar o facebook
+        }
+    }
+
 } else {
+
+    if(@$_GET['login'] == 'logout'){
+        require_once "config.class.php";
+        session_start();
+        unset(
+            $_SESSION['id'],
+            $_SESSION['tipo']
+        );
+        session_destroy();
+        header("Location:". BASEURL);
+        exit;
+    }
     header('HTTP/1.1 500 Internal Server Error');
 }
 

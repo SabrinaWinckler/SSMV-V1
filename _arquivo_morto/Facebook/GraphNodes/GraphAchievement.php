@@ -88,13 +88,13 @@ class GraphAchievement extends GraphNode
         return $this->getField('data');
     }
 
-    /**
-     * Returns the type of achievement.
-     *
-     * @see https://developers.facebook.com/docs/graph-api/reference/achievement
-     *
-     * @return string
-     */
+    // /**
+    //  * Returns the type of achievement.
+    //  *
+    //  * @see https://developers.facebook.com/docs/graph-api/reference/achievement
+    //  *
+    //  * @return string
+    //  */
     public function getType()
     {
         return 'game.achievement';

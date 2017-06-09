@@ -30,8 +30,8 @@ use Facebook\Exceptions\FacebookSDKException;
  *
  * Represents metadata from an access token.
  *
- * @package Facebook
- * @see     https://developers.facebook.com/docs/graph-api/reference/debug_token
+//  * @package Facebook
+//  * @see     https://developers.facebook.com/docs/graph-api/reference/debug_token
  */
 class AccessTokenMetadata
 {
@@ -227,16 +227,16 @@ class AccessTokenMetadata
         return $this->getField('is_valid');
     }
 
-    /**
-     * DateTime when this access token was issued.
-     *
-     * Note that the issued_at field is not returned
-     * for short-lived access tokens.
-     *
-     * @see https://developers.facebook.com/docs/facebook-login/access-tokens#debug
-     *
-     * @return \DateTime|null
-     */
+    // /**
+    //  * DateTime when this access token was issued.
+    //  *
+    //  * Note that the issued_at field is not returned
+    //  * for short-lived access tokens.
+    //  *
+    //  * @see https://developers.facebook.com/docs/facebook-login/access-tokens#debug
+    //  *
+    //  * @return \DateTime|null
+    //  */
     public function getIssuedAt()
     {
         return $this->getField('issued_at');

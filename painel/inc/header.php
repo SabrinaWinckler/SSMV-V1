@@ -33,6 +33,7 @@ if(isset($_SESSION['tipo'])){
 
     <!-- Custom CSS -->
     <link href="<?php echo BASECDN; ?>css/sb-admin-2.css" rel="stylesheet">
+    <link href="<?php echo BASECDN; ?>css/toastr.min.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
     <link href="<?php echo BASECDN; ?>fonts/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -142,32 +143,19 @@ if(isset($_SESSION['tipo'])){
                         <i class="fa fa-user fa-fw"></i>Logar <i class="fa fa-caret-down"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-user">
-                        <div class="login-section">
-                            
-                            <h2>Login</h2>
-                            <div class="login-top">
-                                <p>Entre com o facebook</p>
-                                <div class="fb-login-button" scope="public_profile,email" onlogin="checkLoginState();" data-max-rows="1" data-size="medium" data-button-type="login_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="true"></div>
+                        <form class="login">
+                            <div class="fb-login-button" scope="public_profile,email" onlogin="checkLoginState();" data-max-rows="1" data-size="large" data-button-type="login_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="true"></div>
+                            <br /><br />
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">E-mail</label>
+                                <input type="email" class="form-control" id="email" placeholder="Email">
                             </div>
-
-                            <div class="login-middle">
-                                <p>Entre informando seu email e sua senha</p>
-                                <input type="text" id="email" placeholder="Digite seu email">
-                                <input type="password" id="senha" placeholder="Digite sua senha">
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Senha</label>
+                                <input type="password" class="form-control" id="senha" placeholder="Password">
                             </div>
-
-                            <div class="login-bottom">
-                                <div class="login-left">
-                                    <a class="btn-tiny pointer">Esqueceu sua senha?</a>
-                                    <br />
-                                    <a href="<?php echo BASEURL."cadastro"; ?>">Cadastre-se agora!</a>
-                                </div>
-
-                                <div class="login-right">
-                                    <input type="button" id="entrar" value="Entrar">
-                                </div>
-                            </div>
-                        </div>
+                            <button type="button" id="entrar" class="btn btn-primary ">Entrar</button>
+                        </form>
                     </ul>
                     <!-- /.dropdown-user -->
                 </li>

@@ -442,3 +442,14 @@ table.dataTable thead .sorting:after {
   background-repeat: no-repeat;
   background-position: center;
 }
+
+form.login {
+  margin-left: 10px;
+  margin-right: 10px;
+  min-width: 250px;
+}
+
+form.login button {
+  float: right;
+  margin-bottom: 1%;
+}

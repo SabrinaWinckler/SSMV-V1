@@ -83,15 +83,15 @@ class FacebookUrlDetectionHandler implements UrlDetectionInterface
         return in_array($protocol, ['on', '1', 'https', 'ssl'], true);
     }
 
-    /**
-     * Tries to detect the host name of the server.
-     *
-     * Some elements adapted from
-     *
-     * @see https://github.com/symfony/HttpFoundation/blob/master/Request.php
-     *
-     * @return string
-     */
+    // /**
+    //  * Tries to detect the host name of the server.
+    //  *
+    //  * Some elements adapted from
+    //  *
+    //  * @see https://github.com/symfony/HttpFoundation/blob/master/Request.php
+    //  *
+    //  * @return string
+    //  */
     protected function getHostName()
     {
         // Check for proxy first

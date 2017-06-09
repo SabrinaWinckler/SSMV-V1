@@ -25,15 +25,15 @@ namespace Facebook\Http;
 
 use Facebook\FileUpload\FacebookFile;
 
-/**
- * Class RequestBodyMultipartt
- *
- * Some things copied from Guzzle
- *
- * @package Facebook
- *
- * @see https://github.com/guzzle/guzzle/blob/master/src/Post/MultipartBody.php
- */
+// /**
+//  * Class RequestBodyMultipartt
+//  *
+//  * Some things copied from Guzzle
+//  *
+//  * @package Facebook
+//  *
+//  * @see https://github.com/guzzle/guzzle/blob/master/src/Post/MultipartBody.php
+//  */
 class RequestBodyMultipart implements RequestBodyInterface
 {
     /**

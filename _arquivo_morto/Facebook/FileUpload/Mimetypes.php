@@ -23,15 +23,15 @@
  */
 namespace Facebook\FileUpload;
 
-/**
- * Provides mappings of file extensions to mimetypes
- *
- * Taken from Guzzle
- *
- * @see https://github.com/guzzle/guzzle/blob/master/src/Mimetypes.php
- *
- * @link http://svn.apache.org/repos/asf/httpd/httpd/branches/1.3.x/conf/mime.types
- */
+// /**
+//  * Provides mappings of file extensions to mimetypes
+//  *
+//  * Taken from Guzzle
+//  *
+//  * @see https://github.com/guzzle/guzzle/blob/master/src/Mimetypes.php
+//  *
+//  * @link http://svn.apache.org/repos/asf/httpd/httpd/branches/1.3.x/conf/mime.types
+//  */
 class Mimetypes
 {
     /** @var self */
