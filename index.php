@@ -37,7 +37,7 @@
                                     </div>
 
                                     <div class="login-right">
-                                        <input type="button" value="Entrar">
+                                        <input type="button" id="entrar" value="Entrar">
                                     </div>
                                 </div>
                             </div>

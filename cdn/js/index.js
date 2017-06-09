@@ -15,11 +15,12 @@ $("#comeco").on("click", function(){
     $("#principal").fadeOut("slow", function(){
         $("title").text("Página Inicial :: Seu Sangue, Minha Vida");
         $("#design_class").removeClass("inicio quemsomos faq ajuda contato").addClass("inicio");
-        $("#principal").html('<div class="col-md-9"><div class="header-content-inner"><h1 id="homeHeading">Seu sangue, minha vida</h1><hr><p>Unindo tecnologia e solidariedade para melhorar vidas!</p><a href="#quemsomos" id="quemsomos" class="btn btn-primary btn-xl page-scroll">Saiba mais</a></div></div><div class="col-md-3"><div class="main"><form id="login"><div class="login-section"><h2>Login</h2><div class="login-top"><p>Entre com o facebook</p><div class="fb-login-button" data-max-rows="1" data-size="medium" data-button-type="login_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="true"></div></div><div class="login-middle"><p>Entre informando seu email e sua senha</p><input type="text" id="email" placeholder="Digite seu email"><input type="password" id="senha" placeholder="Digite sua senha"></div><div class="login-bottom"><div class="login-left"><a class="btn-tiny pointer">Esqueceu sua senha?</a><br /><a href="/cadastro">Cadastre-se agora!</a></div><div class="login-right"><input type="button" value="Entrar"></div></div></div></form></div></div>');
+        $("#principal").html('<div class="col-md-9"><div class="header-content-inner"><h1 id="homeHeading">Seu sangue, minha vida</h1><hr><p>Unindo tecnologia e solidariedade para melhorar vidas!</p><a href="#quemsomos" id="saibamais" class="btn btn-primary btn-xl page-scroll">Saiba mais</a></div></div><div class="col-md-3"><div class="main"><form id="login"><div class="login-section"><h2>Login</h2><div class="login-top"><p>Entre com o facebook</p><div class="fb-login-button" data-max-rows="1" data-size="medium" data-button-type="login_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="true"></div></div><div class="login-middle"><p>Entre informando seu email e sua senha</p><input type="text" id="email" placeholder="Digite seu email"><input type="password" id="senha" placeholder="Digite sua senha"></div><div class="login-bottom"><div class="login-left"><a class="btn-tiny pointer">Esqueceu sua senha?</a><br /><a href="/cadastro">Cadastre-se agora!</a></div><div class="login-right"><input type="button" id="entrar" value="Entrar"></div></div></div></form></div></div>');
         if($.cookie("acessibilidade") == "TRUE"){
             acessibilidade("SIM");
         }
         $("#principal").fadeIn("slow");
+        FB.XFBML.parse();
     });
 });
 
@@ -104,5 +105,101 @@ function contato() {
             };
 
             toastr["success"]("Contato feito com sucesso!", "Ok!");
+
+            $("#nome").val("");
+            $("#email").val("");
+            $("#assunto").val("");
             });
 }
+
+$("#entrar").on("click", function(){
+    if($("#email").val().length > 6){
+        if($("#senha").val().length > 3){
+            $.post('/logar', {email: $("#email").val(), senha: $("#senha").val()}, function (rs) {
+                if(rs == 'Err1'){
+                    toastr.options = {
+                        "closeButton": true,
+                        "debug": false,
+                        "newestOnTop": false,
+                        "progressBar": true,
+                        "positionClass": "toast-bottom-right",
+                        "preventDuplicates": true,
+                        "onclick": null,
+                        "showDuration": "300",
+                        "hideDuration": "1000",
+                        "timeOut": "5000",
+                        "extendedTimeOut": "1000",
+                        "showEasing": "swing",
+                        "hideEasing": "linear",
+                        "showMethod": "fadeIn",
+                        "hideMethod": "fadeOut"
+                    };
+
+                    toastr["warning"]("E-mail ou senha inválida!", "Ops...");
+                } else if (rs == 'Err2'){
+                    toastr.options = {
+                        "closeButton": true,
+                        "debug": false,
+                        "newestOnTop": false,
+                        "progressBar": true,
+                        "positionClass": "toast-bottom-right",
+                        "preventDuplicates": true,
+                        "onclick": null,
+                        "showDuration": "300",
+                        "hideDuration": "1000",
+                        "timeOut": "5000",
+                        "extendedTimeOut": "1000",
+                        "showEasing": "swing",
+                        "hideEasing": "linear",
+                        "showMethod": "fadeIn",
+                        "hideMethod": "fadeOut"
+                    };
+
+                    toastr["warning"]("E-mail ou senha não informado!", "Ops...");
+                } else {
+                    window.location.href = rs;
+                }
+            });
+        } else {
+            toastr.options = {
+            "closeButton": true,
+            "debug": false,
+            "newestOnTop": false,
+            "progressBar": true,
+            "positionClass": "toast-bottom-right",
+            "preventDuplicates": true,
+            "onclick": function(){$("#senha").focus()},
+            "showDuration": "300",
+            "hideDuration": "1000",
+            "timeOut": "5000",
+            "extendedTimeOut": "1000",
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+        };
+
+        toastr["info"]("Preencha o campo &ldquo;Senha&rdquo;.", "Ops...");
+        }
+    } else {
+        toastr.options = {
+            "closeButton": true,
+            "debug": false,
+            "newestOnTop": false,
+            "progressBar": true,
+            "positionClass": "toast-bottom-right",
+            "preventDuplicates": true,
+            "onclick": function(){$("#email").focus()},
+            "showDuration": "300",
+            "hideDuration": "1000",
+            "timeOut": "5000",
+            "extendedTimeOut": "1000",
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+        };
+
+        toastr["info"]("Preencha o campo &ldquo;E-mail&rdquo;.", "Ops...");
+    }
+});

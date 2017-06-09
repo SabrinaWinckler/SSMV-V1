@@ -1,4 +1,4 @@
-   <!-- jQuery -->
+    <!-- jQuery -->
     <script src="<?php echo BASECDN; ?>jquery/jquery.min.js"></script>
 
     <!-- Bootstrap Core JavaScript -->

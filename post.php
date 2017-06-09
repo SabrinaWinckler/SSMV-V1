@@ -57,7 +57,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         }
         $ultimaDoacao       = $_POST["ultimaDoacao"];
 
-         if ($sql = $con->prepare("INSERT INTO `ssmv`.`usuarios` (`email`, `senha`, `tipo`, `idfacebook`) VALUES (?, ?, ?, ?);")) {
+        if ($sql = $con->prepare("INSERT INTO `ssmv`.`usuarios` (`email`, `senha`, `tipo`, `idfacebook`) VALUES (?, ?, ?, ?);")) {
             $sql->bind_param('ssss', $email, $senha, $tipo, $facebook);
             // $sql->bind_param('ssss', $email, $senha, $tipo, $facebook);
             $sql->execute();
@@ -81,6 +81,34 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
             $sql2->execute();
             $sql2->close();
             echo $con->error;
+        }
+    }
+
+    if(@$_GET['login'] == 'entrar'){
+
+        if((isset($_POST["email"])) && (isset($_POST["senha"]))){
+            $email = $con->real_escape_string(preg_replace('/[^[:alpha:]@._-]/', '', $_POST["email"]));
+            $senha = $con->real_escape_string(preg_replace('/[^[:alpha:]0-9#@._-]/', '', $_POST["senha"]));
+            $senha = sha1(md5($senha));
+
+            if ($sql = $con->prepare("SELECT `idusuario`, `email`, `senha`, `tipo` FROM  `ssmv`.`usuarios` WHERE email = ? && senha = ?;")) {
+                $sql->bind_param('ss', $email, $senha);
+                $sql->execute();
+                $sql->bind_result($_id, $_email, $_senha, $_tipo);
+                $sql->fetch();
+
+                if(isset($_email)){
+                    session_start();
+                    $_SESSION['id'] = $_id;
+                    $_SESSION['tipo'] = $_tipo;
+                    echo BASEPAINEL;
+                } else {
+                    echo "Err1"; //Usuário ou senha está errado
+                }
+                $sql->close();
+            }
+        } else {
+             echo "Err2"; //Não foi informado o email e senha consequentemente não existe a váriavel email ou a váriavel senha
         }
     }
 

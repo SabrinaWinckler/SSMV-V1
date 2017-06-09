@@ -2,7 +2,21 @@
 <html lang="pt-br">
 
 <head>
+<?php 
 
+session_start();
+
+if(isset($_SESSION['tipo'])){
+    if(!defined('LOGADO')){
+        define('LOGADO', TRUE);
+    }
+} else {
+    if(!defined('LOGADO')){
+        define('LOGADO', FALSE);
+    }
+}
+
+?>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -47,6 +61,8 @@
                 <a class="navbar-brand logo" href="<?php echo BASEPAINEL; ?>"></a>
             </div>
             <!-- /.navbar-header -->
+
+            <?php if(LOGADO == true): ?>
 
             <ul class="nav navbar-top-links navbar-right">
                 <li class="dropdown">
@@ -116,6 +132,51 @@
                 <!-- /.dropdown -->
             </ul>
             <!-- /.navbar-top-links -->
+
+            <?php else: ?>
+
+            <ul class="nav navbar-top-links navbar-right">
+                <!-- /.dropdown -->
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-user fa-fw"></i>Logar <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-user">
+                        <div class="login-section">
+                            
+                            <h2>Login</h2>
+                            <div class="login-top">
+                                <p>Entre com o facebook</p>
+                                <div class="fb-login-button" scope="public_profile,email" onlogin="checkLoginState();" data-max-rows="1" data-size="medium" data-button-type="login_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="true"></div>
+                            </div>
+
+                            <div class="login-middle">
+                                <p>Entre informando seu email e sua senha</p>
+                                <input type="text" id="email" placeholder="Digite seu email">
+                                <input type="password" id="senha" placeholder="Digite sua senha">
+                            </div>
+
+                            <div class="login-bottom">
+                                <div class="login-left">
+                                    <a class="btn-tiny pointer">Esqueceu sua senha?</a>
+                                    <br />
+                                    <a href="<?php echo BASEURL."cadastro"; ?>">Cadastre-se agora!</a>
+                                </div>
+
+                                <div class="login-right">
+                                    <input type="button" id="entrar" value="Entrar">
+                                </div>
+                            </div>
+                        </div>
+                    </ul>
+                    <!-- /.dropdown-user -->
+                </li>
+                <!-- /.dropdown -->
+            </ul>
+            <!-- /.navbar-top-links -->
+
+            <?php endif; ?>
+            
 
             <div class="navbar-default sidebar" role="navigation">
                 <div class="sidebar-nav navbar-collapse">
