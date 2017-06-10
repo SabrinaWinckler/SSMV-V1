@@ -82,6 +82,77 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
             $sql2->close();
             echo $con->error;
         }
+
+        if ($sql = $con->prepare("SELECT `idusuario`, `email`, `senha`, `tipo` FROM  `ssmv`.`usuarios` WHERE email = ? && senha = ?;")) {
+            $sql->bind_param('ss', $email, $senha);
+            $sql->execute();
+            $sql->bind_result($_id, $_email, $_senha, $_tipo);
+            $sql->fetch();
+
+            if(isset($_email)){
+                session_start();
+                $_SESSION['id'] = $_id;
+                $_SESSION['tipo'] = $_tipo;
+                echo BASEPAINEL;
+            } else {
+                echo "Err1"; //Usuário ou senha está errado
+            }
+
+            $sql->close();
+        }
+    }
+
+    if(@$_GET['cadastro'] == 'pj'){
+        $tipo                   = $_GET["cadastro"];
+        $nome                   = $_POST["nome"];
+        $nomeFantasia           = $_POST["nomeFantasia"];
+        $cnpj                   = preg_replace("/[^0-9]/", "", $_POST["cnpj"]);
+        $cep                    = preg_replace("/[^0-9]/", "", $_POST["cep"]);
+        $estado                 = $_POST["estado"];
+        $cidade                 = $_POST["cidade"];
+        $logradouro             = $_POST["logradouro"];
+        $bairro                 = $_POST["bairro"];
+        $logradouro_numero      = preg_replace("/[^0-9]/", "", $_POST["logradouro_numero"]);
+        $logradouro_complemento = $_POST["logradouro_complemento"];
+        $telefonefixo           = preg_replace("/[^0-9]/", "", $_POST["telefonefixo"]);
+        $telefonefixo2          = preg_replace("/[^0-9]/", "", $_POST["telefonefixo2"]);
+        $email                  = $_POST["email"];
+        $senha                  = sha1(md5($_POST["senha"]));
+
+        if ($sql = $con->prepare("INSERT INTO `ssmv`.`usuarios` (`email`, `senha`, `tipo`) VALUES (?, ?, ?);")) {
+            $sql->bind_param('sss', $email, $senha, $tipo);
+            $sql->execute();
+
+            $idusuario = $con->insert_id;
+            
+            $sql->close();
+            echo $con->error;
+        }
+
+        if ($sql1 = $con->prepare("INSERT INTO `ssmv`.`pj` (`idusuario`, `nome`, `nomeFantasia`, `cnpj`, `logradouro`, `numero`, `complemento`, `cep`, `bairro`, `idestado`, `municipio`, `telefoneF`, `telefoneF2`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);")){
+            $sql1->bind_param('issssisssisss', $idusuario, $nome, $nomeFantasia, $cnpj, $logradouro, $logradouro_numero, $logradouro_complemento, $cep, $bairro, $estado, $cidade, $telefonefixo, $telefonefixo2);
+            $sql1->execute();
+            $sql1->close();
+            echo $con->error;
+        }
+
+        if ($sql = $con->prepare("SELECT `idusuario`, `email`, `senha`, `tipo` FROM  `ssmv`.`usuarios` WHERE email = ? && senha = ?;")) {
+            $sql->bind_param('ss', $email, $senha);
+            $sql->execute();
+            $sql->bind_result($_id, $_email, $_senha, $_tipo);
+            $sql->fetch();
+
+            if(isset($_email)){
+                session_start();
+                $_SESSION['id'] = $_id;
+                $_SESSION['tipo'] = $_tipo;
+                echo BASEPAINEL;
+            } else {
+                echo "Err1"; //Usuário ou senha está errado
+            }
+
+            $sql->close();
+        }
     }
 
     if(@$_GET['login'] == 'entrar'){

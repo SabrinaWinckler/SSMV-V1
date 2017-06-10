@@ -20,7 +20,7 @@ RewriteRule ^estado/(.*)$ api/json/estados-cidades.json
 RewriteRule ^facebook(.*)$ api/Facebook/
 
 RewriteRule ^confirmarcadastropf(.*)$ post.php?cadastro=pf
-RewriteRule ^confirmarcadastropf(.*)$ post.php?cadastro=pj
+RewriteRule ^confirmarcadastropj(.*)$ post.php?cadastro=pj
 
 RewriteRule ^logar(.*)$ post.php?login=entrar
 RewriteRule ^fblogar(.*)$ post.php?login=fb

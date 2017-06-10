@@ -227,6 +227,10 @@ $("#eapainel5").on("click", function () {
     $("#bpainel1").click();
 });
 
+$("#eapainel6").on("click", function () {
+    $("#bpainel5").click();
+});
+
 $("#bpainel4").on("click", function () {
     $("#v_pf_nome_sobrenome").text($("#pf_nome").val() + " " + $("#pf_sobrenome").val());
     $("#v_pf_cpf").text($("#pf_CPF").val());
@@ -375,10 +379,10 @@ $("#verificar_pf").on("click", function () {
                                                                 ultimaDoacao: $("#pf_ultimaDoacao").val()
                                                             },
                                                             function (rs) {
-                                                                console.log(rs);
                                                                 if ($("#idfacebook").val().length > 0) {
                                                                     FB.api('/' + $("#idfacebook").val() + '/notifications?template= Olá @[' + $("#idfacebook").val() + '], O seu facebook foi vinculado com o site SSMV.&href=//localhost&ref=?asdasd&access_token=213962312451886|dM6ZBAut7W2a2DXu9sJJQbnC91A', 'post');
                                                                 }
+                                                                window.location.href = rs;
                                                             }
                                                         );
                                                     } else {
@@ -621,6 +625,21 @@ validar_cnpj = false;
 
 $("#eppainel5").on("click", function () {
     if (validar_senha_pj && validar_email_pj && validar_cnpj) {
+
+        $("#v_pj_nome").text($("#pj_nome").val());
+        $("#v_pj_nome_fantasia").text($("#pj_nome_fantasia").val());
+        $("#v_pj_CNPJ").text($("#pj_CNPJ").val());
+        $("#v_pj_cep").text($("#pj_cep").val());
+        $("#v_pj_estado").text($("#pj_estado").find(":selected").text());
+        $("#v_pj_cidade").text($("#pj_cidade").val());
+        $("#v_pj_logradouro").text($("#pj_logradouro").val());
+        $("#v_pj_bairro").text($("#pj_bairro").val());
+        $("#v_pj_logradouro_numero").text($("#pj_logradouro_numero").val());
+        $("#v_pj_logradouro_complemento").text($("#pj_logradouro_complemento").val());
+        $("#v_pj_telefone_fixo").text($("#pj_telefone_fixo").val());
+        $("#v_pf_telefone_fixo2").text($("#pj_telefone_fixo2").val());
+        $("#v_pj_email").text($("#pj_email").val());
+
         $("#bpainel6").css("display", "block");
         $("#bpainel6").click();
     } else {
@@ -646,5 +665,56 @@ $("#eppainel5").on("click", function () {
         toastr["warning"]("Preencha as informações necessárias.", "Ops...");
 
         return false;
+    }
+});
+
+$("#verificar_pj").on("click", function () {
+    if ($("#pessoa_selecionada").val() == 'pj') {
+        if($("#pj_nome").val().length > 1){
+            if($("#pj_nome_fantasia").val().length > 1){
+                if($("#pj_CNPJ").val().length > 1 && validar_cnpj){
+                    if($("#pj_cep").val().length > 1){
+                        if(!$("#pj_estado").val() == false){
+                            if(!$("#pj_cidade").val() == false){
+                                if($("#pj_logradouro").val().length > 1){
+                                    if($("#pj_bairro").val().length > 1){
+                                        if($("#pj_logradouro_numero").val().length > 1){
+                                            if($("#pj_telefone_fixo").val().length > 1){
+                                                if($("#pj_email").val().length > 1 && validar_email_pj){
+                                                    if($("#pj_senha").val().length > 1 && validar_senha_pj){
+
+                                                        $.post('/confirmarcadastropj',
+                                                            {
+                                                                nome: $("#pj_nome").val(),
+                                                                nomeFantasia: $("#pj_nome_fantasia").val(),
+                                                                cnpj: $("#pj_CNPJ").val(),
+                                                                cep: $("#pj_cep").val(),
+                                                                estado: $("#pj_estado").val(),
+                                                                cidade: $("#pj_cidade").val(),
+                                                                logradouro: $("#pj_logradouro").val(),
+                                                                bairro: $("#pj_bairro").val(),
+                                                                logradouro_numero: $("#pj_logradouro_numero").val(),
+                                                                logradouro_complemento: $("#pj_logradouro_complemento").val(),
+                                                                telefonefixo: $("#pj_telefone_fixo").val(),
+                                                                telefonefixo2: $("#pj_telefone_fixo2").val(),
+                                                                email: $("#pj_email").val(),
+                                                                senha: $("#pj_senha").val()
+                                                            },
+                                                            function (rs) {
+                                                                window.location.href = rs;
+                                                            }
+                                                        );
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 });

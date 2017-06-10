@@ -1,5 +1,4 @@
 <?php 
-require_once("../config.class.php");
 
 $pagina = "Principal";
 $tipo   = "Pessoa juridica";
@@ -7,7 +6,6 @@ $tipo   = "Pessoa juridica";
 require_once "inc/header.php"; 
 
 ?>
-
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">

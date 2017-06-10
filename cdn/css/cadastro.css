@@ -2132,6 +2132,10 @@ body{
     input#verificar_pf{
     float: right;
    }
+
+    input#verificar_pj{
+    float: right;
+   }
    
    .icon-green {
        color: green;

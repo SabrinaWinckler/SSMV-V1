@@ -6,6 +6,9 @@
 
 session_start();
 
+require_once("../config.class.php");
+require_once "../".DB;
+
 if(isset($_SESSION['tipo'])){
     if(!defined('LOGADO')){
         define('LOGADO', TRUE);
@@ -15,6 +18,23 @@ if(isset($_SESSION['tipo'])){
         define('LOGADO', FALSE);
     }
 }
+
+if(!isset($_SESSION['nome'])){
+    echo "entrou";
+     if ($sql = $con->prepare("SELECT `nome` FROM `ssmv`.$tipo WHERE idusuario = ?;")) {
+        $sql->bind_param('i', $_SESSION['id']);
+        $sql->execute();
+        $sql->bind_result($_nome);
+        $sql->fetch();
+
+        echo $_nome;
+
+        $_SESSION['nome'] = $_nome;
+    }
+} else {
+        echo "não preciso mais";
+        echo $_SESSION['id'];
+    }
 
 ?>
     <meta charset="utf-8">
@@ -119,7 +139,7 @@ if(isset($_SESSION['tipo'])){
                 <!-- /.dropdown -->
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
+                        <i class="fa fa-user fa-fw"></i> <?php echo $_SESSION['nome']; ?> <i class="fa fa-caret-down"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-user">
                         <li><a href="<?php echo BASEPAINEL."perfil" ?>"><i class="fa fa-user fa-fw"></i> Perfil</a>

@@ -554,7 +554,7 @@
                                                 <div class="col-md-5">
                                                     <div class="form-group">
                                                         <label>Nome fantasia*</label>
-                                                        <input type="text" id="pj_sobrenome" name="pj_sobrenome" class="form-control" required="required">
+                                                        <input type="text" id="pj_nome_fantasia" name="pj_nome_fantasia" class="form-control">
                                                     </div>
                                                 </div>
 
@@ -706,8 +706,116 @@
                                 <!-- PJ:CONFIRA SEUS DADOS -->
                                 <div class="tab-pane" id="painel6">
                                     <div class="row-fluid">
-                                        <h4><i class="fa fa-id-card"></i>&nbsp;&nbsp; Selecione</h4>
-                                        A FAZER
+                                        <div class="span12">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <h4><i class="fa fa-user"></i>&nbsp;&nbsp; Verifique os dados informados</h4>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label>Nome empresarial</label>
+                                                        <p id="v_pj_nome" class="form-control">Gustavo Bittencourt Satheler</p>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-5">
+                                                    <div class="form-group">
+                                                        <label>Nome fantasia</label>
+                                                        <p id="v_pj_nome_fantasia" class="form-control">Gustavo Bittencourt Satheler</p>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-3">
+                                                    <div class="form-group">
+                                                        <label>CNPJ</label> <i id="v_ver_pj_cnpj" class=""></i>
+                                                        <p id="v_pj_CNPJ" class="form-control">115.794.086-21</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-md-2">
+                                                    <div class="form-group">
+                                                        <label>CEP</label>
+                                                        <p id="v_pj_cep" class="form-control">35060-460</p>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-3">
+                                                    <div class="form-group">
+                                                        <label>Estado</label>
+                                                        <p id="v_pj_estado" class="form-control">Minas Gerais</p>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-3">
+                                                    <div class="form-group">
+                                                        <label>Cidade</label>
+                                                        <p id="v_pj_cidade" class="form-control">Governador Valadares</p>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label>Logradouro</label>
+                                                        <p id="v_pj_logradouro" class="form-control">gustavosatheler@gmail.com</p>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <div class="row">
+
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label>Bairro</label>
+                                                        <p id="v_pj_bairro" class="form-control"></p>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-2">
+                                                    <div class="form-group">
+                                                        <label>Número</label>
+                                                        <p id="v_pj_logradouro_numero" class="form-control"></p>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-2">
+                                                    <div class="form-group">
+                                                        <label>Complemento</label>
+                                                        <p id="v_pj_logradouro_complemento" class="form-control"></p>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-2">
+                                                    <div class="form-group">
+                                                        <label>Telefone Fixo</label>
+                                                        <p id="v_pj_telefone_fixo" class="form-control">(55) 0000-0000</p>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <div class="form-group">
+                                                        <label>Telefone Fixo 2</label>
+                                                        <p id="v_pf_telefone_fixo2" class="form-control">(55) 99136-8665</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-md-5">
+                                                    <div class="form-group">
+                                                        <label>E-mail</label>
+                                                        <p id="v_pj_email" class="form-control">gustavosatheler@gmail.com</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        
+                                        <div class="row">
+                                            <input type="button" id="eapainel6" value="Anterior">
+                                            <input type="button" id="verificar_pj" value="Cadastre-se">
+                                        </div>
                                     </div>
                                 </div>
                             </div>
