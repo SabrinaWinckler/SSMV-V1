@@ -247,33 +247,47 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
                 $sql->execute();
                 $sql->bind_result($idusuarioCompativel);
                 $sql->fetch();
-                array_push($idCompativeis, $idusuarioCompativel);
+                if($idusuarioCompativel != $id){
+                    array_push($idCompativeis, $idusuarioCompativel);
+                }
                 $sql->close();
             }
         }
-        print_r($idCompativeis);
         
-        foreach($idCompativeis as $indice => $idusuarioCompativel){
-            $titulo = "Solicitação de Sangue do tipo ".$nome_sangue;
-            $mensagem = $nome." está precisando de sangue do tipo ".$nome_sangue." para até o dia ".$dataLimite;
-            if ($sql = $con->prepare("INSERT INTO `ssmv`.`notificacao` (`de`, `para`, `titulo`,`mensagem`, `data`) VALUES (?, ?, ?, ?, ?);")){
-                $sql->bind_param('iisss', $id, $idusuarioCompativel, $titulo, $mensagem, $dataSolicitacao);
+        $idsFacebook = array();
+        foreach($idCompativeis as $indice => $idusuario){
+            if ($sql = $con->prepare("SELECT `idfacebook` FROM  `ssmv`.`usuarios` WHERE idusuario = ?;")){
+                $sql->bind_param('i', $idusuario);
                 $sql->execute();
+                $sql->bind_result($idfacebook);
+                $sql->fetch();
+                if(!empty($idfacebook)){
+                    array_push($idsFacebook, $idfacebook);
+                }
                 $sql->close();
-            } else {
-                echo "Notificação: \n\r";
-                echo $con->error;
             }
         }
+        print_r($idsFacebook);
+        
+        // foreach($idCompativeis as $indice => $idusuarioCompativel){
+        //     $titulo = "Solicitação de Sangue do tipo ".$nome_sangue;
+        //     $mensagem = $nome." está precisando de sangue do tipo ".$nome_sangue." para até o dia ".$dataLimite;
+        //     if ($sql = $con->prepare("INSERT INTO `ssmv`.`notificacao` (`de`, `para`, `titulo`,`mensagem`, `data`) VALUES (?, ?, ?, ?, ?);")){
+        //         $sql->bind_param('iisss', $id, $idusuarioCompativel, $titulo, $mensagem, $dataSolicitacao);
+        //         $sql->execute();
+        //         $sql->close();
+        //     } else {
+        //         echo $con->error;
+        //     }
+        // }
 
-        if ($sql = $con->prepare("INSERT INTO `ssmv`.`requisicao` (`idusuario`, `nome`, `tipoSangue`, `dataSolicitacao`, `dataLimite`, `urgencia`) VALUES (?, ?, ?, ?, ?, ?);")) {
-          $sql->bind_param('isisss', $id, $nome, $tipo_sangue, $dataSolicitacao, $dataLimite, $urgencia);
-          $sql->execute();
-          $sql->close();
-          echo $con->error;
-        } else {
-            echo $con->error;
-        }
+        // if ($sql = $con->prepare("INSERT INTO `ssmv`.`requisicao` (`idusuario`, `nome`, `tipoSangue`, `dataSolicitacao`, `dataLimite`, `urgencia`) VALUES (?, ?, ?, ?, ?, ?);")) {
+        //   $sql->bind_param('isisss', $id, $nome, $tipo_sangue, $dataSolicitacao, $dataLimite, $urgencia);
+        //   $sql->execute();
+        //   $sql->close();
+        // } else {
+        //     echo $con->error;
+        // }
     }
 
 } else {

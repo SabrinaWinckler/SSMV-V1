@@ -144,7 +144,7 @@ function solicitar_doacao() {
                             urgencia: $("#urgencia").val()
                         }, function (rs) {
                             console.log(rs);
-                        toastr.options = {
+                            toastr.options = {
                                 "closeButton": true,
                                 "debug": false,
                                 "newestOnTop": false,
@@ -162,12 +162,17 @@ function solicitar_doacao() {
                                 "hideMethod": "fadeOut"
                             };
 
-                        toastr["success"]("Contato feito com sucesso!", "Ok!");
+                            toastr["success"]("A sua solicitação de sangue foi efetuada!", "Solicitação efetuada!");
 
-                        $("#nome").val("");
-                        $("#email").val("");
-                        $("#assunto").val("");
-                            });
+                            
+
+                            $("#requisitor_nome").val("");
+                            $("#tipo_sangue").val("");
+                            $("#dia").val("");
+                            $("#urgencia").val("");
+                            $("#requisitor_nome").prop("disabled", false);
+                            $("#tipo_sangue").prop("disabled", false);
+                        });
                 } else {
                     console.log("Falta a urgencia");
                 }
