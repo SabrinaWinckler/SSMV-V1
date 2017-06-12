@@ -130,3 +130,68 @@ function checkLoginState() {
 function cadastrar_fb(){
         window.location.href = "/cadastro?fb=" + $("#cadastrar_fb").attr("fbid");
 };
+
+function solicitar_doacao() {
+    if($("#requisitor_nome").val().length > 1){
+        if(!$("#tipo_sangue").val() == false){
+            if($("#dia").val().length > 0){
+                if(!$("#urgencia").val() == false){
+                        $.post(basepainel + 'solicitar', {
+                            idusuario: id,
+                            nome: $("#requisitor_nome").val(),
+                            tipo_sangue: $("#tipo_sangue").val(),
+                            dia: $("#dia").val(),
+                            urgencia: $("#urgencia").val()
+                        }, function (rs) {
+                            console.log(rs);
+                        toastr.options = {
+                                "closeButton": true,
+                                "debug": false,
+                                "newestOnTop": false,
+                                "progressBar": true,
+                                "positionClass": "toast-top-right",
+                                "preventDuplicates": true,
+                                "onclick": null,
+                                "showDuration": "300",
+                                "hideDuration": "1000",
+                                "timeOut": "5000",
+                                "extendedTimeOut": "1000",
+                                "showEasing": "swing",
+                                "hideEasing": "linear",
+                                "showMethod": "fadeIn",
+                                "hideMethod": "fadeOut"
+                            };
+
+                        toastr["success"]("Contato feito com sucesso!", "Ok!");
+
+                        $("#nome").val("");
+                        $("#email").val("");
+                        $("#assunto").val("");
+                            });
+                } else {
+                    console.log("Falta a urgencia");
+                }
+            } else {
+                console.log("Falta o dia");
+            }
+        } else {
+            console.log("Falta o sangue");
+        }
+    } else {
+        console.log("Falta o nome");
+    }
+}
+
+$("#requisitor_mim").on("change", function(){
+    if($(this).prop("checked")){
+        $("#requisitor_nome").val(nome);
+        $("#requisitor_nome").prop("disabled", true);
+        $("#tipo_sangue").val(sangue);
+        $("#tipo_sangue").prop("disabled", true);
+    } else {
+        $("#requisitor_nome").val("");
+        $("#tipo_sangue").val("");
+        $("#requisitor_nome").prop("disabled", false);
+        $("#tipo_sangue").prop("disabled", false);
+    }
+});

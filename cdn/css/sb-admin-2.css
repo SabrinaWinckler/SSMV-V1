@@ -453,3 +453,15 @@ form.login button {
   float: right;
   margin-bottom: 1%;
 }
+
+.checkbox-center {
+    margin-top: 2.95%;
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}

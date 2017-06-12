@@ -16,25 +16,28 @@ if(isset($_SESSION['tipo'])){
 } else {
     if(!defined('LOGADO')){
         define('LOGADO', FALSE);
+        $_tipo = "na";
     }
 }
 
-if(!isset($_SESSION['nome'])){
-    echo "entrou";
-     if ($sql = $con->prepare("SELECT `nome` FROM `ssmv`.$tipo WHERE idusuario = ?;")) {
-        $sql->bind_param('i', $_SESSION['id']);
-        $sql->execute();
-        $sql->bind_result($_nome);
-        $sql->fetch();
+if(LOGADO === TRUE){
+    $_id = $_SESSION['id'];
+    $_tipo = $_SESSION['tipo'];
 
-        echo $_nome;
+    if(!isset($_SESSION['nome'])){
+        if ($sql = $con->prepare("SELECT `nome`, `sobrenome`, `idtipoSangue` FROM `ssmv`.$_tipo WHERE idusuario = ?;")) {
+            $sql->bind_param('i', $_SESSION['id']);
+            $sql->execute();
+            $sql->bind_result($_nome, $_sobrenome, $_idtipoSangue);
+            $sql->fetch();
+            $sql->close();
 
-        $_SESSION['nome'] = $_nome;
+            $_SESSION['nome'] = $_nome;
+            $_SESSION['sobrenome'] = $_sobrenome;
+            $_SESSION['sangue'] = $_idtipoSangue;
+        }   
     }
-} else {
-        echo "não preciso mais";
-        echo $_SESSION['id'];
-    }
+}
 
 ?>
     <meta charset="utf-8">
@@ -54,6 +57,7 @@ if(!isset($_SESSION['nome'])){
     <!-- Custom CSS -->
     <link href="<?php echo BASECDN; ?>css/sb-admin-2.css" rel="stylesheet">
     <link href="<?php echo BASECDN; ?>css/toastr.min.css" rel="stylesheet">
+    <link href='<?php echo BASECDN; ?>css/checkradio.css' rel='stylesheet' type='text/css'>
 
     <!-- Custom Fonts -->
     <link href="<?php echo BASECDN; ?>fonts/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -189,12 +193,12 @@ if(!isset($_SESSION['nome'])){
             <div class="navbar-default sidebar" role="navigation">
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
-                        <li>
-                            <a href="<?php echo BASEPAINEL."requisicao" ?>"><i class="fa fa-heart fa-fw"></i> Requisição</a>
-                        </li>
-                        <li>
+                        <?php
+                            require_once "permissao.php";
+                         ?>
+                        <!--<li>
                             <a href="<?php echo BASEPAINEL."cronograma" ?>"><i class="fa fa-calendar fa-fw"></i> Cronograma</a>
-                        </li>
+                        </li>-->
                     </ul>
                 </div>
                 <!-- /.sidebar-collapse -->

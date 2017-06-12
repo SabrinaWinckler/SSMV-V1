@@ -69,7 +69,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         }
 
         if ($sql1 = $con->prepare("INSERT INTO `ssmv`.`pf` (`idusuario`, `nome`, `sobrenome`, `dataNascimento`, `cpf`, `genero`, `idestado`, `municipio`, `telefoneF`, `telefoneC`, `idtipoSangue`, `peso`, `ultimaDoacao`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);")){
-            $sql1->bind_param('isssisisiiids', $idusuario, $nome, $sobrenome, $nascimento, $cpf, $genero, $estado, $municipio, $telefonefixo, $telefonecelular, $tiposangue, $peso, $ultimaDoacao);
+            $sql1->bind_param('isssssisiiids', $idusuario, $nome, $sobrenome, $nascimento, $cpf, $genero, $estado, $municipio, $telefonefixo, $telefonecelular, $tiposangue, $peso, $ultimaDoacao);
             $sql1->execute();
             $sql1->close();
             echo $con->error;
@@ -102,6 +102,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         }
     }
 
+    //CADASTRO PJ
     if(@$_GET['cadastro'] == 'pj'){
         $tipo                   = $_GET["cadastro"];
         $nome                   = $_POST["nome"];
@@ -155,6 +156,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         }
     }
 
+    // ENTRAR COM EMAIL E SENHA
     if(@$_GET['login'] == 'entrar'){
 
         if((isset($_POST["email"])) && (isset($_POST["senha"]))){
@@ -209,16 +211,90 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         }
     }
 
+    //Solicitação
+    if(@$_GET['solicitar'] == 'enviar'){
+        print_r($_POST);
+        $id                 = $_POST["idusuario"];
+        $nome               = $_POST["nome"];
+        $tipo_sangue        = $_POST["tipo_sangue"];
+        $dataLimite         = $_POST["dia"];
+        $urgencia           = $_POST["urgencia"];
+        $dataSolicitacao    = date("Y-m-d");
+
+        if ($sql = $con->prepare("SELECT `tipo` FROM  `ssmv`.`tiposangue` WHERE idtipoSangue = ?;")) {
+            $sql->bind_param('i', $tipo_sangue);
+            $sql->execute();
+            $sql->bind_result($nome_sangue);
+            $sql->fetch();
+            $sql->close();
+        }
+
+        if ($sql = $con->prepare("SELECT `idsangueCompativel` FROM  `ssmv`.`sanguerecebedor` WHERE idsangueRecebedor = ?;")) {
+            $sql->bind_param('i', $tipo_sangue);
+            $sql->execute();
+            $sql->bind_result($idsangueCompativel);
+            $idsangueCompativeis = array();
+            while ($sql->fetch()){
+                array_push($idsangueCompativeis, $idsangueCompativel);
+            }
+            $sql->close();
+        }
+
+        $idCompativeis = array();
+        foreach($idsangueCompativeis as $indice => $idsangueCompativel){
+            if ($sql = $con->prepare("SELECT `idusuario` FROM  `ssmv`.`pf` WHERE idtipoSangue = ?;")){
+                $sql->bind_param('i', $idsangueCompativel);
+                $sql->execute();
+                $sql->bind_result($idusuarioCompativel);
+                $sql->fetch();
+                array_push($idCompativeis, $idusuarioCompativel);
+                $sql->close();
+            }
+        }
+        print_r($idCompativeis);
+        
+        foreach($idCompativeis as $indice => $idusuarioCompativel){
+            $titulo = "Solicitação de Sangue do tipo ".$nome_sangue;
+            $mensagem = $nome." está precisando de sangue do tipo ".$nome_sangue." para até o dia ".$dataLimite;
+            if ($sql = $con->prepare("INSERT INTO `ssmv`.`notificacao` (`de`, `para`, `titulo`,`mensagem`, `data`) VALUES (?, ?, ?, ?, ?);")){
+                $sql->bind_param('iisss', $id, $idusuarioCompativel, $titulo, $mensagem, $dataSolicitacao);
+                $sql->execute();
+                $sql->close();
+            } else {
+                echo "Notificação: \n\r";
+                echo $con->error;
+            }
+        }
+
+        if ($sql = $con->prepare("INSERT INTO `ssmv`.`requisicao` (`idusuario`, `nome`, `tipoSangue`, `dataSolicitacao`, `dataLimite`, `urgencia`) VALUES (?, ?, ?, ?, ?, ?);")) {
+          $sql->bind_param('isisss', $id, $nome, $tipo_sangue, $dataSolicitacao, $dataLimite, $urgencia);
+          $sql->execute();
+          $sql->close();
+          echo $con->error;
+        } else {
+            echo $con->error;
+        }
+    }
+
 } else {
 
     if(@$_GET['login'] == 'logout'){
         require_once "config.class.php";
         session_start();
-        unset(
-            $_SESSION['id'],
-            $_SESSION['tipo']
-        );
+
+        $_SESSION = array();
+
+        if (ini_get("session.use_cookies")) {
+            $params = session_get_cookie_params();
+            setcookie(session_name(), '', time() - 42000,
+                $params["path"], $params["domain"],
+                $params["secure"], $params["httponly"]
+            );
+        }
+
+        session_unset();
         session_destroy();
+        session_write_close();
         header("Location:". BASEURL);
         exit;
     }
