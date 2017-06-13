@@ -14,6 +14,6 @@ RewriteRule ^(|/)$ index.php
 RewriteRule ^perfil(.*)$ perfil.php
 RewriteRule ^cronograma(.*)$ cronograma.php
 RewriteRule ^requisicao/novo(.*)$ requisicao_novo.php
-RewriteRule ^requisicao/todos(.*)$ requisicao_todos.php
+RewriteRule ^requisicao/meus(.*)$ requisicao_meus.php
 RewriteRule ^logout(.*)$ ../post.php?login=logout
 RewriteRule ^solicitar(.*)$ ../post.php?solicitar=enviar

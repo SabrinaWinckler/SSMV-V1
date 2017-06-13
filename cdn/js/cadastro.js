@@ -386,40 +386,280 @@ $("#verificar_pf").on("click", function () {
                                                             }
                                                         );
                                                     } else {
-                                                        console.log("ERRO: SENHA FALTANDO");
+                                                        //COPIA DAQUI
+                                                        toastr.options = {
+                                                            "closeButton": true,
+                                                            "debug": false,
+                                                            "newestOnTop": false,
+                                                            "progressBar": true,
+                                                            "positionClass": "toast-top-right",
+                                                            "preventDuplicates": true,
+                                                            "onclick": null,
+                                                            "showDuration": "300",
+                                                            "hideDuration": "1000",
+                                                            "timeOut": "5000",
+                                                            "extendedTimeOut": "1000",
+                                                            "showEasing": "swing",
+                                                            "hideEasing": "linear",
+                                                            "showMethod": "fadeIn",
+                                                            "hideMethod": "fadeOut"
+                                                        };
+
+                                                        toastr["error"]("Está faltando informar a senha!", "Erro...");
+                                                        //ATÉ AQUI
                                                     }
                                                 } else {
-                                                    console.log("ERRO: EMAIL FALTANDO");
+                                                    //COPIA DAQUI
+                                                    toastr.options = {
+                                                        "closeButton": true,
+                                                        "debug": false,
+                                                        "newestOnTop": false,
+                                                        "progressBar": true,
+                                                        "positionClass": "toast-top-right",
+                                                        "preventDuplicates": true,
+                                                        "onclick": null,
+                                                        "showDuration": "300",
+                                                        "hideDuration": "1000",
+                                                        "timeOut": "5000",
+                                                        "extendedTimeOut": "1000",
+                                                        "showEasing": "swing",
+                                                        "hideEasing": "linear",
+                                                        "showMethod": "fadeIn",
+                                                        "hideMethod": "fadeOut"
+                                                    };
+
+                                                    toastr["error"]("Está faltando informar o email!", "Erro...");
+                                                    //ATÉ AQUI
                                                 }
                                             } else {
-                                                console.log("ERRO: PESO FALTANDO");
+                                                //COPIA DAQUI
+                                                toastr.options = {
+                                                    "closeButton": true,
+                                                    "debug": false,
+                                                    "newestOnTop": false,
+                                                    "progressBar": true,
+                                                    "positionClass": "toast-top-right",
+                                                    "preventDuplicates": true,
+                                                    "onclick": null,
+                                                    "showDuration": "300",
+                                                    "hideDuration": "1000",
+                                                    "timeOut": "5000",
+                                                    "extendedTimeOut": "1000",
+                                                    "showEasing": "swing",
+                                                    "hideEasing": "linear",
+                                                    "showMethod": "fadeIn",
+                                                    "hideMethod": "fadeOut"
+                                                };
+
+                                                toastr["error"]("Está faltando informar o peso!", "Erro...");
+                                                //ATÉ AQUI
                                             }
                                         } else {
-                                            console.log("ERRO: TIPO SANGUE FALTANDO");
+                                            //COPIA DAQUI
+                                            toastr.options = {
+                                                "closeButton": true,
+                                                "debug": false,
+                                                "newestOnTop": false,
+                                                "progressBar": true,
+                                                "positionClass": "toast-top-right",
+                                                "preventDuplicates": true,
+                                                "onclick": null,
+                                                "showDuration": "300",
+                                                "hideDuration": "1000",
+                                                "timeOut": "5000",
+                                                "extendedTimeOut": "1000",
+                                                "showEasing": "swing",
+                                                "hideEasing": "linear",
+                                                "showMethod": "fadeIn",
+                                                "hideMethod": "fadeOut"
+                                            };
+
+                                            toastr["error"]("Está faltando informar o tipo sanguíneo!", "Erro...");
+                                            //ATÉ AQUI
                                         }
                                     } else {
-                                        console.log("ERRO: TELEFONE CELULAR FALTANDO");
+                                        //COPIA DAQUI
+                                        toastr.options = {
+                                            "closeButton": true,
+                                            "debug": false,
+                                            "newestOnTop": false,
+                                            "progressBar": true,
+                                            "positionClass": "toast-top-right",
+                                            "preventDuplicates": true,
+                                            "onclick": null,
+                                            "showDuration": "300",
+                                            "hideDuration": "1000",
+                                            "timeOut": "5000",
+                                            "extendedTimeOut": "1000",
+                                            "showEasing": "swing",
+                                            "hideEasing": "linear",
+                                            "showMethod": "fadeIn",
+                                            "hideMethod": "fadeOut"
+                                        };
+
+                                        toastr["error"]("Está faltando informar o telefone celular!", "Erro...");
+                                        //ATÉ AQUI
                                     }
                                 } else {
-                                    console.log("ERRO: CIDADE FALTANDO");
+                                    //COPIA DAQUI
+                                    toastr.options = {
+                                        "closeButton": true,
+                                        "debug": false,
+                                        "newestOnTop": false,
+                                        "progressBar": true,
+                                        "positionClass": "toast-top-right",
+                                        "preventDuplicates": true,
+                                        "onclick": null,
+                                        "showDuration": "300",
+                                        "hideDuration": "1000",
+                                        "timeOut": "5000",
+                                        "extendedTimeOut": "1000",
+                                        "showEasing": "swing",
+                                        "hideEasing": "linear",
+                                        "showMethod": "fadeIn",
+                                        "hideMethod": "fadeOut"
+                                    };
+
+                                    toastr["error"]("Está faltando informar a cidade!", "Erro...");
+                                    //ATÉ AQUI
                                 }
                             } else {
-                                console.log("ERRO: ESTADO FALTANDO");
+                                //COPIA DAQUI
+                                toastr.options = {
+                                    "closeButton": true,
+                                    "debug": false,
+                                    "newestOnTop": false,
+                                    "progressBar": true,
+                                    "positionClass": "toast-top-right",
+                                    "preventDuplicates": true,
+                                    "onclick": null,
+                                    "showDuration": "300",
+                                    "hideDuration": "1000",
+                                    "timeOut": "5000",
+                                    "extendedTimeOut": "1000",
+                                    "showEasing": "swing",
+                                    "hideEasing": "linear",
+                                    "showMethod": "fadeIn",
+                                    "hideMethod": "fadeOut"
+                                };
+
+                                toastr["error"]("Está faltando informar o estado!", "Erro...");
+                                //ATÉ AQUI
                             }
                         } else {
-                            console.log("ERRO: GENERO FALTANDO");
+                            //COPIA DAQUI
+                            toastr.options = {
+                                "closeButton": true,
+                                "debug": false,
+                                "newestOnTop": false,
+                                "progressBar": true,
+                                "positionClass": "toast-top-right",
+                                "preventDuplicates": true,
+                                "onclick": null,
+                                "showDuration": "300",
+                                "hideDuration": "1000",
+                                "timeOut": "5000",
+                                "extendedTimeOut": "1000",
+                                "showEasing": "swing",
+                                "hideEasing": "linear",
+                                "showMethod": "fadeIn",
+                                "hideMethod": "fadeOut"
+                            };
+
+                            toastr["error"]("Está faltando informar o gênero!", "Erro...");
+                            //ATÉ AQUI
                         }
                     } else {
-                        console.log("ERRO: NASCIMENTO FALTANDO");
+                        //COPIA DAQUI
+                        toastr.options = {
+                            "closeButton": true,
+                            "debug": false,
+                            "newestOnTop": false,
+                            "progressBar": true,
+                            "positionClass": "toast-top-right",
+                            "preventDuplicates": true,
+                            "onclick": null,
+                            "showDuration": "300",
+                            "hideDuration": "1000",
+                            "timeOut": "5000",
+                            "extendedTimeOut": "1000",
+                            "showEasing": "swing",
+                            "hideEasing": "linear",
+                            "showMethod": "fadeIn",
+                            "hideMethod": "fadeOut"
+                        };
+
+                        toastr["error"]("Está faltando informar a data de nascimento!", "Erro...");
+                        //ATÉ AQUI
                     }
                 } else {
-                    console.log("ERRO: CPF FALTANDO");
+                    //COPIA DAQUI
+                    toastr.options = {
+                        "closeButton": true,
+                        "debug": false,
+                        "newestOnTop": false,
+                        "progressBar": true,
+                        "positionClass": "toast-top-right",
+                        "preventDuplicates": true,
+                        "onclick": null,
+                        "showDuration": "300",
+                        "hideDuration": "1000",
+                        "timeOut": "5000",
+                        "extendedTimeOut": "1000",
+                        "showEasing": "swing",
+                        "hideEasing": "linear",
+                        "showMethod": "fadeIn",
+                        "hideMethod": "fadeOut"
+                    };
+
+                    toastr["error"]("Está faltando informar o CPF!", "Erro...");
+                    //ATÉ AQUI
                 }
             } else {
-                console.log("ERRO: SOBRENOME FALTANDO");
+                //COPIA DAQUI
+                toastr.options = {
+                    "closeButton": true,
+                    "debug": false,
+                    "newestOnTop": false,
+                    "progressBar": true,
+                    "positionClass": "toast-top-right",
+                    "preventDuplicates": true,
+                    "onclick": null,
+                    "showDuration": "300",
+                    "hideDuration": "1000",
+                    "timeOut": "5000",
+                    "extendedTimeOut": "1000",
+                    "showEasing": "swing",
+                    "hideEasing": "linear",
+                    "showMethod": "fadeIn",
+                    "hideMethod": "fadeOut"
+                };
+
+                toastr["error"]("Está faltando informar o sobrenome!", "Erro...");
+                //ATÉ AQUI
             }
         } else {
-            console.log("ERRO: NOME FALTANDO");
+            //COPIA DAQUI
+            toastr.options = {
+                "closeButton": true,
+                "debug": false,
+                "newestOnTop": false,
+                "progressBar": true,
+                "positionClass": "toast-top-right",
+                "preventDuplicates": true,
+                "onclick": null,
+                "showDuration": "300",
+                "hideDuration": "1000",
+                "timeOut": "5000",
+                "extendedTimeOut": "1000",
+                "showEasing": "swing",
+                "hideEasing": "linear",
+                "showMethod": "fadeIn",
+                "hideMethod": "fadeOut"
+            };
+
+            toastr["error"]("Está faltando informar o nome!", "Erro...");
+            //ATÉ AQUI
         }
     } else {
         //COPIA DAQUI
@@ -441,9 +681,9 @@ $("#verificar_pf").on("click", function () {
             "hideMethod": "fadeOut"
         };
 
-        toastr["error"]("Está faltando informar o tipo de pessoa", "Erro...");
+        toastr["error"]("Está faltando informar o tipo de pessoa!", "Erro...");
+        //ATÉ AQUI
     }
-    //ATÉ AQUI
 });
 
 // FACEBOOK
@@ -670,18 +910,18 @@ $("#eppainel5").on("click", function () {
 
 $("#verificar_pj").on("click", function () {
     if ($("#pessoa_selecionada").val() == 'pj') {
-        if($("#pj_nome").val().length > 1){
-            if($("#pj_nome_fantasia").val().length > 1){
-                if($("#pj_CNPJ").val().length > 1 && validar_cnpj){
-                    if($("#pj_cep").val().length > 1){
-                        if(!$("#pj_estado").val() == false){
-                            if(!$("#pj_cidade").val() == false){
-                                if($("#pj_logradouro").val().length > 1){
-                                    if($("#pj_bairro").val().length > 1){
-                                        if($("#pj_logradouro_numero").val().length > 1){
-                                            if($("#pj_telefone_fixo").val().length > 1){
-                                                if($("#pj_email").val().length > 1 && validar_email_pj){
-                                                    if($("#pj_senha").val().length > 1 && validar_senha_pj){
+        if ($("#pj_nome").val().length > 1) {
+            if ($("#pj_nome_fantasia").val().length > 1) {
+                if ($("#pj_CNPJ").val().length > 1 && validar_cnpj) {
+                    if ($("#pj_cep").val().length > 1) {
+                        if (!$("#pj_estado").val() == false) {
+                            if (!$("#pj_cidade").val() == false) {
+                                if ($("#pj_logradouro").val().length > 1) {
+                                    if ($("#pj_bairro").val().length > 1) {
+                                        if ($("#pj_logradouro_numero").val().length > 1) {
+                                            if ($("#pj_telefone_fixo").val().length > 1) {
+                                                if ($("#pj_email").val().length > 1 && validar_email_pj) {
+                                                    if ($("#pj_senha").val().length > 1 && validar_senha_pj) {
 
                                                         $.post('/confirmarcadastropj',
                                                             {
@@ -704,17 +944,277 @@ $("#verificar_pj").on("click", function () {
                                                                 window.location.href = rs;
                                                             }
                                                         );
+                                                    } else {
+                                                        toastr.options = {
+                                                            "closeButton": true,
+                                                            "debug": false,
+                                                            "newestOnTop": false,
+                                                            "progressBar": true,
+                                                            "positionClass": "toast-top-right",
+                                                            "preventDuplicates": true,
+                                                            "onclick": null,
+                                                            "showDuration": "300",
+                                                            "hideDuration": "1000",
+                                                            "timeOut": "5000",
+                                                            "extendedTimeOut": "1000",
+                                                            "showEasing": "swing",
+                                                            "hideEasing": "linear",
+                                                            "showMethod": "fadeIn",
+                                                            "hideMethod": "fadeOut"
+                                                        };
+
+                                                        toastr["error"]("Está faltando informar a senha!", "Erro...");
                                                     }
+                                                } else {
+                                                    toastr.options = {
+                                                        "closeButton": true,
+                                                        "debug": false,
+                                                        "newestOnTop": false,
+                                                        "progressBar": true,
+                                                        "positionClass": "toast-top-right",
+                                                        "preventDuplicates": true,
+                                                        "onclick": null,
+                                                        "showDuration": "300",
+                                                        "hideDuration": "1000",
+                                                        "timeOut": "5000",
+                                                        "extendedTimeOut": "1000",
+                                                        "showEasing": "swing",
+                                                        "hideEasing": "linear",
+                                                        "showMethod": "fadeIn",
+                                                        "hideMethod": "fadeOut"
+                                                    };
+
+                                                    toastr["error"]("Está faltando informar o email!", "Erro...");
                                                 }
+                                            } else {
+                                                toastr.options = {
+                                                    "closeButton": true,
+                                                    "debug": false,
+                                                    "newestOnTop": false,
+                                                    "progressBar": true,
+                                                    "positionClass": "toast-top-right",
+                                                    "preventDuplicates": true,
+                                                    "onclick": null,
+                                                    "showDuration": "300",
+                                                    "hideDuration": "1000",
+                                                    "timeOut": "5000",
+                                                    "extendedTimeOut": "1000",
+                                                    "showEasing": "swing",
+                                                    "hideEasing": "linear",
+                                                    "showMethod": "fadeIn",
+                                                    "hideMethod": "fadeOut"
+                                                };
+
+                                                toastr["error"]("Está faltando informar o telefone fixo!", "Erro...");
                                             }
+                                        } else {
+                                            toastr.options = {
+                                                "closeButton": true,
+                                                "debug": false,
+                                                "newestOnTop": false,
+                                                "progressBar": true,
+                                                "positionClass": "toast-top-right",
+                                                "preventDuplicates": true,
+                                                "onclick": null,
+                                                "showDuration": "300",
+                                                "hideDuration": "1000",
+                                                "timeOut": "5000",
+                                                "extendedTimeOut": "1000",
+                                                "showEasing": "swing",
+                                                "hideEasing": "linear",
+                                                "showMethod": "fadeIn",
+                                                "hideMethod": "fadeOut"
+                                            };
+
+                                            toastr["error"]("Está faltando informar o número do logradouro!", "Erro...");
                                         }
+                                    } else {
+                                        toastr.options = {
+                                            "closeButton": true,
+                                            "debug": false,
+                                            "newestOnTop": false,
+                                            "progressBar": true,
+                                            "positionClass": "toast-top-right",
+                                            "preventDuplicates": true,
+                                            "onclick": null,
+                                            "showDuration": "300",
+                                            "hideDuration": "1000",
+                                            "timeOut": "5000",
+                                            "extendedTimeOut": "1000",
+                                            "showEasing": "swing",
+                                            "hideEasing": "linear",
+                                            "showMethod": "fadeIn",
+                                            "hideMethod": "fadeOut"
+                                        };
+
+                                        toastr["error"]("Está faltando informar o bairro!", "Erro...");
                                     }
+                                } else {
+                                    toastr.options = {
+                                        "closeButton": true,
+                                        "debug": false,
+                                        "newestOnTop": false,
+                                        "progressBar": true,
+                                        "positionClass": "toast-top-right",
+                                        "preventDuplicates": true,
+                                        "onclick": null,
+                                        "showDuration": "300",
+                                        "hideDuration": "1000",
+                                        "timeOut": "5000",
+                                        "extendedTimeOut": "1000",
+                                        "showEasing": "swing",
+                                        "hideEasing": "linear",
+                                        "showMethod": "fadeIn",
+                                        "hideMethod": "fadeOut"
+                                    };
+
+                                    toastr["error"]("Está faltando informar o logradouro!", "Erro...");
                                 }
+                            } else {
+                                toastr.options = {
+                                    "closeButton": true,
+                                    "debug": false,
+                                    "newestOnTop": false,
+                                    "progressBar": true,
+                                    "positionClass": "toast-top-right",
+                                    "preventDuplicates": true,
+                                    "onclick": null,
+                                    "showDuration": "300",
+                                    "hideDuration": "1000",
+                                    "timeOut": "5000",
+                                    "extendedTimeOut": "1000",
+                                    "showEasing": "swing",
+                                    "hideEasing": "linear",
+                                    "showMethod": "fadeIn",
+                                    "hideMethod": "fadeOut"
+                                };
+
+                                toastr["error"]("Está faltando informar a cidade!", "Erro...");
                             }
+                        } else {
+                            toastr.options = {
+                                "closeButton": true,
+                                "debug": false,
+                                "newestOnTop": false,
+                                "progressBar": true,
+                                "positionClass": "toast-top-right",
+                                "preventDuplicates": true,
+                                "onclick": null,
+                                "showDuration": "300",
+                                "hideDuration": "1000",
+                                "timeOut": "5000",
+                                "extendedTimeOut": "1000",
+                                "showEasing": "swing",
+                                "hideEasing": "linear",
+                                "showMethod": "fadeIn",
+                                "hideMethod": "fadeOut"
+                            };
+
+                            toastr["error"]("Está faltando informar o estado!", "Erro...");
                         }
+                    } else {
+                        toastr.options = {
+                            "closeButton": true,
+                            "debug": false,
+                            "newestOnTop": false,
+                            "progressBar": true,
+                            "positionClass": "toast-top-right",
+                            "preventDuplicates": true,
+                            "onclick": null,
+                            "showDuration": "300",
+                            "hideDuration": "1000",
+                            "timeOut": "5000",
+                            "extendedTimeOut": "1000",
+                            "showEasing": "swing",
+                            "hideEasing": "linear",
+                            "showMethod": "fadeIn",
+                            "hideMethod": "fadeOut"
+                        };
+
+                        toastr["error"]("Está faltando informar o CEP!", "Erro...");
                     }
+                } else {
+                    toastr.options = {
+                        "closeButton": true,
+                        "debug": false,
+                        "newestOnTop": false,
+                        "progressBar": true,
+                        "positionClass": "toast-top-right",
+                        "preventDuplicates": true,
+                        "onclick": null,
+                        "showDuration": "300",
+                        "hideDuration": "1000",
+                        "timeOut": "5000",
+                        "extendedTimeOut": "1000",
+                        "showEasing": "swing",
+                        "hideEasing": "linear",
+                        "showMethod": "fadeIn",
+                        "hideMethod": "fadeOut"
+                    };
+
+                    toastr["error"]("Está faltando informar o CNPJ!", "Erro...");
                 }
+            } else {
+                toastr.options = {
+                    "closeButton": true,
+                    "debug": false,
+                    "newestOnTop": false,
+                    "progressBar": true,
+                    "positionClass": "toast-top-right",
+                    "preventDuplicates": true,
+                    "onclick": null,
+                    "showDuration": "300",
+                    "hideDuration": "1000",
+                    "timeOut": "5000",
+                    "extendedTimeOut": "1000",
+                    "showEasing": "swing",
+                    "hideEasing": "linear",
+                    "showMethod": "fadeIn",
+                    "hideMethod": "fadeOut"
+                };
+
+                toastr["error"]("Está faltando informar o nome fantasia!", "Erro...");
             }
+        } else {
+            toastr.options = {
+                "closeButton": true,
+                "debug": false,
+                "newestOnTop": false,
+                "progressBar": true,
+                "positionClass": "toast-top-right",
+                "preventDuplicates": true,
+                "onclick": null,
+                "showDuration": "300",
+                "hideDuration": "1000",
+                "timeOut": "5000",
+                "extendedTimeOut": "1000",
+                "showEasing": "swing",
+                "hideEasing": "linear",
+                "showMethod": "fadeIn",
+                "hideMethod": "fadeOut"
+            };
+
+            toastr["error"]("Está faltando informar o nome!", "Erro...");
         }
+    } else {
+        toastr.options = {
+            "closeButton": true,
+            "debug": false,
+            "newestOnTop": false,
+            "progressBar": true,
+            "positionClass": "toast-top-right",
+            "preventDuplicates": true,
+            "onclick": null,
+            "showDuration": "300",
+            "hideDuration": "1000",
+            "timeOut": "5000",
+            "extendedTimeOut": "1000",
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+        };
+
+        toastr["error"]("Está faltando informar a pessoa selecionada!", "Erro...");
     }
 });

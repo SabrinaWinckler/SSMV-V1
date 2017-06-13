@@ -95,6 +95,9 @@ if(LOGADO === TRUE){
                         <i class="fa fa-envelope fa-fw"></i> <i class="fa fa-caret-down"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-messages">
+                        <?php 
+
+                        ?>
                         <li>
                             <a href="#">
                                 <div>

@@ -70,7 +70,7 @@ require_once "inc/header.php";
         </div>
         <div class="row">
             <div class="col-md-12">
-                <input type="button" value="Confirmar" onclick="solicitar_doacao()" class="btn btn-primary right">
+                <input type="button" value="Confirmar" onclick="solicitar_doacao();" class="btn btn-primary right">
             </div>
         </div>
 

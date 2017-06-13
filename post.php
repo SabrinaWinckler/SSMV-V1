@@ -160,7 +160,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     if(@$_GET['login'] == 'entrar'){
 
         if((isset($_POST["email"])) && (isset($_POST["senha"]))){
-            $email = $con->real_escape_string(preg_replace('/[^[:alpha:]@._-]/', '', $_POST["email"]));
+            $email = $con->real_escape_string(preg_replace('/[^[:alpha:]0-9@._-]/', '', $_POST["email"]));
             $senha = $con->real_escape_string(preg_replace('/[^[:alpha:]0-9#@._-]/', '', $_POST["senha"]));
             $senha = sha1(md5($senha));
 
@@ -213,7 +213,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
     //Solicitação
     if(@$_GET['solicitar'] == 'enviar'){
-        print_r($_POST);
         $id                 = $_POST["idusuario"];
         $nome               = $_POST["nome"];
         $tipo_sangue        = $_POST["tipo_sangue"];
@@ -267,7 +266,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
                 $sql->close();
             }
         }
-        print_r($idsFacebook);
+        // array_push($idsFacebook, 1489277481137597);
+        print_r(json_encode($idsFacebook));
         
         // foreach($idCompativeis as $indice => $idusuarioCompativel){
         //     $titulo = "Solicitação de Sangue do tipo ".$nome_sangue;

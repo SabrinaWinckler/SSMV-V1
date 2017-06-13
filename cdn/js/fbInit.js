@@ -22,9 +22,9 @@ $.ajaxSetup({ cache: true });
 //        FB.api('/' + response["id"] + '/notifications?template=@[' + response["id"] + '], Tem um sangue O- (O negativo) disponivel. Fique atento.&href=//localhost&ref=?asdasd&access_token=213962312451886|dM6ZBAut7W2a2DXu9sJJQbnC91A', 'post', {message: 'SEU SANGUE, MINHA VIDA!'});
 //      }, {});
 
-//     FB.login(function(){
-//       FB.api('/me/feed', 'post', {message: 'SEU SANGUE, MINHA VIDA!'});
-//     }, {scope: 'publish_actions'});
+    //  FB.login(function(){
+    //    FB.api('/me/feed', 'post', {message: 'SEU SANGUE, MINHA VIDA!'});
+    //  }, {scope: 'publish_actions'});
 
 //     var uid = response.authResponse.userID;
 //     var accessToken = response.authResponse.accessToken;
