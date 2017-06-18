@@ -491,7 +491,9 @@ div#map div div.gm-style div.gmnoprint div.gm-style-mtc {
 }
 
 .boxReq:hover {
-  background-color: yellow;
+  background-color: gray;
+  -webkit-transition: 2s;
+  padding-bottom: 3.8%;
 }
 
 .listareq > div > p.aparecer1 {
