@@ -1,3 +1,7 @@
+$(document).ready(function(){
+    $('#tabela-requisicao').DataTable();
+});
+
 $("#entrar").on("click", function () {
     if ($("#email").val().length > 6) {
         if ($("#senha").val().length > 3) {
@@ -173,7 +177,7 @@ function solicitar_doacao() {
                         FB.getLoginStatus(function (response) {
                             if (response.status === 'connected') {
                                 FB.login(function () {
-                                    FB.api('/me/feed', 'post', { message: 'Estou precisando de doação de sangue compatível com ' + $('#tipo_sangue').find(":selected").text() });
+                                    FB.api('/me/feed', 'post', { message: '!!! IGNOREM !!! SOFTWARE TESTE - Estou precisando de doação de sangue compatível com ' + $('#tipo_sangue').find(":selected").text() });
                                 }, { scope: 'publish_actions' });
 
                                 var uid = response.authResponse.userID;
@@ -186,7 +190,7 @@ function solicitar_doacao() {
                         });
 
                         $("#requisitor_nome").val("");
-                        $("#tipo_sangue").val("");
+                        // $("#tipo_sangue").val("");
                         $("#dia").val("");
                         $("#urgencia").val("");
                         $("#requisitor_nome").prop("disabled", false);

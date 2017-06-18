@@ -281,7 +281,7 @@
                                                 <div class="col-md-3">
                                                     <div class="form-group">
                                                         <label>Ultima doação</label>
-                                                        <input type="date" id="pf_ultimaDoacao" name="pf_ultimaDoacao" class="form-control">
+                                                        <input type="date" id="pf_ultimaDoacao" name="pf_ultimaDoacao" value="2017-01-01" class="form-control">
                                                     </div>
                                                 </div>
 

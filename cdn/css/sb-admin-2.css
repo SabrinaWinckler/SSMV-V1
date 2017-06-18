@@ -479,6 +479,37 @@ div#map div div.gm-style div.gmnoprint div.gm-style-mtc {
   background:none !important;
 }
 
+.boxReq {
+  background-color: lightgray;
+  border-style: solid;
+  border-color: black;
+  margin-bottom: 3%;
+  padding-top: 3.6%;
+  padding-left: 4%;
+  padding-bottom: 5.7%;
+  border-radius: 4%;
+}
+
+.boxReq:hover {
+  background-color: yellow;
+}
+
+.listareq > div > p.aparecer1 {
+  display: block;
+}
+
+.listareq:hover > div > p.aparecer1{
+  display: none;
+}
+
+.listareq > div > p.aparecer2 {
+  display: none;
+}
+
+.listareq:hover > div > p.aparecer2{
+  display: block;
+}
+
 /*#map {
   height: 275px;
   width: 100%;

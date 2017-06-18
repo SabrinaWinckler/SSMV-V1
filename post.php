@@ -228,7 +228,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
             $sql->close();
         }
 
-        if ($sql = $con->prepare("SELECT `idsangueCompativel` FROM  `ssmv`.`sanguerecebedor` WHERE idsangueRecebedor = ?;")) {
+        if ($sql = $con->prepare("SELECT `idsangueCompativel` FROM `ssmv`.`sanguerecebedor` WHERE idsangueRecebedor = ?;")) {
             $sql->bind_param('i', $tipo_sangue);
             $sql->execute();
             $sql->bind_result($idsangueCompativel);
@@ -245,9 +245,10 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
                 $sql->bind_param('i', $idsangueCompativel);
                 $sql->execute();
                 $sql->bind_result($idusuarioCompativel);
-                $sql->fetch();
-                if($idusuarioCompativel != $id){
-                    array_push($idCompativeis, $idusuarioCompativel);
+                while($sql->fetch()){
+                    if($idusuarioCompativel != $id){
+                        array_push($idCompativeis, $idusuarioCompativel);
+                    }
                 }
                 $sql->close();
             }
