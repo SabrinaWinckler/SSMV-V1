@@ -1,7 +1,6 @@
 <?php 
 
 $pagina = "Principal";
-$tipo   = "Pessoa juridica";
 
 require_once "inc/header.php"; 
 

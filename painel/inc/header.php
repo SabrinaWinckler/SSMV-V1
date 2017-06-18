@@ -46,7 +46,7 @@ if(LOGADO === TRUE){
     <meta name="description" content="<?php echo $config->descricao(); ?>">
     <meta name="author" content="<?php echo $config->autor(); ?>">
 
-    <title><?php echo $pagina. " :: " . $tipo; ?> :: Seu sangue, minha vida</title>
+    <title><?php echo $pagina ?> :: Seu sangue, minha vida</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="<?php echo BASECDN; ?>bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -96,44 +96,27 @@ if(LOGADO === TRUE){
                     </a>
                     <ul class="dropdown-menu dropdown-messages">
                         <?php 
-
+                            if ($sql = $con->prepare("SELECT `idnotificacao`, `de`, `titulo`, `mensagem`, `data` FROM `ssmv`.`notificacao` WHERE para = ? ORDER BY idnotificacao DESC LIMIT 3;")){
+                                $sql->bind_param('i', $_id);
+                                $sql->execute();
+                                $sql->bind_result($id_noti, $de_noti, $titulo_noti, $mensagem_noti, $data_noti);
+                                while($sql->fetch()){
+                                    echo '<li>
+                                            <a href="#">
+                                                <div>
+                                                    <strong>'. $titulo_noti .'</strong>
+                                                    <span class="pull-right text-muted">
+                                                    <em>'.date_format(date_create($data_noti), 'd/m/Y').'</em>
+                                                    </span>
+                                                </div>
+                                                <div>'. $mensagem_noti .'</div>
+                                            </a>
+                                        </li>
+                                        <li class="divider"></li>';
+                                }
+                                $sql->close();
+                            }
                         ?>
-                        <li>
-                            <a href="#">
-                                <div>
-                                    <strong>Notificação 1</strong>
-                                    <span class="pull-right text-muted">
-                                        <em>Ontem</em>
-                                    </span>
-                                </div>
-                                <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="#">
-                                <div>
-                                    <strong>Notificação 2</strong>
-                                    <span class="pull-right text-muted">
-                                        <em>Ontem</em>
-                                    </span>
-                                </div>
-                                <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="#">
-                                <div>
-                                    <strong>Notificação 3</strong>
-                                    <span class="pull-right text-muted">
-                                        <em>Ontem</em>
-                                    </span>
-                                </div>
-                                <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
                         <li>
                             <a class="text-center" href="#">
                                 <strong>Ver todas as notificações</strong>
