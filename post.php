@@ -212,7 +212,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     }
 
     //Solicitação
-    if(@$_GET['solicitar'] == 'enviar'){
+    if(@$_GET['requisicao'] == 'enviar'){
         $id                 = $_POST["idusuario"];
         $nome               = $_POST["nome"];
         $tipo_sangue        = $_POST["tipo_sangue"];
@@ -290,6 +290,23 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         } else {
             echo "Requisição: \n\r";
             echo $con->error;
+        }
+    }
+
+    if(@$_GET["requisicao"] == "remover"){
+        $idreq = $_POST["idreq"];
+
+        if ($sql = $con->prepare("DELETE FROM `ssmv`.`requisicao` WHERE `idrequisicao`= ?;")) {
+            $sql->bind_param('i', $idreq);
+            $sql->execute();
+
+            if($sql->affected_rows == 0){
+                echo "Err1";
+            } else {
+                echo "Suc1";
+            }
+
+            $sql->close();
         }
     }
 

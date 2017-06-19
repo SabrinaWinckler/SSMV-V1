@@ -16,4 +16,5 @@ RewriteRule ^cronograma(.*)$ cronograma.php
 RewriteRule ^requisicao/novo(.*)$ requisicao_novo.php
 RewriteRule ^requisicao/meus(.*)$ requisicao_meus.php
 RewriteRule ^logout(.*)$ ../post.php?login=logout
-RewriteRule ^solicitar(.*)$ ../post.php?solicitar=enviar
+RewriteRule ^solicitar(.*)$ ../post.php?requisicao=enviar
+RewriteRule ^remover_requisicao(.*)$ ../post.php?requisicao=remover

@@ -321,8 +321,52 @@ $("#requisitor_mim").on("change", function () {
     }
 });
 
-function removerRequisicao(id){
+function removerRequisicao(id_req){
+    $.post(basepainel + '/remover_requisicao', {idreq: id_req}, function (rs) {
+        console.log(rs);
 
-    alert(id);
+        if(rs == "Err1"){
+            toastr.options = {
+                "closeButton": true,
+                "debug": false,
+                "newestOnTop": false,
+                "progressBar": true,
+                "positionClass": "toast-top-right",
+                "preventDuplicates": true,
+                "onclick": null,
+                "showDuration": "300",
+                "hideDuration": "1000",
+                "timeOut": "5000",
+                "extendedTimeOut": "1000",
+                "showEasing": "swing",
+                "hideEasing": "linear",
+                "showMethod": "fadeIn",
+                "hideMethod": "fadeOut"
+            };
 
+            toastr["error"]("Não foi removido!", "Erro");
+        } else {
+            toastr.options = {
+                "closeButton": true,
+                "debug": false,
+                "newestOnTop": false,
+                "progressBar": true,
+                "positionClass": "toast-top-right",
+                "preventDuplicates": true,
+                "onclick": null,
+                "showDuration": "300",
+                "hideDuration": "1000",
+                "timeOut": "5000",
+                "extendedTimeOut": "1000",
+                "showEasing": "swing",
+                "hideEasing": "linear",
+                "showMethod": "fadeIn",
+                "hideMethod": "fadeOut"
+            };
+
+            toastr["success"]("Solicitação removida com sucesso.", "Removido com sucesso");
+
+            $("#tr-" + id_req).fadeOut();
+        }
+    });
 }

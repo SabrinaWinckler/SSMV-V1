@@ -288,10 +288,7 @@ function esqueci(){
             };
 
             toastr["success"]("Instrução enviada!", "Verifique seu email");
+            $('#esqueciSenha').modal('toggle');
         }
-
-    $("#nome").val("");
-    $("#email").val("");
-    $("#assunto").val("");
     });
 }

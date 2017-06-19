@@ -14,4 +14,30 @@ if (mysqli_connect_errno()) {
     exit();
 }
 
+$nomeSangue = array();
+if(count($nomeSangue) == 0){
+    if ($sql = $con->prepare("SELECT `tipo` FROM  `ssmv`.`tiposangue` ORDER BY idtipoSangue")) {
+        $sql->execute();
+        $sql->bind_result($nome_sangue);
+        while($sql->fetch()){
+            array_push($nomeSangue, $nome_sangue);
+        }
+        $sql->close();
+    }
+}
+
+
+$nomeHemocentro = array();
+if(count($nomeHemocentro) == 0){
+    if ($sql = $con->prepare("SELECT `nome` FROM  `ssmv`.`marcador`")) {
+        $sql->execute();
+        $sql->bind_result($_marcador);
+        while($sql->fetch()){
+            array_push($nomeHemocentro, $_marcador);
+        }
+        $sql->close();
+    }
+}
+
+
 ?>

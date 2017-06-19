@@ -14,99 +14,49 @@ require_once "inc/header.php";
 
             </div>
 
-                <div class="row">
-                        <div class="col-sm-2 boxReq">
-                            <div class="aparecer1">
-                                <p>Requisição 1</p>
-                            </div>
-                            <div class="aparecer2">
-                                <p>Gustavo Bittencourt Satheler está querendo doar</p>
-                                <button>QUERO DOAR</button>
-                            </div>
-                        </div>
+            <div class="row">
+                <?php 
 
-                    <div class=col-sm-1></div>
+                $nomeSangue = array();
+                if ($sql = $con->prepare("SELECT `tipo` FROM  `ssmv`.`tiposangue` ORDER BY idtipoSangue")) {
+                    $sql->execute();
+                    $sql->bind_result($nome_sangue);
+                    while($sql->fetch()){
+                        array_push($nomeSangue, $nome_sangue);
+                    }
+                    $sql->close();
+                }
+                
+                if($sql = $con->prepare("SELECT `idrequisicao`, `idusuario`, `nome`, `tipoSangue`, `dataLimite`, `urgencia`, `idmarcador` FROM `ssmv`.`requisicao`")) {
+                    // $sql->bind_param('i', $_SESSION['id']);
+                    $sql->execute();
+                    $sql->bind_result($_req_idrequisicao, $_req_idusuario , $_req_nome, $_req_tipoSangue, $_req_dataLimite, $_req_urgencia, $_req_idmarcador);
+                    while($sql->fetch()){
+                        if($_id != $_req_idusuario){
+                             echo '<div class="col-sm-3 boxReq-container urgencia-'.$_req_urgencia.'">
+                                <div class="boxReq-item req-transition">
+                                    <div class="req-top-list-header">
+                                        <a href="#" title="'. $_req_nome .'">
+                                            <span class="req-title req-trunc">'. $_req_nome .'</span>
+                                        </a>
+                                        <span class="req-topicos">Solicita: Sangue '. $nomeSangue[$_req_tipoSangue - 1] .'</span><br />
+                                        <span class="req-topicos">'. $nomeHemocentro[$_req_idmarcador - 1] .'</span><br />
+                                        <span class="req-topicos">Data limite: '. date_format(date_create($_req_dataLimite), 'd/m/Y') .'</span>
+                                    </div>
+                                    <a href="#" onclick="querodoar('. $_req_idrequisicao .')" class="req-category">Quero doar!</a>
+                                </div>
+                            </div>';
+                        }
+                    }
+                    $sql->close();
+                } else {
+                    echo "Mostar hemocentro: \n\r";
+                    echo $con->error;
+                }
+                
+                ?>
+            </div>
 
-                        <div class="col-sm-2 boxReq">
-                            <p class="aparecer1">Requisição 2</p>
-                            <p class="aparecer2"> Dados da Requisição </p>
-                        </div>
-
-                    <div class=col-sm-1></div>
-
-                        <div class="col-sm-2 boxReq">
-                            <p class="aparecer1">Requisição 2</p>
-                            <p class="aparecer2"> Dados da Requisição </p>
-                        </div>
-
-                    <div class=col-sm-1></div>
-
-                        <div class="col-sm-2 boxReq">
-                            <p class="aparecer1">Requisição 4</p>
-                            <p class="aparecer2"> Dados da Requisição </p>
-                        </div>
-
-               </div>
-
-                <div class="row">
-
-                        <div class="col-sm-2 boxReq">
-                            <p class="aparecer1">Requisição 5</p>
-                            <p class="aparecer2"> Dados da Requisição </p>
-                        </div>
-
-                    <div class=col-sm-1></div>
-
-                        <div class="col-sm-2 boxReq">
-                            <p class="aparecer1">Requisição 6</p>
-                            <p class="aparecer2"> Dados da Requisição </p>
-                        </div>
-
-                    <div class=col-sm-1></div>
-
-                        <div class="col-sm-2 boxReq">
-                            <p class="aparecer1">Requisição 7</p>
-                            <p class="aparecer2"> Dados da Requisição </p>
-                        </div>
-
-                    <div class=col-sm-1></div>
-
-                        <div class="col-sm-2 boxReq">
-                            <p class="aparecer1">Requisição 8</p>
-                            <p class="aparecer2"> Dados da Requisição </p>
-                        </div>
-
-               </div>
-                <div class="row">
-
-                        <div class="col-sm-2 boxReq">
-                            <p class="aparecer1">Requisição 9</p>
-                            <p class="aparecer2"> Dados da Requisição </p>
-                        </div>
-
-                    <div class=col-sm-1></div>
-
-                        <div class="col-sm-2 boxReq">
-                            <p class="aparecer1">Requisição 10</p>
-                            <p class="aparecer2"> Dados da Requisição </p>
-                        </div>
-
-                    <div class=col-sm-1></div>
-
-                        <div class="col-sm-2 boxReq">
-                            <p class="aparecer1">Requisição 11</p>
-                            <p class="aparecer2"> Dados da Requisição </p>
-                        </div>
-
-                    <div class=col-sm-1></div>
-
-                        <div class="col-sm-2 boxReq">
-                            <p class="aparecer1">Requisição 12</p>
-                            <p class="aparecer2"> Dados da Requisição </p>
-                        </div>
-
-               </div>
-              
         </div>
         <!-- /#page-wrapper -->
 

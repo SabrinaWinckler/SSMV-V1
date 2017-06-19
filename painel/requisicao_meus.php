@@ -32,25 +32,6 @@ require_once "inc/header.php";
                                     </thead>
                                     <tbody>
                                     <?php
-                                    $nomeSangue = array();
-                                    if ($sql = $con->prepare("SELECT `tipo` FROM  `ssmv`.`tiposangue`")) {
-                                        $sql->execute();
-                                        $sql->bind_result($nome_sangue);
-                                        while($sql->fetch()){
-                                            array_push($nomeSangue, $nome_sangue);
-                                        }
-                                        $sql->close();
-                                    }
-
-                                    $nomeHemocentro = array();
-                                    if ($sql = $con->prepare("SELECT `nome` FROM  `ssmv`.`marcador`")) {
-                                        $sql->execute();
-                                        $sql->bind_result($_marcador);
-                                        while($sql->fetch()){
-                                            array_push($nomeHemocentro, $_marcador);
-                                        }
-                                        $sql->close();
-                                    }
 
                                     if ($sql = $con->prepare("SELECT `idrequisicao`, `nome`, `tipoSangue`, `dataSolicitacao`, `dataLimite`, `urgencia`, `idmarcador` FROM  `ssmv`.`requisicao` WHERE idusuario = ?;")) {
                                         $sql->bind_param('i', $_id);

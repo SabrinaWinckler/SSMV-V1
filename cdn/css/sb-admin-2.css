@@ -485,37 +485,110 @@ div#map div div.gm-style div.gmnoprint div.gm-style-mtc {
 
 .boxReq {
   background-color: lightgray;
-  border-style: solid;
-  border-color: black;
-  margin-bottom: 3%;
+  border-style: groove;
+  border-color: darkgray;
+  margin-bottom: 1%;
+  margin-left: 1%;
+  margin-right: 1%;
   padding-top: 3.6%;
   padding-left: 4%;
-  padding-bottom: 5.7%;
+  padding-bottom: 3.8%;
   border-radius: 4%;
+  border-width: 3px;
+  
 }
 
 .boxReq:hover {
   background-color: gray;
   -webkit-transition: 2s;
-  padding-bottom: 3.8%;
+
 }
 
 .boxReq > div.aparecer1{
   display: block;
+
 }
 
 .boxReq:hover > div.aparecer1{
   display: none;
+
 }
 
 .boxReq > div.aparecer2 {
   display: none;
+
 }
 
 .boxReq:hover > div.aparecer2{
   display: block;
+
 }
 
+.boxReq-item {
+  background-color: #ffffff;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  padding: 20px;
+  border-radius: 4px;
+  border: 1px solid #f2f2f2;
+  font-size: 13px;
+  box-shadow: 0 2px 3px rgba(0,0,0,0.1);
+}
+
+.boxReq-container:hover .boxReq-item {
+  box-shadow: 0 1px 15px rgba(0,0,0,0.35);
+}
+
+.boxReq-container:hover.urgencia-alto .boxReq-item{
+  box-shadow: 0 1px 15px rgba(255, 0, 0, 0.7);
+}
+
+.boxReq-container:hover.urgencia-medio .boxReq-item{
+  box-shadow: 0 1px 15px rgba(255, 255, 0, 0.7);
+}
+
+.req-transition {
+  -webkit-transition: all .25s ease;
+  -moz-transition: all .25s ease;
+  -ms-transition: all .25s ease;
+  transition: all .25s ease;
+}
+
+.req-top-list-header {
+  display: block;
+  line-height: initial;
+  margin-bottom: 15px;
+}
+
+.req-trunc {
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.req-title {
+  display: inline-block;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.req-topicos {
+  color: #a4a4a4;
+  font-size: 13px;
+}
+
+.req-category {
+  font-size: 13px;
+  color: #0095e5;
+  text-decoration: none;
+  line-height: inherit;
+  list-style: none;
+}
+
+a.req-category:hover, a.req-category:focus{
+    color: #0095e5;
+}
 /*#map {
   height: 275px;
   width: 100%;
