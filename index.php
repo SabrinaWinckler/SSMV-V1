@@ -31,7 +31,7 @@
 
                                 <div class="login-bottom">
                                     <div class="login-left">
-                                        <a class="btn-tiny pointer">Esqueceu sua senha?</a>
+                                        <a data-toggle="modal" data-target="#esqueciSenha" class="btn-tiny pointer">Esqueceu sua senha?</a>
                                         <br />
                                         <a href="<?php echo BASEURL."cadastro"; ?>">Cadastre-se agora!</a>
                                     </div>

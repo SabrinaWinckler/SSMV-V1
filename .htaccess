@@ -16,11 +16,11 @@ RewriteRule ^cadastro(.*)$ cadastro.php
 RewriteRule ^enviarcontato(.*)$ post.php?contato=enviar
 
 RewriteRule ^estado/(.*)$ api/json/estados-cidades.json
-
-RewriteRule ^facebook(.*)$ api/Facebook/
+RewriteRule ^api/maps.xml(.*)$ api/marcadores/maps.xml.php
 
 RewriteRule ^confirmarcadastropf(.*)$ post.php?cadastro=pf
 RewriteRule ^confirmarcadastropj(.*)$ post.php?cadastro=pj
+RewriteRule ^esqueciasenha(.*)$ post.php?senha=esqueci
 
 RewriteRule ^logar(.*)$ post.php?login=entrar
 RewriteRule ^fblogar(.*)$ post.php?login=fb

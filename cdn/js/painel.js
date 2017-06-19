@@ -140,12 +140,14 @@ function solicitar_doacao() {
         if (!$("#tipo_sangue").val() == false) {
             if ($("#dia").val().length > 0) {
                 if (!$("#urgencia").val() == false) {
-                    $.post(basepainel + 'solicitar', {
+                    if($("#selecionar_hemocentro").attr("value").length > 0){
+                        $.post(basepainel + 'solicitar', {
                         idusuario: id,
                         nome: $("#requisitor_nome").val(),
                         tipo_sangue: $("#tipo_sangue").val(),
                         dia: $("#dia").val(),
-                        urgencia: $("#urgencia").val()
+                        urgencia: $("#urgencia").val(),
+                        hemocentro: $("#selecionar_hemocentro").attr("value")
                     }, function (rs) {
                         var idsfacebook = jQuery.parseJSON(rs);
                         toastr.options = {
@@ -197,6 +199,27 @@ function solicitar_doacao() {
                         $("#tipo_sangue").prop("disabled", false);
                         $("#requisitor_mim").prop("checked", false);
                     });
+                    } else {
+                        toastr.options = {
+                            "closeButton": true,
+                            "debug": false,
+                            "newestOnTop": false,
+                            "progressBar": true,
+                            "positionClass": "toast-top-right",
+                            "preventDuplicates": true,
+                            "onclick": null,
+                            "showDuration": "300",
+                            "hideDuration": "1000",
+                            "timeOut": "5000",
+                            "extendedTimeOut": "1000",
+                            "showEasing": "swing",
+                            "hideEasing": "linear",
+                            "showMethod": "fadeIn",
+                            "hideMethod": "fadeOut"
+                        };
+
+                        toastr["error"]("Está faltando informar o hemocentro de preferência", "Erro...");
+                    }
                 } else {
     toastr.options = {
         "closeButton": true,
@@ -297,3 +320,9 @@ $("#requisitor_mim").on("change", function () {
         $("#tipo_sangue").prop("disabled", false);
     }
 });
+
+function removerRequisicao(id){
+
+    alert(id);
+
+}

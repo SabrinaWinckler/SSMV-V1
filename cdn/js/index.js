@@ -244,3 +244,54 @@ function checkLoginState() {
 function cadastrar_fb(){
         window.location.href = "/cadastro?fb=" + $("#cadastrar_fb").attr("fbid");
 };
+
+function esqueci(){
+    $.post('/esqueciasenha', {email: $("#input-esqueci").val()}, function (rs) {
+        console.log(rs);
+        if(rs == "Err1"){
+            toastr.options = {
+                "closeButton": true,
+                "debug": false,
+                "newestOnTop": false,
+                "progressBar": true,
+                "positionClass": "toast-top-right",
+                "preventDuplicates": true,
+                "onclick": null,
+                "showDuration": "300",
+                "hideDuration": "1000",
+                "timeOut": "5000",
+                "extendedTimeOut": "1000",
+                "showEasing": "swing",
+                "hideEasing": "linear",
+                "showMethod": "fadeIn",
+                "hideMethod": "fadeOut"
+            };
+
+            toastr["error"]("E-mail inválido!", "Erro");
+        } else {
+            toastr.options = {
+                "closeButton": true,
+                "debug": false,
+                "newestOnTop": false,
+                "progressBar": true,
+                "positionClass": "toast-top-right",
+                "preventDuplicates": true,
+                "onclick": null,
+                "showDuration": "300",
+                "hideDuration": "1000",
+                "timeOut": "5000",
+                "extendedTimeOut": "1000",
+                "showEasing": "swing",
+                "hideEasing": "linear",
+                "showMethod": "fadeIn",
+                "hideMethod": "fadeOut"
+            };
+
+            toastr["success"]("Instrução enviada!", "Verifique seu email");
+        }
+
+    $("#nome").val("");
+    $("#email").val("");
+    $("#assunto").val("");
+    });
+}

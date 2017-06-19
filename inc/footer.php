@@ -59,4 +59,31 @@
         </div>
     </div>
 </div>
+
+
+<!-- Esqueci a senha -->
+<div class="modal fade" id="esqueciSenha" tabindex="-1" role="dialog" aria-labelledby="esqueciSenha">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title" id="titulo_esqueciSenha">Esqueceu seu email?</h4>
+            </div>
+            <div class="modal-body" id="body_esqueciSenha">
+                    <p align="center" for="esqueciASenha">Informe o e-mail que você usa no SSMV. <br /> Nós lhe enviaremos instruções sobre como acessar a sua conta. </p>
+                    <br />
+                      <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                        <div class="input-group-addon">@</div>
+                        <input type="text" class="form-control" id="input-esqueci" placeholder="Digite seu email">
+                    </div>
+            </div>
+            <div class="modal-footer" id="footer_esqueciSenha">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                <button type="button" onclick="esqueci()"class="btn btn-primary">Confirmar</button>
+            </div>
+        </div>
+    </div>
+</div>
 </html>

@@ -218,6 +218,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         $tipo_sangue        = $_POST["tipo_sangue"];
         $dataLimite         = $_POST["dia"];
         $urgencia           = $_POST["urgencia"];
+        $idmarcador         = $_POST["hemocentro"];
         $dataSolicitacao    = date("Y-m-d");
 
         if ($sql = $con->prepare("SELECT `tipo` FROM  `ssmv`.`tiposangue` WHERE idtipoSangue = ?;")) {
@@ -277,16 +278,37 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
                 $sql->execute();
                 $sql->close();
             } else {
+                echo "Notificação: \n\r";
                 echo $con->error;
             }
         }
 
-        if ($sql = $con->prepare("INSERT INTO `ssmv`.`requisicao` (`idusuario`, `nome`, `tipoSangue`, `dataSolicitacao`, `dataLimite`, `urgencia`) VALUES (?, ?, ?, ?, ?, ?);")) {
-          $sql->bind_param('isisss', $id, $nome, $tipo_sangue, $dataSolicitacao, $dataLimite, $urgencia);
+        if ($sql = $con->prepare("INSERT INTO `ssmv`.`requisicao` (`idusuario`, `nome`, `tipoSangue`, `dataSolicitacao`, `dataLimite`, `urgencia`, `idmarcador`) VALUES (?, ?, ?, ?, ?, ?, ?);")) {
+          $sql->bind_param('isisssi', $id, $nome, $tipo_sangue, $dataSolicitacao, $dataLimite, $urgencia, $idmarcador);
           $sql->execute();
           $sql->close();
         } else {
+            echo "Requisição: \n\r";
             echo $con->error;
+        }
+    }
+
+    if(@$_GET["senha"] == "esqueci"){
+        $email = $_POST["email"];
+
+        if ($sql = $con->prepare("SELECT `email` FROM  `ssmv`.`usuarios` WHERE email = ?;")) {
+            $sql->bind_param('s', $email);
+            $sql->execute();
+            $sql->bind_result($existe);
+            $sql->fetch();
+
+            if($existe == ""){
+                echo "Err1";
+            } else {
+                echo "Suc1";
+            }
+
+            $sql->close();
         }
     }
 

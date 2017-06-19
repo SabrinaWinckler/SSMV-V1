@@ -21,10 +21,11 @@ require_once "inc/header.php";
                                 <table class="table table-bordered table-striped" id="tabela-requisicao">
                                     <thead>
                                         <tr>
-                                            <th aria-sort="ascending">Nome</th>
-                                            <th class="text-center">Tipo de sangue</th>
-                                            <th class="hidden-xs text-center">Data da Solicitação</th>
+                                            <th class="hidden-xs text-center">Data da <br />  Solicitação</th>
+                                            <th aria-sort="ascending">Nome do requisitor</th>
+                                            <th class="text-center">Tipo <br /> Sanguineo</th>
                                             <th class="text-center">Data limite</th>
+                                            <th class="text-center">Hemocentro</th>
                                             <th class="hidden-xs text-center">Urgência</th>
                                             <th class="text-center" sorting="disabled">Ação</th>
                                         </tr>
@@ -41,10 +42,20 @@ require_once "inc/header.php";
                                         $sql->close();
                                     }
 
-                                    if ($sql = $con->prepare("SELECT `idrequisicao`, `nome`, `tipoSangue`, `dataSolicitacao`, `dataLimite`, `urgencia` FROM  `ssmv`.`requisicao` WHERE idusuario = ?;")) {
+                                    $nomeHemocentro = array();
+                                    if ($sql = $con->prepare("SELECT `nome` FROM  `ssmv`.`marcador`")) {
+                                        $sql->execute();
+                                        $sql->bind_result($_marcador);
+                                        while($sql->fetch()){
+                                            array_push($nomeHemocentro, $_marcador);
+                                        }
+                                        $sql->close();
+                                    }
+
+                                    if ($sql = $con->prepare("SELECT `idrequisicao`, `nome`, `tipoSangue`, `dataSolicitacao`, `dataLimite`, `urgencia`, `idmarcador` FROM  `ssmv`.`requisicao` WHERE idusuario = ?;")) {
                                         $sql->bind_param('i', $_id);
                                         $sql->execute();
-                                        $sql->bind_result($req_id, $req_nome, $req_sangue, $req_dataS, $req_dataL, $req_urgencia);
+                                        $sql->bind_result($req_id, $req_nome, $req_sangue, $req_dataS, $req_dataL, $req_urgencia, $req_marcador);
                                             
                                         while ($sql->fetch()) {
 
@@ -57,13 +68,14 @@ require_once "inc/header.php";
                                             }
                                             
                                             echo "<tr class='gradeA' id='tr-".$req_id."'>
+                                                    <td id='td-fone' class='text-center hidden-xs'>".date_format(date_create($req_dataS), 'd/m/Y')."</td>
                                                     <td id='td-nome'>".$req_nome."</td>
                                                     <td id='td-email' class='text-center'>".$nomeSangue[$req_sangue-1]."</td>
-                                                    <td id='td-fone' class='text-center hidden-xs'>".date_format(date_create($req_dataS), 'd/m/Y')."</td>
                                                     <td id='td-fone' class='text-center'>".date_format(date_create($req_dataL), 'd/m/Y')."</td>
+                                                    <td id='td-fone' class='text-center'>".$nomeHemocentro[$req_marcador-1]."</td>
                                                     <td id='td-fone' class='text-center hidden-xs'>".$req_urgencia."</td>
                                                     <td class='text-center'>
-                                                        <button data-id='".$req_id."' title='Remover' data-toggle='tooltip' class='btn btn-sm btn-danger btn-remover'><i class='fa fa-trash-o'></i></button>
+                                                        <button onclick='removerRequisicao(".$req_id.")' title='Remover' data-toggle='tooltip' class='btn btn-sm btn-danger btn-remover'><i class='fa fa-trash-o'></i></button>
                                                     </td>
                                                 </tr>";
                                         }

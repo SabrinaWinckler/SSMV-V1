@@ -479,6 +479,10 @@ div#map div div.gm-style div.gmnoprint div.gm-style-mtc {
   background:none !important;
 }
 
+#map button {
+  padding: 3px 6px;
+}
+
 .boxReq {
   background-color: lightgray;
   border-style: solid;
@@ -492,23 +496,23 @@ div#map div div.gm-style div.gmnoprint div.gm-style-mtc {
 
 .boxReq:hover {
   background-color: gray;
-  -webkit-transition: 2s;
-  padding-bottom: 3.8%;
+  -webkit-transition: 0.5s;
+  /*padding-bottom: 3.8%;*/
 }
 
-.listareq > div > p.aparecer1 {
+.boxReq > div.aparecer1{
   display: block;
 }
 
-.listareq:hover > div > p.aparecer1{
+.boxReq:hover > div.aparecer1{
   display: none;
 }
 
-.listareq > div > p.aparecer2 {
+.boxReq > div.aparecer2 {
   display: none;
 }
 
-.listareq:hover > div > p.aparecer2{
+.boxReq:hover > div.aparecer2{
   display: block;
 }
 
