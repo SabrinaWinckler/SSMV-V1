@@ -55,11 +55,12 @@ if(LOGADO === TRUE){
     <link href="<?php echo BASECDN; ?>metisMenu/metisMenu.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="<?php echo BASECDN; ?>css/sb-admin-2.css" rel="stylesheet">
     <link href="<?php echo BASECDN; ?>css/toastr.min.css" rel="stylesheet">
     <link href="<?php echo BASECDN; ?>css/checkradio.css" rel="stylesheet">
-    <link href="<?php echo BASECDN; ?>css/datatables.min.css" rel="stylesheet">
+    <link href="<?php echo BASECDN; ?>datatables-plugins/dataTables.bootstrap.css" rel="stylesheet">
+    <link href="<?php echo BASECDN; ?>datatables-responsive/dataTables.responsive.css" rel="stylesheet">
     
+    <link href="<?php echo BASECDN; ?>css/sb-admin-2.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
     <link href="<?php echo BASECDN; ?>fonts/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">

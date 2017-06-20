@@ -3,6 +3,20 @@
  * Copyright 2013-2016 Start Bootstrap
  * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)
  */
+
+ ::-webkit-input-placeholder {
+   font-style: italic;
+}
+:-moz-placeholder {
+   font-style: italic;  
+}
+::-moz-placeholder {
+   font-style: italic;  
+}
+:-ms-input-placeholder {  
+   font-style: italic; 
+}
+
 body {
   background-color: #f8f8f8;
   height: 100%;
@@ -526,7 +540,7 @@ div#map div div.gm-style div.gmnoprint div.gm-style-mtc {
 
 .boxReq-item {
   background-color: #ffffff;
-  margin-right: 10px;
+  /*margin-right: 10px;*/
   margin-bottom: 10px;
   padding: 20px;
   border-radius: 4px;
@@ -535,15 +549,15 @@ div#map div div.gm-style div.gmnoprint div.gm-style-mtc {
   box-shadow: 0 2px 3px rgba(0,0,0,0.1);
 }
 
-.boxReq-container:hover .boxReq-item {
+.boxReq-container:hover.boxReq-item {
   box-shadow: 0 1px 15px rgba(0,0,0,0.35);
 }
 
-.boxReq-container:hover.urgencia-alto .boxReq-item{
+.boxReq-container:hover.urgencia-alto.boxReq-item{
   box-shadow: 0 1px 15px rgba(255, 0, 0, 0.7);
 }
 
-.boxReq-container:hover.urgencia-medio .boxReq-item{
+.boxReq-container:hover.urgencia-medio.boxReq-item{
   box-shadow: 0 1px 15px rgba(255, 255, 0, 0.7);
 }
 
@@ -589,8 +603,16 @@ div#map div div.gm-style div.gmnoprint div.gm-style-mtc {
 a.req-category:hover, a.req-category:focus{
     color: #0095e5;
 }
-/*#map {
-  height: 275px;
-  width: 100%;
-  margin-bottom: 15px;
-}*/
+
+#lista_requisicoes {
+  margin-top: 2%;
+}
+
+.white {
+  color:white;
+}
+
+.col-exception-padding {
+  padding-left: 5px !important;
+  padding-right: 5px !important;
+}

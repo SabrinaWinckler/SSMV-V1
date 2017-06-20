@@ -24,9 +24,10 @@ if ($sql = $con->prepare("SELECT `sigla` FROM  `ssmv`.`estados`")) {
     }
     $sql->close();
 }
-if ($sql = $con->prepare("SELECT * FROM `ssmv`.`marcador`;")) {
+if ($sql = $con->prepare("SELECT * FROM `ssmv`.`marcador`")) {
     $sql->execute();
     $sql->bind_result($marc_id, $marc_nome, $marc_cep, $marc_logradouro, $marc_numero, $marc_complemento, $marc_bairro, $marc_municipio, $marc_idestado, $marc_telefone1, $marc_telefone2, $marc_email, $marc_lat, $marc_lng, $marc_tipo);
+    
     while ($sql->fetch()){
         $marker = $xml->createElement("marker");
         $marker->setAttribute("id", $marc_id);
@@ -37,16 +38,16 @@ if ($sql = $con->prepare("SELECT * FROM `ssmv`.`marcador`;")) {
         $marker->setAttribute("lat", $marc_lat);
         $marker->setAttribute("lng", $marc_lng);
         $marker->setAttribute("type", $marc_tipo);
+        $markers->appendChild($marker);
     }
     $sql->close();
 }
 
 #adiciona os filhos nos devidos pais
-$markers->appendChild($marker);
 $xml->appendChild($markers);
 
 # Para salvar o arquivo
-$xml->save("marcadores.maps.xml");
+// $xml->save("marcadores.maps.xml");
 
 #cabeçalho da página
 header("Content-Type: text/xml");

@@ -310,6 +310,24 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         }
     }
 
+    if(@$_GET["requisicao"] == "filtrar"){
+        echo "oi";
+        // $idreq = $_POST["idreq"];
+
+        // if ($sql = $con->prepare("DELETE FROM `ssmv`.`requisicao` WHERE `idrequisicao`= ?;")) {
+        //     $sql->bind_param('i', $idreq);
+        //     $sql->execute();
+
+        //     if($sql->affected_rows == 0){
+        //         echo "Err1";
+        //     } else {
+        //         echo "Suc1";
+        //     }
+
+        //     $sql->close();
+        // }
+    }
+
     if(@$_GET["senha"] == "esqueci"){
         $email = $_POST["email"];
 

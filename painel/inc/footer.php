@@ -11,11 +11,14 @@
     <script src="<?php echo BASECDN; ?>metisMenu/metisMenu.min.js"></script>
 
     <!-- Custom Theme JavaScript -->
-    <script src="<?php echo BASECDN; ?>js/sb-admin-2.js"></script>
     <script src="<?php echo BASECDN; ?>js/fbInit.js"></script>
     <script src="<?php echo BASECDN; ?>js/painel.js"></script>
     <script src="<?php echo BASECDN; ?>js/toastr.min.js"></script>
-    <script src="<?php echo BASECDN; ?>js/datatables.min.js"></script>
+    <script src="<?php echo BASECDN; ?>datatables/js/jquery.dataTables.js"></script>
+    <script src="<?php echo BASECDN; ?>datatables-plugins/dataTables.bootstrap.min.js"></script>
+    <script src="<?php echo BASECDN; ?>datatables-responsive/dataTables.responsive.js"></script>
+
+    <script src="<?php echo BASECDN; ?>js/sb-admin-2.js"></script>
 
 </body>
 

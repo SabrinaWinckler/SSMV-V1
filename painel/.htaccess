@@ -18,3 +18,5 @@ RewriteRule ^requisicao/meus(.*)$ requisicao_meus.php
 RewriteRule ^logout(.*)$ ../post.php?login=logout
 RewriteRule ^solicitar(.*)$ ../post.php?requisicao=enviar
 RewriteRule ^remover_requisicao(.*)$ ../post.php?requisicao=remover
+RewriteRule ^pesquisar_requisicoes(.*)$ ../post.php?requisicao=filtrar
+

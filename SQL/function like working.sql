@@ -1,0 +1,1 @@
+SELECT * FROM ssmv.requisicao WHERE `nome` OR `tiposangue` OR `urgencia` LIKE '%1%';

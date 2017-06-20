@@ -1,5 +1,6 @@
 $(document).ready(function(){
-    $('#tabela-requisicao').DataTable();
+    $('#tabela-requisicao').DataTable({"aoColumnDefs": [{"bSortable":false,"aTargets":[6]}]});
+    // $('#tabela-requisicao').DataTable().language({});
 });
 
 $("#entrar").on("click", function () {
@@ -366,7 +367,27 @@ function removerRequisicao(id_req){
 
             toastr["success"]("Solicitação removida com sucesso.", "Removido com sucesso");
 
-            $("#tr-" + id_req).fadeOut();
+            $("#tabela-requisicao").DataTable().row($("#tr-" + id_req)).remove();
+            $("#tabela-requisicao").DataTable().draw();
         }
     });
+}
+
+function pesquisar_requisicoes(){
+    var content = $('div #lista_requisicoes');
+
+    loading = new Image(); 
+    loading.src = '/cdn/img/gif/carregando.gif';
+        content.html('<center><img src="/cdn/img/gif/carregando.gif"/></center>');
+
+        $.post(basepainel + 'pesquisar_requisicoes', {filtro: $("#p_requisitor_nome").val()}, function (rs) {
+            console.log(rs);
+            var data = $(rs).find("#lista_requisicoes").html();
+            console.log(data);
+            window.setTimeout(function(){
+                content.fadeOut('slow', function(){
+                    content.html(data).fadeIn();
+                });
+            }, 500 );
+        });
 }

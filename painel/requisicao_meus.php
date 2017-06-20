@@ -27,7 +27,7 @@ require_once "inc/header.php";
                                             <th class="text-center">Data limite</th>
                                             <th class="text-center">Hemocentro</th>
                                             <th class="hidden-xs text-center">Urgência</th>
-                                            <th class="text-center" sorting="disabled">Ação</th>
+                                            <th class="text-center" bSortable="false">Ação</th>
                                         </tr>
                                     </thead>
                                     <tbody>
