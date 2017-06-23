@@ -9,10 +9,10 @@ $database   = "ssmv";
 $con = new mysqli($server, $user, $password, $database);
 
 // Verifica se ocorreu algum erro
-if (mysqli_connect_errno()) {
-    die('Não foi possível conectar-se ao banco de dados: ' . mysqli_connect_error());
-    exit();
-}
+if ($con->connect_error) {
+    die("Não foi possível conectar-se ao banco de dados: " . $con->connect_error);
+    exit;
+} 
 
 $nomeSangue = array();
 if(count($nomeSangue) == 0){
