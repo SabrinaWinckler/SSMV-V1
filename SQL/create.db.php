@@ -24,28 +24,26 @@ if ($con->query($sql) === TRUE) {
 
 $con->close();
 
-$newsql = "";
+// $newsql = "";
 
-$ponteiro = fopen("SSMV.sql", "r");
-while (!feof($ponteiro)) {
-  $linha = fgets($ponteiro, 4096);
-  $newsql .= $linha."\n\r";
-}
-fclose ($ponteiro);
-
-var_dump($newsql);
-
-// if($sit == FALSE){
-//     if($sql1 = $con->query($newsql)){
-//         $sql1->execute();
-//         $sql1->fetch();
-//         $sql1->close();
-//         echo "Banco de dados importado";
-//     } else {
-//         echo "Não foi possivel impoartar o BD";
-//     }
+// $ponteiro = fopen("SSMV.sql", "r");
+// while (!feof($ponteiro)) {
+//   $linha = fgets($ponteiro, 4096);
+//   $newsql .= $linha."\n\r";
 // }
-// $sql1->close();
+// fclose ($ponteiro);
+
+// var_dump($newsql);
+
+if($sit == FALSE){
+    if ($con->query("SELECT `tipo` FROM  `ssmv`.`tiposangue` ORDER BY idtipoSangue")) {
+        //   $sql->bind_param('sss', $nome, $email, $assunto);
+          $sql->execute();
+          $sql->close();
+        } else {
+        echo "Não foi possivel impoartar o BD";
+    }
+}
 
 // echo $newsql;
 ?>
