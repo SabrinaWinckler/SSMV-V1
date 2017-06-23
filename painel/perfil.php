@@ -26,7 +26,7 @@ require_once "inc/header.php";
                         CNPJ 
                     </div>
                     <div class="col-sm-2">
-                        <button type="button" onclick="myEditarPerfil">Editar Informações</button>
+                        <button type="button" onclick="myEditar()">Editar Informações</button>
                             <div id="edicao"></div>
                     </div>
                     <div class="col-sm-6">
