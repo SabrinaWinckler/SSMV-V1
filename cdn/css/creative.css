@@ -569,7 +569,7 @@ header{
 
 @media (min-width: 768px) {
   .faq .header-content {
-  top: 50%;
+  margin-top: 10%;
 
 }
  .faq {

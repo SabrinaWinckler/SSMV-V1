@@ -23,10 +23,11 @@ require_once "inc/header.php";
                         Nome Empresarial
                     </div>
                     <div class="col-sm-3">
-                        CNPJ
+                        CNPJ 
                     </div>
                     <div class="col-sm-2">
-                        <button type="button" onclick="">Editar Informações</button>
+                        <button type="button" onclick="myEditarPerfil">Editar Informações</button>
+                            <div id="edicao"></div>
                     </div>
                     <div class="col-sm-6">
                         Nome Fantasia
@@ -66,5 +67,35 @@ require_once "inc/header.php";
             </div>
         </div>
         <!-- /#page-wrapper -->
+    <script src="<?php echo BASECDN; ?>js/editar_perfil.js"></script>
 
+
+<?php
+require_once "db.php";
+ 
+if(@$_SERVER['REQUEST_METHOD'] == 'POST'){
+    $id_user     	= $_POST["id"];
+    $nome     	= $_POST["nome"];
+    $nomeFantasia 	= $_POST["nomeFantasia"];
+    $cnpj        	= $_POST["cnpj"];
+    $logradouro    	= $_POST["logradouro"];
+    $numero    	= $_POST["numero"];
+    $complemento	= $_POST["complemento"];
+    $cep        	= $_POST["cep"];
+    $bairro        	= $_POST["bairro"];
+    $idestado    	= $_POST["idestado"];
+    $municipio    	= $_POST["municipio"];
+    $telefoneF    	= $_POST["telefoneF"];
+    $telefoneF2    	= $_POST["telefoneF2"];
+ 
+    if($sql = $con->prepare("UPDATE `ssmv`.`pj` SET (nome, nomeFantasia,cnpj, logradouro, numero, complemento, cep, bairro, idestado, municipio, telefoneF, telefoneF2 ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) WHERE id = ?")){
+	    $sql->bind_param("issisisisssii", $id_user, $nome, $nomeFantasia, $cnpj, $logradouro, $numero, $complemento, $cep, $bairro, $idestado, $municipio, $telefoneF, $telefoneF2 );
+	    $sql->execute();
+	    $sql->close();
+    }else {
+	    echo "Erro!";
+    }   
+}
+
+?>
 <?php require_once("inc/footer.php");
