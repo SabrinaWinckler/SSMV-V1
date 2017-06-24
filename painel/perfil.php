@@ -7,6 +7,7 @@ $tipo   = "Pessoa juridica";
 
 require_once "inc/header.php"; 
 
+//PJ
 // if($sql = $con->prepare("SELECT `idusuario`,`nome`, `nomeFantasia`, `cnpj`, `logradouro`, `numero`, `complemento`, `cep`, `bairro`, `idestado`, `municipio`, `telefoneF`, `telefoneF2`, `foto` FROM `pj` WHERE idusuario = ?")){
 //     $sql->bind_param("i", $_id);
 //     $sql->execute();
@@ -15,6 +16,7 @@ require_once "inc/header.php";
 //     $sql->close();
 // } 
 
+//PF
 if($sql = $con->prepare("SELECT `idusuario`,`nome`, `dataNascimento`, `sobrenome`, `genero`, `idestado`, `municipio`, `telefoneF`, `telefoneC`, `idtipoSangue`, `peso`, `ultimaDoacao`, `foto` FROM `pf` WHERE idusuario = ?")){
     $sql->bind_param("i", $_id);
     $sql->execute();
@@ -33,9 +35,6 @@ switch ($_genero){
         $_genero = 'Não Especificado';
         break;
 }
-
-
-
 ?>
 
         <div id="page-wrapper">
@@ -94,8 +93,8 @@ switch ($_genero){
 
 
 <?php
-require_once "db.php";
- 
+//require_once "db.php";
+
 //PJ
 //if(@$_SERVER['REQUEST_METHOD'] == 'POST'){
  //   $id_user     	= $_POST["id"];
@@ -120,29 +119,29 @@ require_once "db.php";
 //	    echo "Erro!";
  //   }   
 //}
-if(@$_SERVER['REQUEST_METHOD'] == 'POST'){
-    $_id_usuario     	= $_POST["idusuario"];
-    $_nome     	= $_POST["nome"];
-    $_data_nascimento 	= $_POST["dataNascimento"];
-    $_sobrenome      	= $_POST["sobrenome"];
-    $_genero    	= $_POST["genero"];
-    $_idestado    	= $_POST["idestado"];
-    $_municipio	= $_POST["municipio"];
-    $_telefonef      	= $_POST["telefoneF"];
-    $_telefonec       	= $_POST["telefoneC"];
-    $_id_tipo_sangue    	= $_POST["idtipoSangue"];
-    $_peso    	= $_POST["peso"];
-    $_ultima_doacao    	= $_POST["ultimaDoacao"];
+
+//PF
+//if(@$_SERVER['REQUEST_METHOD'] == 'POST'){
+//     $_id_usuario     	= $_POST["idusuario"];
+//     $_nome     	= $_POST["nome"];
+//     $_data_nascimento 	= $_POST["dataNascimento"];
+//     $_sobrenome      	= $_POST["sobrenome"];
+//     $_genero    	= $_POST["genero"];
+//     $_idestado    	= $_POST["idestado"];
+//     $_municipio	= $_POST["municipio"];
+//     $_telefonef      	= $_POST["telefoneF"];
+//     $_telefonec       	= $_POST["telefoneC"];
+//     $_id_tipo_sangue    	= $_POST["idtipoSangue"];
+//     $_peso    	= $_POST["peso"];
+//     $_ultima_doacao    	= $_POST["ultimaDoacao"];
  
-    if($sql = $con->prepare("UPDATE `ssmv`.`pf` SET ( `idusuario`,`nome`, `dataNascimento`, `sobrenome`, `genero`, `idestado`, `municipio`, `telefoneF`, `telefoneC`, `idtipoSangue`, `peso`, `ultimaDoacao` ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) WHERE id = ?")){
-	    $sql->bind_param("isiscisiiidi", $_id_usuariof, $_nome, $_data_nascimento, $_sobrenome, $_genero, $_idestado, $_municipio, $_telefoneff, $_telefonec, $_id_tipo_sangue, $_peso, $_ultima_doacao );
-	    $sql->execute();
-	    $sql->close();
-    }else {
-	    echo "Erro!";
-    }   
-}
-
-
-?>
+//     if($sql = $con->prepare("UPDATE `ssmv`.`pf` SET ( `idusuario`,`nome`, `dataNascimento`, `sobrenome`, `genero`, `idestado`, `municipio`, `telefoneF`, `telefoneC`, `idtipoSangue`, `peso`, `ultimaDoacao` ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) WHERE id = ?")){
+// 	    $sql->bind_param("isiscisiiidi", $_id_usuariof, $_nome, $_data_nascimento, $_sobrenome, $_genero, $_idestado, $_municipio, $_telefoneff, $_telefonec, $_id_tipo_sangue, $_peso, $_ultima_doacao );
+// 	    $sql->execute();
+// 	    $sql->close();
+//     }else {
+// 	    echo "Erro!";
+//     }   
+// }
+ ?>
 <?php require_once("inc/footer.php");
