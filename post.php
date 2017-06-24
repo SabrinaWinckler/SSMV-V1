@@ -311,21 +311,57 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     }
 
     if(@$_GET["requisicao"] == "filtrar"){
-        echo "oi";
-        // $idreq = $_POST["idreq"];
+        $_id = $_POST["iduser"];
+        $filtro = '%'.$_POST["filtro"].'%';
 
-        // if ($sql = $con->prepare("DELETE FROM `ssmv`.`requisicao` WHERE `idrequisicao`= ?;")) {
-        //     $sql->bind_param('i', $idreq);
-        //     $sql->execute();
+        if ($sql = $con->prepare("SELECT `idrequisicao`, `idusuario`, `nome`, `tipoSangue`, `dataLimite`, `urgencia`, `idmarcador` FROM ssmv.requisicao WHERE `nome` LIKE ? OR `tiposangue` LIKE ? OR `urgencia` LIKE ?;")) {
+            $sql->bind_param('sss', $filtro, $filtro, $filtro);
+            $sql->execute();
+            $sql->bind_result($_req_idrequisicao, $_req_idusuario, $_req_nome, $_req_tipoSangue, $_req_dataLimite, $_req_urgencia, $_req_idmarcador);
+            $filtrados = array();
+            while ($sql->fetch()){
+                if ($_id != $_req_idusuario) {
+                    echo '<div class="col-sm-3 col-exception-padding">
+                    <div class=" boxReq-container urgencia-'.$_req_urgencia.' boxReq-item req-transition">
+                        <div class="req-top-list-header">
+                            <a href="#" title="'. $_req_nome .'">
+                                <span class="req-title req-trunc">'. $_req_nome .'</span>
+                            </a>
+                            <span class="req-topicos">Solicita: Sangue '. $nomeSangue[$_req_tipoSangue - 1] .'</span><br />
+                            <span class="req-topicos">'. $nomeHemocentro[$_req_idmarcador - 1] .'</span><br />
+                            <span class="req-topicos">Data limite: '. date_format(date_create($_req_dataLimite), 'd/m/Y') .'</span>
+                        </div>
+                        <a href="#" onclick="querodoar('. $_req_idrequisicao .')" class="req-category">Quero doar!</a>
+                    </div>
+                </div>';
+                }
+            }
+            $sql->close();
+        }
+    }
 
-        //     if($sql->affected_rows == 0){
-        //         echo "Err1";
-        //     } else {
-        //         echo "Suc1";
-        //     }
+    if(@$_GET["doacao"] == "modal"){
+        $idreq  = $_POST["idreq"];
 
-        //     $sql->close();
-        // }
+        if ($sql = $con->prepare("SELECT `idusuario`, `nome`, `tipoSangue`, `dataLimite`, `urgencia`, `idmarcador` FROM ssmv.requisicao WHERE `idrequisicao` = ?;")) {
+            $sql->bind_param('i', $idreq);
+            $sql->execute();
+            $sql->bind_result($_req_idusuario, $_req_nome, $_req_tipoSangue, $_req_dataLimite, $_req_urgencia, $_req_idmarcador);
+            $sql->fetch();
+
+            $info_req = array(
+                "idrequisicao"  => $idreq,
+                "idusuario"     => $_req_idusuario,
+                "nome"          => $_req_nome,
+                "tipoSangue"    => $_req_tipoSangue,
+                "dataLimite"    => date_format(date_create($_req_dataLimite), 'd/m/Y'),
+                "urgencia"      => $_req_urgencia,
+                "idmarcador"    => $_req_idmarcador
+            );
+
+            print_r(json_encode($info_req));
+            $sql->close();
+        }
     }
 
     if(@$_GET["senha"] == "esqueci"){

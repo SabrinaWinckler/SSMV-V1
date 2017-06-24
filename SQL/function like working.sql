@@ -1,1 +1,1 @@
-SELECT * FROM ssmv.requisicao WHERE `nome` OR `tiposangue` OR `urgencia` LIKE '%1%';
+SELECT `idrequisicao`, `idusuario`, `nome`, `tipoSangue`, `dataLimite`, `urgencia`, `idmarcador` FROM ssmv.requisicao WHERE `nome` LIKE '%a%' OR `tiposangue` LIKE '%a%' OR `urgencia` LIKE '%a%';

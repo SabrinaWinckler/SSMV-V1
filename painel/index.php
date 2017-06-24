@@ -22,7 +22,7 @@ require_once "inc/header.php";
 
                 <div class="col-lg-2">
                 <label class="white"> Filtrar </label>
-                    <button onclick="pesquisar_requisicoes()" class="form-control btn btn-primary"><i class="fa fa-search fw-ga"> </i> Filtrar</button>
+                    <button onclick="pesquisar_requisicoes()" id="pesquisar_requisicoes" class="form-control btn btn-primary"><i class="fa fa-search fw-ga"> </i> Filtrar</button>
                 </div>
             </div>
 
@@ -63,7 +63,7 @@ require_once "inc/header.php";
                         }
                         $sql->close();
                     } else {
-                        echo "Mostar hemocentro: \n\r";
+                        echo "Mostar requisições: \n\r";
                         echo $con->error;
                     }
                 } else {
@@ -75,5 +75,26 @@ require_once "inc/header.php";
 
         </div>
         <!-- /#page-wrapper -->
+
+        <!-- Mais detalhes sobre  -->
+        <div class="modal fade" id="modalQuerodoar" tabindex="-1" role="dialog" aria-labelledby="modalQuerodoar">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <h4 class="modal-title" id="titulo_modalQuerodoar">Ops...</h4>
+                    </div>
+                    <div class="modal-body" id="body_modalQuerodoar">
+                        INFORMAÇÕES SOBRE A DOAÇÃO
+                    </div>
+                    <div class="modal-footer" id="footer_modalQuerodoar">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+                        <button type="submit" onclick="" id="confirmarDoacao" class="btn btn-primary">Cadastrar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
 
 <?php require_once("inc/footer.php");

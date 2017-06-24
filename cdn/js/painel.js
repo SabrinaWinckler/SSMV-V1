@@ -1,5 +1,5 @@
-$(document).ready(function(){
-    $('#tabela-requisicao').DataTable({"aoColumnDefs": [{"bSortable":false,"aTargets":[6]}]});
+$(document).ready(function () {
+    $('#tabela-requisicao').DataTable({ "aoColumnDefs": [{ "bSortable": false, "aTargets": [6] }] });
     // $('#tabela-requisicao').DataTable().language({});
 });
 
@@ -141,65 +141,65 @@ function solicitar_doacao() {
         if (!$("#tipo_sangue").val() == false) {
             if ($("#dia").val().length > 0) {
                 if (!$("#urgencia").val() == false) {
-                    if($("#selecionar_hemocentro").attr("value").length > 0){
+                    if ($("#selecionar_hemocentro").attr("value").length > 0) {
                         $.post(basepainel + 'solicitar', {
-                        idusuario: id,
-                        nome: $("#requisitor_nome").val(),
-                        tipo_sangue: $("#tipo_sangue").val(),
-                        dia: $("#dia").val(),
-                        urgencia: $("#urgencia").val(),
-                        hemocentro: $("#selecionar_hemocentro").attr("value")
-                    }, function (rs) {
-                        var idsfacebook = jQuery.parseJSON(rs);
-                        toastr.options = {
-                            "closeButton": true,
-                            "debug": false,
-                            "newestOnTop": false,
-                            "progressBar": true,
-                            "positionClass": "toast-top-right",
-                            "preventDuplicates": true,
-                            "onclick": null,
-                            "showDuration": "300",
-                            "hideDuration": "1000",
-                            "timeOut": "5000",
-                            "extendedTimeOut": "1000",
-                            "showEasing": "swing",
-                            "hideEasing": "linear",
-                            "showMethod": "fadeIn",
-                            "hideMethod": "fadeOut"
-                        };
-                        toastr["success"]("A sua solicitação de sangue foi efetuada!", "Solicitação efetuada!");
-                        toastr["success"]("Enviando notificações!", "Solicitação efetuada!");
+                            idusuario: id,
+                            nome: $("#requisitor_nome").val(),
+                            tipo_sangue: $("#tipo_sangue").val(),
+                            dia: $("#dia").val(),
+                            urgencia: $("#urgencia").val(),
+                            hemocentro: $("#selecionar_hemocentro").attr("value")
+                        }, function (rs) {
+                            var idsfacebook = jQuery.parseJSON(rs);
+                            toastr.options = {
+                                "closeButton": true,
+                                "debug": false,
+                                "newestOnTop": false,
+                                "progressBar": true,
+                                "positionClass": "toast-top-right",
+                                "preventDuplicates": true,
+                                "onclick": null,
+                                "showDuration": "300",
+                                "hideDuration": "1000",
+                                "timeOut": "5000",
+                                "extendedTimeOut": "1000",
+                                "showEasing": "swing",
+                                "hideEasing": "linear",
+                                "showMethod": "fadeIn",
+                                "hideMethod": "fadeOut"
+                            };
+                            toastr["success"]("A sua solicitação de sangue foi efetuada!", "Solicitação efetuada!");
+                            toastr["success"]("Enviando notificações!", "Solicitação efetuada!");
 
-                        if (idsfacebook.length > 0) {
-                            $.each(idsfacebook, function (indice, valor) {
-                                FB.api('/' + valor + '/notifications?template= Olá @[' + valor + '], ' + nome + ' está precisando de doação de sangue. E seu sangue é compativel com o dele que é ' + $('#tipo_sangue').find(":selected").text() + ' .&href=localhost&ref=?TESTE&access_token=213962312451886|dM6ZBAut7W2a2DXu9sJJQbnC91A', 'post');
-                            });
-                        }
-
-                        FB.getLoginStatus(function (response) {
-                            if (response.status === 'connected') {
-                                FB.login(function () {
-                                    FB.api('/me/feed', 'post', { message: '!!! IGNOREM !!! SOFTWARE TESTE - Estou precisando de doação de sangue compatível com ' + $('#tipo_sangue').find(":selected").text() });
-                                }, { scope: 'publish_actions' });
-
-                                var uid = response.authResponse.userID;
-                                var accessToken = response.authResponse.accessToken;
-                            } else if (response.status === 'not_authorized') {
-                                console.log(response);
-                            } else {
-                                console.log(response);
+                            if (idsfacebook.length > 0) {
+                                $.each(idsfacebook, function (indice, valor) {
+                                    FB.api('/' + valor + '/notifications?template= Olá @[' + valor + '], ' + nome + ' está precisando de doação de sangue. E seu sangue é compativel com o dele que é ' + $('#tipo_sangue').find(":selected").text() + ' .&href=localhost&ref=?TESTE&access_token=213962312451886|dM6ZBAut7W2a2DXu9sJJQbnC91A', 'post');
+                                });
                             }
-                        });
 
-                        $("#requisitor_nome").val("");
-                        // $("#tipo_sangue").val("");
-                        $("#dia").val("");
-                        $("#urgencia").val("");
-                        $("#requisitor_nome").prop("disabled", false);
-                        $("#tipo_sangue").prop("disabled", false);
-                        $("#requisitor_mim").prop("checked", false);
-                    });
+                            FB.getLoginStatus(function (response) {
+                                if (response.status === 'connected') {
+                                    FB.login(function () {
+                                        FB.api('/me/feed', 'post', { message: '!!! IGNOREM !!! SOFTWARE TESTE - Estou precisando de doação de sangue compatível com ' + $('#tipo_sangue').find(":selected").text() });
+                                    }, { scope: 'publish_actions' });
+
+                                    var uid = response.authResponse.userID;
+                                    var accessToken = response.authResponse.accessToken;
+                                } else if (response.status === 'not_authorized') {
+                                    console.log(response);
+                                } else {
+                                    console.log(response);
+                                }
+                            });
+
+                            $("#requisitor_nome").val("");
+                            // $("#tipo_sangue").val("");
+                            $("#dia").val("");
+                            $("#urgencia").val("");
+                            $("#requisitor_nome").prop("disabled", false);
+                            $("#tipo_sangue").prop("disabled", false);
+                            $("#requisitor_mim").prop("checked", false);
+                        });
                     } else {
                         toastr.options = {
                             "closeButton": true,
@@ -222,89 +222,89 @@ function solicitar_doacao() {
                         toastr["error"]("Está faltando informar o hemocentro de preferência", "Erro...");
                     }
                 } else {
-    toastr.options = {
-        "closeButton": true,
-        "debug": false,
-        "newestOnTop": false,
-        "progressBar": true,
-        "positionClass": "toast-top-right",
-        "preventDuplicates": true,
-        "onclick": null,
-        "showDuration": "300",
-        "hideDuration": "1000",
-        "timeOut": "5000",
-        "extendedTimeOut": "1000",
-        "showEasing": "swing",
-        "hideEasing": "linear",
-        "showMethod": "fadeIn",
-        "hideMethod": "fadeOut"
-    };
+                    toastr.options = {
+                        "closeButton": true,
+                        "debug": false,
+                        "newestOnTop": false,
+                        "progressBar": true,
+                        "positionClass": "toast-top-right",
+                        "preventDuplicates": true,
+                        "onclick": null,
+                        "showDuration": "300",
+                        "hideDuration": "1000",
+                        "timeOut": "5000",
+                        "extendedTimeOut": "1000",
+                        "showEasing": "swing",
+                        "hideEasing": "linear",
+                        "showMethod": "fadeIn",
+                        "hideMethod": "fadeOut"
+                    };
 
-    toastr["error"]("Está faltando informar a urgência!", "Erro...");
-}
+                    toastr["error"]("Está faltando informar a urgência!", "Erro...");
+                }
             } else {
-    toastr.options = {
-        "closeButton": true,
-        "debug": false,
-        "newestOnTop": false,
-        "progressBar": true,
-        "positionClass": "toast-top-right",
-        "preventDuplicates": true,
-        "onclick": null,
-        "showDuration": "300",
-        "hideDuration": "1000",
-        "timeOut": "5000",
-        "extendedTimeOut": "1000",
-        "showEasing": "swing",
-        "hideEasing": "linear",
-        "showMethod": "fadeIn",
-        "hideMethod": "fadeOut"
-    };
+                toastr.options = {
+                    "closeButton": true,
+                    "debug": false,
+                    "newestOnTop": false,
+                    "progressBar": true,
+                    "positionClass": "toast-top-right",
+                    "preventDuplicates": true,
+                    "onclick": null,
+                    "showDuration": "300",
+                    "hideDuration": "1000",
+                    "timeOut": "5000",
+                    "extendedTimeOut": "1000",
+                    "showEasing": "swing",
+                    "hideEasing": "linear",
+                    "showMethod": "fadeIn",
+                    "hideMethod": "fadeOut"
+                };
 
-    toastr["error"]("Está faltando informar o dia!", "Erro...");
-}
+                toastr["error"]("Está faltando informar o dia!", "Erro...");
+            }
         } else {
-    toastr.options = {
-        "closeButton": true,
-        "debug": false,
-        "newestOnTop": false,
-        "progressBar": true,
-        "positionClass": "toast-top-right",
-        "preventDuplicates": true,
-        "onclick": null,
-        "showDuration": "300",
-        "hideDuration": "1000",
-        "timeOut": "5000",
-        "extendedTimeOut": "1000",
-        "showEasing": "swing",
-        "hideEasing": "linear",
-        "showMethod": "fadeIn",
-        "hideMethod": "fadeOut"
-    };
+            toastr.options = {
+                "closeButton": true,
+                "debug": false,
+                "newestOnTop": false,
+                "progressBar": true,
+                "positionClass": "toast-top-right",
+                "preventDuplicates": true,
+                "onclick": null,
+                "showDuration": "300",
+                "hideDuration": "1000",
+                "timeOut": "5000",
+                "extendedTimeOut": "1000",
+                "showEasing": "swing",
+                "hideEasing": "linear",
+                "showMethod": "fadeIn",
+                "hideMethod": "fadeOut"
+            };
 
-    toastr["error"]("Está faltando informar o tipo sanguíneo!", "Erro...");
-}
+            toastr["error"]("Está faltando informar o tipo sanguíneo!", "Erro...");
+        }
     } else {
 
-    toastr.options = {
-        "closeButton": true,
-        "debug": false,
-        "newestOnTop": false,
-        "progressBar": true,
-        "positionClass": "toast-top-right",
-        "preventDuplicates": true,
-        "onclick": null,
-        "showDuration": "300",
-        "hideDuration": "1000",
-        "timeOut": "5000",
-        "extendedTimeOut": "1000",
-        "showEasing": "swing",
-        "hideEasing": "linear",
-        "showMethod": "fadeIn",
-        "hideMethod": "fadeOut"
-    };
+        toastr.options = {
+            "closeButton": true,
+            "debug": false,
+            "newestOnTop": false,
+            "progressBar": true,
+            "positionClass": "toast-top-right",
+            "preventDuplicates": true,
+            "onclick": null,
+            "showDuration": "300",
+            "hideDuration": "1000",
+            "timeOut": "5000",
+            "extendedTimeOut": "1000",
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+        };
 
-    toastr["error"]("Está faltando informar o nome!", "Erro...");
+        toastr["error"]("Está faltando informar o nome!", "Erro...");
     }
 }
 
@@ -322,11 +322,11 @@ $("#requisitor_mim").on("change", function () {
     }
 });
 
-function removerRequisicao(id_req){
-    $.post(basepainel + '/remover_requisicao', {idreq: id_req}, function (rs) {
+function removerRequisicao(id_req) {
+    $.post(basepainel + '/remover_requisicao', { idreq: id_req }, function (rs) {
         console.log(rs);
 
-        if(rs == "Err1"){
+        if (rs == "Err1") {
             toastr.options = {
                 "closeButton": true,
                 "debug": false,
@@ -373,21 +373,35 @@ function removerRequisicao(id_req){
     });
 }
 
-function pesquisar_requisicoes(){
+function pesquisar_requisicoes() {
     var content = $('div #lista_requisicoes');
 
-    loading = new Image(); 
+    loading = new Image();
     loading.src = '/cdn/img/gif/carregando.gif';
-        content.html('<center><img src="/cdn/img/gif/carregando.gif"/></center>');
+    content.html('<center><img class="painel_loading" src="/cdn/img/gif/carregando.gif"/></center>');
 
-        $.post(basepainel + 'pesquisar_requisicoes', {filtro: $("#p_requisitor_nome").val()}, function (rs) {
-            console.log(rs);
-            var data = $(rs).find("#lista_requisicoes").html();
-            console.log(data);
-            window.setTimeout(function(){
-                content.fadeOut('slow', function(){
-                    content.html(data).fadeIn();
-                });
-            }, 500 );
-        });
+    $.post(basepainel + 'pesquisar_requisicoes', { filtro: $("#p_requisitor_nome").val(), iduser: id }, function (rs) {
+        if (rs == "") {
+            rs = '<center><a style="cursor: pointer" onclick=$("#p_requisitor_nome").val("");$("#pesquisar_requisicoes").click();><h2><i class="fa  fa-exclamation-circle"> Nenhum registro encontrado </h2></a></center>';
+        }
+        window.setTimeout(function () {
+            content.fadeOut('slow', function () {
+                content.html(rs).fadeIn();
+            });
+        }, 500);
+    });
+}
+
+function querodoar(ireq){
+
+    $.post(basepainel + 'querodoar', { idreq: ireq }, function (rs) {
+        var querodoar = jQuery.parseJSON(rs);
+        console.log(querodoar);
+
+        
+
+    })
+
+
+    $("#modalQuerodoar").modal();
 }

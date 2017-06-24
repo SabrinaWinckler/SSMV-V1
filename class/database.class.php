@@ -39,5 +39,17 @@ if(count($nomeHemocentro) == 0){
     }
 }
 
+$nomeEstado = array();
+if(count($nomeEstado) == 0){
+    if ($sql = $con->prepare("SELECT `nome` FROM  `ssmv`.`estados`")) {
+        $sql->execute();
+        $sql->bind_result($_estado);
+        while($sql->fetch()){
+            array_push($nomeEstado, $_estado);
+        }
+        $sql->close();
+    }
+}
+
 
 ?>
