@@ -621,3 +621,19 @@ a.req-category:hover, a.req-category:focus{
 .painel_loading {
   width: 40%; 
 }
+
+.coracao-alto {
+  color: #ff2b0f;
+}
+
+.coracao-medio {
+  background: -webkit-linear-gradient(#fff, #ff2b0f, #ff2b0f);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.coracao-baixo {
+  background: -webkit-linear-gradient(#fff, #ff2b0f);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

@@ -284,7 +284,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         }
 
         if ($sql = $con->prepare("INSERT INTO `ssmv`.`requisicao` (`idusuario`, `nome`, `tipoSangue`, `dataSolicitacao`, `dataLimite`, `urgencia`, `idmarcador`) VALUES (?, ?, ?, ?, ?, ?, ?);")) {
-          $sql->bind_param('isisssi', $id, $nome, $tipo_sangue, $dataSolicitacao, $dataLimite, $urgencia, $idmarcador);
+          $sql->bind_param('isissii', $id, $nome, $tipo_sangue, $dataSolicitacao, $dataLimite, $urgencia, $idmarcador);
           $sql->execute();
           $sql->close();
         } else {
@@ -319,10 +319,11 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
             $sql->execute();
             $sql->bind_result($_req_idrequisicao, $_req_idusuario, $_req_nome, $_req_tipoSangue, $_req_dataLimite, $_req_urgencia, $_req_idmarcador);
             $filtrados = array();
+            $tipoUrgencia = array(1 => "baixo", 2 => "medio", 3 => "alto");
             while ($sql->fetch()){
                 if ($_id != $_req_idusuario) {
                     echo '<div class="col-sm-3 col-exception-padding">
-                    <div class=" boxReq-container urgencia-'.$_req_urgencia.' boxReq-item req-transition">
+                    <div class=" boxReq-container urgencia-'.$tipoUrgencia[$_req_urgencia].' boxReq-item req-transition">
                         <div class="req-top-list-header">
                             <a href="#" title="'. $_req_nome .'">
                                 <span class="req-title req-trunc">'. $_req_nome .'</span>

@@ -62,9 +62,9 @@ require_once "inc/header.php";
             <div class="col-md-3">
                 <label>Urgência:</label>
                 <select id="urgencia" name="urgencia" class="form-control">
-                    <option value="alto"> Alto </option>
-                    <option value="medio"> Médio </option>
-                    <option value="baixo"> Baixo </option>
+                    <option value="3"> Alto </option>
+                    <option value="2"> Médio </option>
+                    <option value="1"> Baixo </option>
                 </select>
             </div>
         </div>
@@ -112,6 +112,7 @@ require_once "inc/header.php";
                     var telefone1 = markerElem.getAttribute('telefone1');
                     var telefone2 = markerElem.getAttribute('telefone2');
                     var type = markerElem.getAttribute('type');
+                    var email = markerElem.getAttribute('email');
                     var point = new google.maps.LatLng(
                         parseFloat(markerElem.getAttribute('lat')),
                         parseFloat(markerElem.getAttribute('lng')));
@@ -140,6 +141,13 @@ require_once "inc/header.php";
                         text_telefone2.textContent = "Telefone alternativo: " + telefone2;
                         infowincontent.appendChild(text_telefone2);
                     }
+
+                    infowincontent.appendChild(document.createElement('br'));
+                    infowincontent.appendChild(document.createElement('br'));
+
+                    var text_email = document.createElement('text');
+                    text_email.textContent = "E-mail: " + email;
+                    infowincontent.appendChild(text_email);
 
                     infowincontent.appendChild(document.createElement('br'));
                     var selecionar_hemo = document.createElement('button');

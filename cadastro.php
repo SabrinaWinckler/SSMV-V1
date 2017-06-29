@@ -824,6 +824,9 @@
                 </div>
             </div>
         </form>
+    </div>
+
+    <script> var baseUrl = "<?php echo BASEURL; ?>";</script>
 
     <!-- jQuery -->
     <script src="<?php echo BASECDN; ?>jquery/jquery.min.js"></script>

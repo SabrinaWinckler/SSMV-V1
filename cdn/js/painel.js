@@ -377,8 +377,8 @@ function pesquisar_requisicoes() {
     var content = $('div #lista_requisicoes');
 
     loading = new Image();
-    loading.src = '/cdn/img/gif/carregando.gif';
-    content.html('<center><img class="painel_loading" src="/cdn/img/gif/carregando.gif"/></center>');
+    loading.src = baseCdn + 'img/gif/carregando.gif';
+    content.html('<center><img class="painel_loading" src="'+ baseCdn +'img/gif/carregando.gif"/></center>');
 
     $.post(basepainel + 'pesquisar_requisicoes', { filtro: $("#p_requisitor_nome").val(), iduser: id }, function (rs) {
         if (rs == "") {
@@ -397,6 +397,8 @@ function querodoar(ireq){
     $.post(basepainel + 'querodoar', { idreq: ireq }, function (rs) {
         var querodoar = jQuery.parseJSON(rs);
         console.log(querodoar);
+
+        $("#titulo_modalQuerodoar").text("Requisição #" + ireq + " - " + querodoar["nome"]);
 
         
 

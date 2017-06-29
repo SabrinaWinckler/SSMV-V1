@@ -40,21 +40,31 @@ require_once "inc/header.php";
                         $sql->close();
                     }
                 
-                    if ($sql = $con->prepare("SELECT `idrequisicao`, `idusuario`, `nome`, `tipoSangue`, `dataLimite`, `urgencia`, `idmarcador` FROM `ssmv`.`requisicao`")) {
+                    if ($sql = $con->prepare("SELECT `idrequisicao`, `idusuario`, `nome`, `tipoSangue`, `dataLimite`, `urgencia`, `idmarcador` FROM `ssmv`.`requisicao` ORDER BY `urgencia` DESC,`dataLimite` ASC")) {
                         // $sql->bind_param('i', $_SESSION['id']);
                         $sql->execute();
                         $sql->bind_result($_req_idrequisicao, $_req_idusuario, $_req_nome, $_req_tipoSangue, $_req_dataLimite, $_req_urgencia, $_req_idmarcador);
+                        $tipoUrgencia = array(1 => "baixo", 2 => "medio", 3 => "alto");
                         while ($sql->fetch()) {
                             if ($_id != $_req_idusuario) {
-                                 echo '<div class="col-sm-3 col-exception-padding">
-                                <div class=" boxReq-container urgencia-'.$_req_urgencia.' boxReq-item req-transition">
+                                 echo '<div class="col-sm-3 col-exception-padding" onclick="querodoar('. $_req_idrequisicao .')"> 
+                                <div class=" boxReq-container urgencia-'.$tipoUrgencia[$_req_urgencia].' boxReq-item req-transition">
                                     <div class="req-top-list-header">
-                                        <a href="#" title="'. $_req_nome .'">
+                                        <a href="#" onclick="querodoar('. $_req_idrequisicao .')" title="'. $_req_nome .'">
                                             <span class="req-title req-trunc">'. $_req_nome .'</span>
                                         </a>
-                                        <span class="req-topicos">Solicita: Sangue '. $nomeSangue[$_req_tipoSangue - 1] .'</span><br />
-                                        <span class="req-topicos">'. $nomeHemocentro[$_req_idmarcador - 1] .'</span><br />
-                                        <span class="req-topicos">Data limite: '. date_format(date_create($_req_dataLimite), 'd/m/Y') .'</span>
+                                        <table style="width:100%">
+                                            <tr>
+                                                <td style="width:70%">
+                                                    <span class="req-topicos">Solicita: Sangue '. $nomeSangue[$_req_tipoSangue - 1] .'</span><br />
+                                                    <span class="req-topicos">'. $nomeHemocentro[$_req_idmarcador - 1] .'</span><br />
+                                                    <span class="req-topicos">Data limite: '. date_format(date_create($_req_dataLimite), 'd/m/Y') .'</span>
+                                                </td>
+                                                <td style="width:30%">
+                                                <i class="fa fa-heart fa-5x coracao-'.$tipoUrgencia[$_req_urgencia].' "></i>
+                                                </td>
+                                            </tr>
+                                        </table>
                                     </div>
                                     <a href="#" onclick="querodoar('. $_req_idrequisicao .')" class="req-category">Quero doar!</a>
                                 </div>

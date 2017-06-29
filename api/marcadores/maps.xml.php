@@ -38,6 +38,7 @@ if ($sql = $con->prepare("SELECT * FROM `ssmv`.`marcador`")) {
         $marker->setAttribute("lat", $marc_lat);
         $marker->setAttribute("lng", $marc_lng);
         $marker->setAttribute("type", $marc_tipo);
+        $marker->setAttribute("email", $marc_email);
         $markers->appendChild($marker);
     }
     $sql->close();

@@ -1,6 +1,6 @@
     </div>
 
-    <script> var id = "<?php echo $_SESSION['id']; ?>"; var nome = "<?php echo $_SESSION['nome']." ".$_SESSION['sobrenome']; ?>"; var tipo = "<?php echo $_SESSION['tipo']; ?>"; var sangue = "<?php echo $_SESSION['sangue']; ?>"; var basepainel = "<?php echo BASEPAINEL; ?>"; var baseUrl = "<?php echo BASEURL; ?>"; </script>
+    <script> var id = "<?php echo $_SESSION['id']; ?>"; var nome = "<?php echo $_SESSION['nome']." ".$_SESSION['sobrenome']; ?>"; var tipo = "<?php echo $_SESSION['tipo']; ?>"; var sangue = "<?php echo $_SESSION['sangue']; ?>"; var basepainel = "<?php echo BASEPAINEL; ?>"; var baseUrl = "<?php echo BASEURL; ?>"; var baseCdn = "<?php echo BASECDN; ?>"; </script>
 
     <!-- jQuery -->
     <script src="<?php echo BASECDN; ?>jquery/jquery.min.js"></script>
