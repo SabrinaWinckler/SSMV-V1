@@ -6,7 +6,7 @@ $(document).ready(function () {
 $("#entrar").on("click", function () {
     if ($("#email").val().length > 6) {
         if ($("#senha").val().length > 3) {
-            $.post('/logar', { email: $("#email").val(), senha: $("#senha").val() }, function (rs) {
+            $.post(baseUrl + '/logar', { email: $("#email").val(), senha: $("#senha").val() }, function (rs) {
                 if (rs == 'Err1') {
                     toastr.options = {
                         "closeButton": true,
@@ -99,7 +99,7 @@ function checkLoginState() {
     FB.getLoginStatus(function (response) {
         if (response.status === 'connected') {
             FB.api('/me', { fields: 'id' }, function (response) {
-                $.post('/fblogar', { fb: response["id"] }, function (rs) {
+                $.post(baseUrl + '/fblogar', { fb: response["id"] }, function (rs) {
                     if (rs == 'Err1') {
                         $("#titulo_modalFb").text("Ops...");
                         $("#body_modalFb").text("Este facebook não está vinculado a nenhuma conta.");
@@ -133,7 +133,7 @@ function checkLoginState() {
 }
 
 function cadastrar_fb() {
-    window.location.href = "/cadastro?fb=" + $("#cadastrar_fb").attr("fbid");
+    window.location.href = baseUrl + "/cadastro?fb=" + $("#cadastrar_fb").attr("fbid");
 };
 
 function solicitar_doacao() {

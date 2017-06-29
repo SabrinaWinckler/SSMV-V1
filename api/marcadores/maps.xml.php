@@ -1,7 +1,7 @@
 <?php
 
 require_once("../../config.class.php");
-require_once "../../".DB;
+require_once(DB);
 
 #versao do encoding xml
 $xml = new DOMDocument("1.0", "utf-8");

@@ -7,7 +7,7 @@
 session_start();
 
 require_once("../config.class.php");
-require_once "../".DB;
+require_once DB;
 
 if(isset($_SESSION['tipo'])){
     if(!defined('LOGADO')){

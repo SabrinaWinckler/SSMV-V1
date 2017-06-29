@@ -102,7 +102,7 @@ require_once "inc/header.php";
             var infoWindow = new google.maps.InfoWindow;
 
             // Change this depending on the name of your PHP or XML file
-            downloadUrl('/api/maps.xml', function (data) {
+            downloadUrl(baseUrl + 'api/maps.xml', function (data) {
                 var xml = data.responseXML;
                 var markers = xml.documentElement.getElementsByTagName('marker');
                 Array.prototype.forEach.call(markers, function (markerElem) {
