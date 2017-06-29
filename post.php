@@ -3,7 +3,7 @@
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
     require_once "config.class.php";
-    require_once DB;
+    require_once(DB);
 
     // ENVIAR CONTATO
     if(@$_GET['contato'] == 'enviar'){

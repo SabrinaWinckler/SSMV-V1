@@ -847,6 +847,6 @@
     <script src="<?php echo BASECDN; ?>js/valida_cpf_cnpj.js"></script>
     <script src="<?php echo BASECDN; ?>js/cadastro.js"></script>
 
-    <?php if(strlen(@$_GET['fb']) >= 16){ echo "<script> var fbcon = true </script>"; } else {echo "<script> var fbcon = false </script>";} ?>
+    <?php if(strlen(@$_GET['fb']) >= 16){ echo "<script> var fbcon = true; validar_email_pf = true; </script>"; } else {echo "<script> var fbcon = false </script>";} ?>
     </body>
 </html>

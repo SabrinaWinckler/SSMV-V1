@@ -7,10 +7,10 @@ class Config
 {
     private $absPath        = '/ssmv/';
     private $baseUrl        = '/ssmv/';
-    private $baseCdn        = "/cdn/";
-    private $basePainel     = "/painel/";
+    private $baseCdn        = "cdn/";
+    private $basePainel     = "painel/";
 
-    private $db             = "class/database.class.php";
+    private $db             = "/class/database.class.php";
 
     // private $header         = "inc/header.php";
     // private $footer         = "inc/footer.php";
@@ -55,7 +55,7 @@ class Config
     /** Caminho do arquivo de banco de dados **/
     private function db(){
         if(!defined('DB')){
-            define('DB', $this->baseUrl . $this->db);
+            define('DB', dirname(__FILE__) . $this->db);
         }
     }
 
@@ -71,7 +71,7 @@ class Config
 
     private function basePainel(){
         if(!defined('BASEPAINEL')){
-            define('BASEPAINEL', $this->basePainel);
+            define('BASEPAINEL', $this->baseUrl . $this->basePainel);
         }
     }
 
