@@ -5,15 +5,15 @@
  */
 class Config
 {
-    private $absPath        = '/';
-    private $baseUrl        = '/';
+    private $absPath        = '/ssmv/';
+    private $baseUrl        = '/ssmv/';
     private $baseCdn        = "/cdn/";
     private $basePainel     = "/painel/";
 
     private $db             = "class/database.class.php";
 
-    private $header         = "inc/header.php";
-    private $footer         = "inc/footer.php";
+    // private $header         = "inc/header.php";
+    // private $footer         = "inc/footer.php";
 
     private $autor;
     private $descricao;
@@ -48,14 +48,14 @@ class Config
     /** Caminho no server para midias **/
     private function baseCdn(){
         if(!defined('BASECDN')){
-            define('BASECDN', $this->baseCdn);
+            define('BASECDN', $this->baseUrl . $this->baseCdn);
         }
     }
 
     /** Caminho do arquivo de banco de dados **/
     private function db(){
         if(!defined('DB')){
-            define('DB', $this->db);
+            define('DB', $this->baseUrl . $this->db);
         }
     }
 
