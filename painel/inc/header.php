@@ -25,17 +25,29 @@ if(LOGADO === TRUE){
     $_tipo = $_SESSION['tipo'];
 
     if(!isset($_SESSION['nome'])){
-        if ($sql = $con->prepare("SELECT `nome`, `sobrenome`, `idtipoSangue` FROM `ssmv`.$_tipo WHERE idusuario = ?;")) {
-            $sql->bind_param('i', $_SESSION['id']);
-            $sql->execute();
-            $sql->bind_result($_nome, $_sobrenome, $_idtipoSangue);
-            $sql->fetch();
-            $sql->close();
+        if($_tipo == "pf"){
+            if ($sql = $con->prepare("SELECT `nome`, `sobrenome`, `idtipoSangue` FROM `ssmv`.`pf` WHERE idusuario = ?;")) {
+                $sql->bind_param('i', $_SESSION['id']);
+                $sql->execute();
+                $sql->bind_result($_nome, $_sobrenome, $_idtipoSangue);
+                $sql->fetch();
+                $sql->close();
 
-            $_SESSION['nome'] = $_nome;
-            $_SESSION['sobrenome'] = $_sobrenome;
-            $_SESSION['sangue'] = $_idtipoSangue;
-        }   
+                $_SESSION['nome'] = $_nome;
+                $_SESSION['sobrenome'] = $_sobrenome;
+                $_SESSION['sangue'] = $_idtipoSangue;
+            }
+        } else {
+            if ($sql = $con->prepare("SELECT `nome` FROM `ssmv`.`pj` WHERE idusuario = ?;")) {
+                $sql->bind_param('i', $_SESSION['id']);
+                $sql->execute();
+                $sql->bind_result($_nome);
+                $sql->fetch();
+                $sql->close();
+
+                $_SESSION['nome'] = $_nome;
+            }
+        }
     }
 }
 

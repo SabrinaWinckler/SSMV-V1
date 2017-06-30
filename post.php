@@ -5,7 +5,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     require_once "config.class.php";
     require_once(DB);
 
-    // ENVIAR CONTATO
+// ENVIAR CONTATO           
     if(@$_GET['contato'] == 'enviar'){
         $nome       = $_POST["nome"];
         $email      = $_POST["email"];
@@ -17,9 +17,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
           $sql->close();
         }
     }
-
+// CADASTRO PF              
     if(@$_GET['cadastro'] == 'pf'){
-        //print_r($_POST);
         $tipo               = $_GET["cadastro"];
         $nome               = $_POST["nome"];
         $sobrenome          = $_POST["sobrenome"];
@@ -102,7 +101,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         }
     }
 
-    //CADASTRO PJ
+// CADASTRO PJ              
     if(@$_GET['cadastro'] == 'pj'){
         $tipo                   = $_GET["cadastro"];
         $nome                   = $_POST["nome"];
@@ -156,7 +155,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         }
     }
 
-    // ENTRAR COM EMAIL E SENHA
+// LOGIN COM EMAIL          
     if(@$_GET['login'] == 'entrar'){
 
         if((isset($_POST["email"])) && (isset($_POST["senha"]))){
@@ -186,6 +185,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         }
     }
 
+// LOGIN COM FACEBOOK       
     if(@$_GET['login'] == 'fb'){
 
         if(isset($_POST["fb"])){
@@ -213,7 +213,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         }
     }
 
-    //Solicitação
+// SOLICITAR DOAÇÃO         
     if(@$_GET['requisicao'] == 'enviar'){
         $id                 = $_POST["idusuario"];
         $nome               = $_POST["nome"];
@@ -295,6 +295,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         }
     }
 
+// REMOVER DOAÇÃO           
     if(@$_GET["requisicao"] == "remover"){
         $idreq = $_POST["idreq"];
 
@@ -312,6 +313,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         }
     }
 
+    // FILTRO DOAÇÃO            
     if(@$_GET["requisicao"] == "filtrar"){
         $_id = $_POST["iduser"];
         $filtro = '%'.$_POST["filtro"].'%';
@@ -343,6 +345,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         }
     }
 
+// MODAL DOAÇÃO             
     if(@$_GET["doacao"] == "modal"){
         $idreq  = $_POST["idreq"];
 
@@ -368,7 +371,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
             $sql->close();
         }
     }
-
+// CONFIRMAÇÃO DA DOAÇÃO    
     if(@$_GET["doacao"] == "confirmar"){
         $idreq  = $_POST["datareq"];
         $doador  = $_POST["doador"];
@@ -386,6 +389,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         }
     }
 
+// ESQUECIA A SENHA         
     if(@$_GET["senha"] == "esqueci"){
         $email = $_POST["email"];
 
@@ -406,7 +410,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     }
 
 } else {
-
+// LOGOUT
     if(@$_GET['login'] == 'logout'){
         require_once "config.class.php";
         session_start();

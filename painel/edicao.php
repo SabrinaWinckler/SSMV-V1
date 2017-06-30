@@ -80,12 +80,12 @@ if (isset($_POST['foto'])) {
 		}
 		}
 	}
-}
+
 
 ?>
  <?php
 
-$sql = mysql_query("SELECT foto FROM `ssmv`.`pf`,`ssmv`.`pj` ORDER BY id = "?"");
+$sql = mysql_query("SELECT foto FROM `ssmv`.`pf`,`ssmv`.`pj` ORDER BY id = ?");
 
 while ($usuario = mysql_fetch_object($sql)) {
 	// Exibir foto
@@ -122,7 +122,6 @@ require_once "db.php";
 //    }   
 // }
 
-PF
 if(@$_SERVER['REQUEST_METHOD'] == 'POST'){
     $_id_usuario     	= $_POST["idusuario"];
     $_nome     	= $_POST["nome"];

@@ -710,7 +710,7 @@ $("#pj_cep").keyup(function () {
                 $("#pj_bairro").val(dados.bairro);
                 $("#pj_estado").val($("#pj_estado [sigla=" + dados.uf + "]").val());
                 var idestado = $("#pj_estado").val() - 1;
-                $.getJSON('/estado/', {}, function (data) {
+                $.getJSON(baseUrl + '/estado/', {}, function (data) {
                     $('#pj_cidade option').remove();
                     if (data != 'null') {
                         $.each(data.estados[idestado].cidades, function (k, v) {
