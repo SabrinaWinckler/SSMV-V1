@@ -164,16 +164,17 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
             $senha = $con->real_escape_string(preg_replace('/[^[:alpha:]0-9#@._-]/', '', $_POST["senha"]));
             $senha = sha1(md5($senha));
 
-            if ($sql = $con->prepare("SELECT `idusuario`, `email`, `senha`, `tipo` FROM  `ssmv`.`usuarios` WHERE email = ? && senha = ?;")) {
+            if ($sql = $con->prepare("SELECT `idusuario`, `email`, `senha`, `tipo`, `idfacebook` FROM  `ssmv`.`usuarios` WHERE email = ? && senha = ?;")) {
                 $sql->bind_param('ss', $email, $senha);
                 $sql->execute();
-                $sql->bind_result($_id, $_email, $_senha, $_tipo);
+                $sql->bind_result($_id, $_email, $_senha, $_tipo, $_facebook);
                 $sql->fetch();
 
                 if(isset($_email)){
                     session_start();
                     $_SESSION['id'] = $_id;
                     $_SESSION['tipo'] = $_tipo;
+                    $_SESSION['idfacebook'] = $_facebook;
                     echo BASEPAINEL;
                 } else {
                     echo "Err1"; //Usuário ou senha está errado
@@ -200,6 +201,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
                     session_start();
                     $_SESSION['id'] = $_id;
                     $_SESSION['tipo'] = $_tipo;
+                    $_SESSION['idfacebook'] = $_facebook;
                     echo BASEPAINEL;
                 } else {
                     echo "Err1"; //Usuário não vinculou o facebook
@@ -350,18 +352,37 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
             $sql->bind_result($_req_idusuario, $_req_nome, $_req_tipoSangue, $_req_dataLimite, $_req_urgencia, $_req_idmarcador);
             $sql->fetch();
 
+            $tipoUrgencia = array(1 => "Baixo", 2 => "Médio", 3 => "Alta");
+
             $info_req = array(
                 "idrequisicao"  => $idreq,
                 "idusuario"     => $_req_idusuario,
                 "nome"          => $_req_nome,
-                "tipoSangue"    => $_req_tipoSangue,
+                "tipoSangue"    => $nomeSangue[$_req_tipoSangue - 1],
                 "dataLimite"    => date_format(date_create($_req_dataLimite), 'd/m/Y'),
-                "urgencia"      => $_req_urgencia,
-                "idmarcador"    => $_req_idmarcador
+                "urgencia"      => $tipoUrgencia[$_req_urgencia],
+                "idmarcador"    => $nomeHemocentro[$_req_idmarcador-1]
             );
 
             print_r(json_encode($info_req));
             $sql->close();
+        }
+    }
+
+    if(@$_GET["doacao"] == "confirmar"){
+        $idreq  = $_POST["datareq"];
+        $doador  = $_POST["doador"];
+
+        print_r($_POST);
+
+        if ($sql = $con->prepare("UPDATE `ssmv`.`requisicao` SET `doador` = ? WHERE `idrequisicao` = ?;")) {
+            $sql->bind_param('ii', $doador, $idreq);
+            $sql->execute();
+            $sql->close();
+            echo "Suc";
+        } else {
+            echo "Confirmar doação: \n\r";
+            echo $con->error;
         }
     }
 

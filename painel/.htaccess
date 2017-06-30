@@ -21,4 +21,5 @@ RewriteRule ^remover_requisicao(.*)$ ../post.php?requisicao=remover
 RewriteRule ^pesquisar_requisicoes(.*)$ ../post.php?requisicao=filtrar
 
 RewriteRule ^querodoar(.*)$ ../post.php?doacao=modal
+RewriteRule ^confirmardoacao(.*)$ ../post.php?doacao=confirmar
 

@@ -61,7 +61,7 @@ require_once "inc/header.php";
                                                     <span class="req-topicos">Data limite: '. date_format(date_create($_req_dataLimite), 'd/m/Y') .'</span>
                                                 </td>
                                                 <td style="width:30%">
-                                                <i class="fa fa-heart fa-5x coracao-'.$tipoUrgencia[$_req_urgencia].' "></i>
+                                                <i class="fa fa-heart fa-5x coracao-'.$tipoUrgencia[$_req_urgencia].' pulse"></i>
                                                 </td>
                                             </tr>
                                         </table>
@@ -94,14 +94,14 @@ require_once "inc/header.php";
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
-                        <h4 class="modal-title" id="titulo_modalQuerodoar">Ops...</h4>
+                        <h4 class="modal-title" id="titulo_modalQuerodoar">Requisição #</h4>
                     </div>
                     <div class="modal-body" id="body_modalQuerodoar">
-                        INFORMAÇÕES SOBRE A DOAÇÃO
+                        
                     </div>
                     <div class="modal-footer" id="footer_modalQuerodoar">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
-                        <button type="submit" onclick="" id="confirmarDoacao" class="btn btn-primary">Cadastrar</button>
+                        <button type="submit" onclick="confirmarDoacao()" data-req="" id="confirmarDoacao" class="btn btn-primary">Informar que quero doar</button>
                     </div>
                 </div>
             </div>

@@ -37,16 +37,8 @@ require_once "inc/header.php";
                                         $sql->bind_param('i', $_id);
                                         $sql->execute();
                                         $sql->bind_result($req_id, $req_nome, $req_sangue, $req_dataS, $req_dataL, $req_urgencia, $req_marcador);
-                                            
+                                        $tipoUrgencia = array(1 => "Baixo", 2 => "Médio", 3 => "Alto");
                                         while ($sql->fetch()) {
-
-                                            if ($req_urgencia == "alto") {
-                                                $req_urgencia = "Alto";
-                                            } elseif ($req_urgencia == "medio") {
-                                                $req_urgencia = "Médio";
-                                            } else {
-                                                $req_urgencia = "Baixo";
-                                            }
                                             
                                             echo "<tr class='gradeA' id='tr-".$req_id."'>
                                                     <td id='td-fone' class='text-center hidden-xs'>".date_format(date_create($req_dataS), 'd/m/Y')."</td>
@@ -54,7 +46,7 @@ require_once "inc/header.php";
                                                     <td id='td-email' class='text-center'>".$nomeSangue[$req_sangue-1]."</td>
                                                     <td id='td-fone' class='text-center'>".date_format(date_create($req_dataL), 'd/m/Y')."</td>
                                                     <td id='td-fone' class='text-center'>".$nomeHemocentro[$req_marcador-1]."</td>
-                                                    <td id='td-fone' class='text-center hidden-xs'>".$req_urgencia."</td>
+                                                    <td id='td-fone' class='text-center hidden-xs'>".$tipoUrgencia[$_req_urgencia]."</td>
                                                     <td class='text-center'>
                                                         <button onclick='removerRequisicao(".$req_id.")' title='Remover' data-toggle='tooltip' class='btn btn-sm btn-danger btn-remover'><i class='fa fa-trash-o'></i></button>
                                                     </td>

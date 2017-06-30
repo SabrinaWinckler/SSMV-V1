@@ -393,17 +393,20 @@ function pesquisar_requisicoes() {
 }
 
 function querodoar(ireq){
-
     $.post(basepainel + 'querodoar', { idreq: ireq }, function (rs) {
         var querodoar = jQuery.parseJSON(rs);
-        console.log(querodoar);
-
-        $("#titulo_modalQuerodoar").text("Requisição #" + ireq + " - " + querodoar["nome"]);
-
-        
-
-    })
-
-
+        $("[data-req]").attr("data-req", ireq);
+        $("#titulo_modalQuerodoar").text("Requisição #" + ireq);
+        $("#body_modalQuerodoar").html('<p align="center">Prioridade: ' + querodoar["urgencia"] + ' <br /><i>' + querodoar["nome"] + '</i>, está precisando de um doador compativel com o Sangue ' + querodoar["tipoSangue"] + '</p><p align="center"> Caso queira fazer a doação procure o <i>' + querodoar["idmarcador"] + '</i>, até o dia ' + querodoar["dataLimite"] + '. </p>');     
+    });
     $("#modalQuerodoar").modal();
+}
+
+function confirmarDoacao(){
+        $.post(basepainel + 'confirmardoacao', { datareq: $("[data-req]").attr("data-req"), doador: id }, function (rs) {
+            if(rs == "Suc"){
+                
+            }
+        console.log(rs);
+    });
 }
