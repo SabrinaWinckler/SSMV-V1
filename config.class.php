@@ -27,6 +27,8 @@ class Config
 
         $this->db();
 
+        $this->dominio();
+
         // $this->header();
         // $this->footer();
     }
@@ -49,6 +51,13 @@ class Config
     private function baseCdn(){
         if(!defined('BASECDN')){
             define('BASECDN', $this->baseUrl . $this->baseCdn);
+        }
+    }
+
+    /** Caminho no server para midias **/
+    private function dominio(){
+        if(!defined('DOMINIO')){
+            define('DOMINIO', $_SERVER["SERVER_NAME"] . $this->baseUrl);
         }
     }
 
@@ -84,6 +93,7 @@ class Config
     }
 }
 
+date_default_timezone_set('America/Sao_Paulo');
 $config = new Config;
 
 ?>

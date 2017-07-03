@@ -4,10 +4,9 @@ require_once("../config.class.php");
 
 $pagina = "Perfil";
 
-
 require_once "inc/header.php"; 
         
-         if($sql = $con->prepare("SELECT `idusuario`,`email`, `tipo` FROM `usuarios` WHERE idusuario = ?")){
+         if($sql = $con->prepare("SELECT `idusuario`,`email`, `tipo` FROM `ssmv`.`usuarios` WHERE idusuario = ?")){
                 $sql->bind_param("i", $_id);
                 $sql->execute();
                 $sql->bind_result($_id_usuario, $_email, $_tipo);
@@ -55,7 +54,7 @@ if($_tipo == "pf"){
                         border-radius: 100%;
                     }
                     </style>
-                       <div class = "imagem"><img src="fotos/".$usuario></div>
+                       <div class = "imagem"><img src="'.BASECDN.'img/fotos/1.jpg" style="width:100%;"></div>
                        
                        
                        <br><br> <input type="button" onclick ="adicionarFoto()" value = "Adicionar"> </input>
@@ -129,7 +128,7 @@ elseif($_tipo == "pj"){
                         border-radius: 100%;
                     }
                     </style>
-                       <div class = "imagem"><img src="fotos/".$usuario></div>
+                       <div class = "imagem"><img src="'.BASECDN.'img/fotos/1.jpg" style="width:100%;"></div>
                        
                        <br><br> <input type="button" onclick ="adicionarFoto()" value = "Adicionar"> </input>
                     </div>

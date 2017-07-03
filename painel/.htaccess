@@ -23,3 +23,4 @@ RewriteRule ^pesquisar_requisicoes(.*)$ ../post.php?requisicao=filtrar
 RewriteRule ^querodoar(.*)$ ../post.php?doacao=modal
 RewriteRule ^confirmardoacao(.*)$ ../post.php?doacao=confirmar
 
+RewriteRule ^addfoto(.*)$ ../post.php?foto=add

@@ -1,11 +1,12 @@
 <?php 
 
+require_once "config.class.php";
+
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
-    require_once "config.class.php";
     require_once(DB);
 
-// ENVIAR CONTATO           
+// ENVIAR CONTATO               
     if(@$_GET['contato'] == 'enviar'){
         $nome       = $_POST["nome"];
         $email      = $_POST["email"];
@@ -17,7 +18,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
           $sql->close();
         }
     }
-// CADASTRO PF              
+// CADASTRO PF                  
     if(@$_GET['cadastro'] == 'pf'){
         $tipo               = $_GET["cadastro"];
         $nome               = $_POST["nome"];
@@ -101,7 +102,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         }
     }
 
-// CADASTRO PJ              
+// CADASTRO PJ                  
     if(@$_GET['cadastro'] == 'pj'){
         $tipo                   = $_GET["cadastro"];
         $nome                   = $_POST["nome"];
@@ -155,7 +156,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         }
     }
 
-// LOGIN COM EMAIL          
+// LOGIN COM EMAIL              
     if(@$_GET['login'] == 'entrar'){
 
         if((isset($_POST["email"])) && (isset($_POST["senha"]))){
@@ -185,7 +186,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         }
     }
 
-// LOGIN COM FACEBOOK       
+// LOGIN COM FACEBOOK           
     if(@$_GET['login'] == 'fb'){
 
         if(isset($_POST["fb"])){
@@ -213,7 +214,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         }
     }
 
-// SOLICITAR DOAÇÃO         
+// SOLICITAR DOAÇÃO             
     if(@$_GET['requisicao'] == 'enviar'){
         $id                 = $_POST["idusuario"];
         $nome               = $_POST["nome"];
@@ -295,7 +296,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         }
     }
 
-// REMOVER DOAÇÃO           
+// REMOVER DOAÇÃO               
     if(@$_GET["requisicao"] == "remover"){
         $idreq = $_POST["idreq"];
 
@@ -345,7 +346,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         }
     }
 
-// MODAL DOAÇÃO             
+// MODAL DOAÇÃO                 
     if(@$_GET["doacao"] == "modal"){
         $idreq  = $_POST["idreq"];
 
@@ -371,12 +372,10 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
             $sql->close();
         }
     }
-// CONFIRMAÇÃO DA DOAÇÃO    
+// CONFIRMAÇÃO DA DOAÇÃO        
     if(@$_GET["doacao"] == "confirmar"){
         $idreq  = $_POST["datareq"];
         $doador  = $_POST["doador"];
-
-        print_r($_POST);
 
         if ($sql = $con->prepare("UPDATE `ssmv`.`requisicao` SET `doador` = ? WHERE `idrequisicao` = ?;")) {
             $sql->bind_param('ii', $doador, $idreq);
@@ -389,7 +388,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         }
     }
 
-// ESQUECIA A SENHA         
+// ESQUECIA A SENHA             
     if(@$_GET["senha"] == "esqueci"){
         $email = $_POST["email"];
 
@@ -407,12 +406,104 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
             $sql->close();
         }
+
+        $data = date('Y-m-d');
+        $horario = date('H:i:s');
+        $token = md5(md5(time().rand(0,50).rand(0,50)));
+
+        if($existe != ""){
+            if ($sql = $con->prepare("INSERT INTO `ssmv`.`token_senha` (`email`, `token`, `data`, `horario`, `utilizado`) VALUES (?, ?, ?, ?, '0');")) {
+                $sql->bind_param('ssss', $email, $token, $data, $horario);
+                $sql->execute();
+                $sql->close();
+            }
+        }
     }
 
+// RESETAR A SENHA (TOKEN)      
+
+    if(@$_GET["senha"] == "token"){
+        
+        $token = $_POST["token"];
+
+        if ($sql = $con->prepare("SELECT `email`, `data`, `horario`, `utilizado` FROM  `ssmv`.`token_senha` WHERE token = ?;")) {
+            $sql->bind_param('s', $token);
+            $sql->execute();
+            $sql->bind_result($_token_email, $_token_data, $_token_horario, $_token_utilizado);
+            $sql->fetch();
+            $sql->close();
+        }
+
+        if(!empty($_token_email)){
+
+            if ($sql = $con->prepare("SELECT `idusuario` FROM  `ssmv`.`usuarios` WHERE email = ?;")) {
+                $sql->bind_param('s', $_token_email);
+                $sql->execute();
+                $sql->bind_result($_user_id);
+                $sql->fetch();
+                $sql->close();
+            }
+
+            if ($sql = $con->prepare("SELECT `nome` FROM  `ssmv`.`pf` WHERE idusuario = ?;")) {
+                $sql->bind_param('s', $_user_id);
+                $sql->execute();
+                $sql->bind_result($_user_nome);
+                $sql->fetch();
+                $sql->close();
+            }
+
+            if(date('H:i:s', strtotime('+5 minute', strtotime($_token_horario))) > date('H:i:s') && $_token_data == date('Y-m-d')){
+                if($_token_utilizado != 1){
+                    echo $_user_nome;
+                } else {
+                    echo "Err1"; //TOKEN JÁ UTILIZADO
+                }
+            } else {
+                echo "Err2"; //TEMPO LIMITE ULTRAPASSADO
+            }
+        } else {
+                echo "Err3"; // TOKEN INEXISTENTE
+        }
+
+    }
+
+// ADICIONAR FOTO 
+    if(@$_GET["foto"] == "add"){
+        print_r($_POST);
+
+    // $nomeEvento = $_POST['nome_evento'];
+    // $descricaoEvento = $_POST['descricao_evento'];
+    // $imagem = $_FILES['imagem']['tmp_name'];
+    // $tamanho = $_FILES['imagem']['size'];
+    // $tipo = $_FILES['imagem']['type'];
+    // $nome = $_FILES['imagem']['name'];
+    
+    // if ( $imagem != "none" )
+    // {
+    //     $fp = fopen($imagem, "rb");
+    //     $conteudo = fread($fp, $tamanho);
+    //     $conteudo = addslashes($conteudo);
+    //     fclose($fp);
+    
+    // $queryInsercao = "INSERT INTO tabela_imagens (nome_evento, descrição_evento, nome_imagem, tamanho_imagem, tipo_imagem, imagem) VALUES ('$nomeEvento', '$descricaoEvento','$nome','$tamanho', '$tipo','$conteudo')";
+    
+    // mysql_query($queryInsercao) or die("Algo deu errado ao inserir o registro. Tente novamente.");
+    // echo 'Registro inserido com sucesso!'; 
+    // header('Location: index.php');
+    // if(mysql_affected_rows($conexao) > 0)
+    //     print "A imagem foi salva na base de dados.";
+    // else
+    //     print "Não foi possível salvar a imagem na base de dados.";
+    // }
+    // else
+    //     print "Não foi possível carregar a imagem.";
+
+    }
+
+
 } else {
-// LOGOUT
+// LOGOUT                       
     if(@$_GET['login'] == 'logout'){
-        require_once "config.class.php";
         session_start();
 
         $_SESSION = array();
@@ -431,7 +522,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         header("Location:". BASEURL);
         exit;
     }
-    header('HTTP/1.1 500 Internal Server Error');
+
+    header($_SERVER['SERVER_PROTOCOL'] . ' 500 Internal Server Error', true, 500);
+    header("Location: " . BASEURL);
 }
 
 ?>

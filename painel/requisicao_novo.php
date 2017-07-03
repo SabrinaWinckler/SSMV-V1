@@ -110,7 +110,6 @@ require_once "inc/header.php";
                     var name = markerElem.getAttribute('name');
                     var address = markerElem.getAttribute('address');
                     var telefone1 = markerElem.getAttribute('telefone1');
-                    var telefone2 = markerElem.getAttribute('telefone2');
                     var type = markerElem.getAttribute('type');
                     var email = markerElem.getAttribute('email');
                     var point = new google.maps.LatLng(
@@ -133,14 +132,6 @@ require_once "inc/header.php";
                     var text_telefone = document.createElement('text');
                     text_telefone.textContent = "Telefone: " + telefone1;
                     infowincontent.appendChild(text_telefone);
-
-                    if(telefone2 != "() -"){
-                        infowincontent.appendChild(document.createElement('br'));
-                    
-                        var text_telefone2 = document.createElement('text');
-                        text_telefone2.textContent = "Telefone alternativo: " + telefone2;
-                        infowincontent.appendChild(text_telefone2);
-                    }
 
                     infowincontent.appendChild(document.createElement('br'));
                     infowincontent.appendChild(document.createElement('br'));

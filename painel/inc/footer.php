@@ -3,11 +3,11 @@
     <script><?php
 
     if(LOGADO === TRUE){
-        if(strlen($_SESSION['idfacebook']) >= 16){
-            echo 'var idfacebook = "'.$_SESSION['idfacebook'].'";';
-        }
 
         if($_tipo == "pf"){
+             if(strlen(@$_SESSION['idfacebook']) >= 16){
+            echo 'var idfacebook = "'.$_SESSION['idfacebook'].'";';
+        }
             echo 'var sangue = "'.$_SESSION['sangue'].'";';
             echo 'var nome = "'.$_SESSION['nome']." ".$_SESSION['sobrenome'].'";';
         } else {

@@ -5,7 +5,27 @@ $(document).ready(function() {
     if($(location.hash).length > 0){
         $(location.hash).click();
     }
+
+    if(location.hash.substr(0, 7) == "#token-"){
+
+        $.post(baseUrl + 'resetarsenha', {token: location.hash.substr(7, 32)}, function (rs) {
+            console.log(rs);
+
+            if(rs.substr(0, 3) != "Err"){
+                $("#p_body_resetarSenha").text(rs + ", por favor insira uma nova senha.");
+                $("#resetarSenha").modal();
+            } else if (rs == "Err1") {
+                $("#titulo_resetarSenha").text("Ops...");
+                $("#body_resetarSenha").html('<p align="center" for="esqueciASenha">Esse token já foi utilizado.</p>');
+                $("#alterarSenha").remove();
+            }
+        });
+    }
 });
+
+function resetarSenha(){
+    $("#resetarSenha").modal('toggle');
+}
 
 $("#saibamais").on("click", function(){
     $("#quemsomos").click();
@@ -84,7 +104,7 @@ function box_faq(a){
 }
 
 function contato() {
-    $.post(baseUrl + '/enviarcontato', {nome: $("#nome").val(), email: $("#email").val(), assunto: $("#assunto").val()}, function (rs) {
+    $.post(baseUrl + 'enviarcontato', {nome: $("#nome").val(), email: $("#email").val(), assunto: $("#assunto").val()}, function (rs) {
         
         toastr.options = {
                 "closeButton": true,
@@ -208,7 +228,7 @@ function checkLoginState() {
   FB.getLoginStatus(function(response) {
   if (response.status === 'connected') {
     FB.api('/me', {fields: 'id'}, function(response) {
-        $.post(baseUrl + '/fblogar', {fb: response["id"]}, function (rs) {
+        $.post(baseUrl + 'fblogar', {fb: response["id"]}, function (rs) {
             if(rs == 'Err1'){
                 $("#titulo_modalFb").text("Ops...");
                 $("#body_modalFb").text("Este facebook não está vinculado a nenhuma conta.");
@@ -242,11 +262,11 @@ function checkLoginState() {
 }
 
 function cadastrar_fb(){
-        window.location.href = baseUrl + "/cadastro?fb=" + $("#cadastrar_fb").attr("fbid");
+        window.location.href = baseUrl + "cadastro?fb=" + $("#cadastrar_fb").attr("fbid");
 };
 
 function esqueci(){
-    $.post(baseUrl + '/esqueciasenha', {email: $("#input-esqueci").val()}, function (rs) {
+    $.post(baseUrl + 'esqueciasenha', {email: $("#input-esqueci").val()}, function (rs) {
         console.log(rs);
         if(rs == "Err1"){
             toastr.options = {

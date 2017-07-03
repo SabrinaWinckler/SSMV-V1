@@ -12,6 +12,9 @@ RewriteEngine on
 RewriteRule ^config(|/)$ config.class.php
 
 RewriteRule ^(|/)$ ./index.php
+RewriteRule ^t(|/)$ ./index.php?token=true
+
+
 RewriteRule ^cadastro(.*)$ cadastro.php
 RewriteRule ^enviarcontato(.*)$ post.php?contato=enviar
 
@@ -21,6 +24,7 @@ RewriteRule ^api/maps.xml(.*)$ api/marcadores/maps.xml.php
 RewriteRule ^confirmarcadastropf(.*)$ post.php?cadastro=pf
 RewriteRule ^confirmarcadastropj(.*)$ post.php?cadastro=pj
 RewriteRule ^esqueciasenha(.*)$ post.php?senha=esqueci
+RewriteRule ^resetarsenha(.*)$ post.php?senha=token
 
 RewriteRule ^logar(.*)$ post.php?login=entrar
 RewriteRule ^fblogar(.*)$ post.php?login=fb

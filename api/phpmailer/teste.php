@@ -36,17 +36,4 @@ if(!$mail->send()) {
     echo 'Message has been sent';
 }
 
-// $para       = 'gustavosatheler@gmail.com';
-
-// $mensagem = '<b> oi </b>';
-
-// $de         = "SSMV - Seu sangue, minha vida";
-// $email      = "nao.responda@ssmv.com.br";
-// $headers    = "MIME-Version: 1.0" . "\r\n" . "Content-Type: text/html; charset=utf-8" . "\r\n" . "From:". '=?UTF-8?B?'.base64_encode($de).'?=' . "<".$email.">" . "\r\n";
-
-// $assunto    = 'Sangue compatível.';
-// $assunto    = '=?UTF-8?B?'.base64_encode($assunto).'?=';
-
-// mail($para, $assunto, $mensagem, $headers);
-
 ?>

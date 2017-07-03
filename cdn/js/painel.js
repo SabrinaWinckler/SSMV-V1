@@ -405,8 +405,8 @@ function querodoar(ireq){
 function confirmarDoacao(){
         $.post(basepainel + 'confirmardoacao', { datareq: $("[data-req]").attr("data-req"), doador: id }, function (rs) {
             if(rs == "Suc"){
-                
+                $("#modalQuerodoar").modal('toggle');
             }
-        console.log(rs);
+            console.log(rs);
     });
 }

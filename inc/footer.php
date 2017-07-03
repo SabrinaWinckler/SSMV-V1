@@ -77,7 +77,7 @@
                 <p align="center" for="esqueciASenha">Informe o e-mail que você usa no SSMV. <br /> Nós lhe enviaremos instruções sobre como acessar a sua conta. </p>
                 <br />
                 <div class="input-group mb-2 mr-sm-2 mb-sm-0">
-                    <div class="input-group-addon">@</div>
+                    <div class="input-group-addon"><i class="fa fa-user"></i></div>
                     <input type="text" class="form-control" id="input-esqueci" placeholder="Digite seu email">
                 </div>
             </div>
@@ -88,4 +88,33 @@
         </div>
     </div>
 </div>
+
+<!-- Resetar senha -->
+<?php if(@$_GET["token"] == "true"):?>
+<div class="modal fade" id="resetarSenha" tabindex="-1" role="dialog" aria-labelledby="resetarSenha">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title" id="titulo_resetarSenha">Alterar senha</h4>
+            </div>
+            <div class="modal-body" id="body_resetarSenha">
+                <p align="center" id="p_body_resetarSenha" for="esqueciASenha">Por favor insira uma nova senha.</p>
+                <br />
+                <div class="input-group mb-2 mr-sm-2 mb-sm-0 form-inline">
+                    <div class="input-group-addon"><i class="fa fa-key"></i></div>
+                    <input type="text" class="form-control" id="input-senha" placeholder="Digite sua senha">
+                    <input type="text" class="form-control" id="input-confirmar-senha" placeholder="Confirme a sua senha">
+                </div>
+            </div>
+            <div class="modal-footer" id="footer_resetarSenha">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                <button type="button" onclick="resetarSenha()" id="alterarSenha" class="btn btn-primary">Alterar</button>
+            </div>
+        </div>
+    </div>
+</div>
+<?php endif; ?>
 </html>
