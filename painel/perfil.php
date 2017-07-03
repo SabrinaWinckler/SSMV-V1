@@ -57,43 +57,44 @@ if($_tipo == "pf"){
                     </style>
                        <div class = "imagem"><img src="fotos/".$usuario></div>
                        
+                       
                        <br><br> <input type="button" onclick ="adicionarFoto()" value = "Adicionar"> </input>
                     </div>
                     <div class="col-sm-3">
-                        Nome: ', $_nome ,' ', $_sobrenome , '
+                        <b>Nome:</b> ', $_nome ,' ', $_sobrenome , '
                     </div>
                     <div class="col-sm-3">
-                        Data de nascimento: ' , $_data_nascimento , '
+                        <b>Data de nascimento:</b> ' , $_data_nascimento , '
                     </div>
                     <div class="col-sm-2">
                         <button type="button" onclick="myEditar()" >Editar Informações</button>
                     </div>
                     <div class="col-sm-6">
-                        Gênero: ', $_genero , '
+                        <b>Gênero:</b> ', $_genero , '
                     </div>
                     <div class="col-sm-3">
-                        Tipo Sanguíneo: ', $nomeSangue[$_id_tipo_sangue-1] , '
+                        <b>Tipo Sanguíneo:</b> ', $nomeSangue[$_id_tipo_sangue-1] , '
                     </div>
                     <div class="col-sm-2">
-                        Peso: ', $_peso , 'Kg', '
+                        <b>Peso:</b> ', $_peso , 'Kg', '
                     </div>
                     <div class="col-sm-3">
-                        Última Doação: ', $_ultima_doacao ,'
+                        <b>Última Doação:</b> ', $_ultima_doacao ,'
                     </div>
                     <div class="col-sm-3">
-                        Município: ', $_municipio, '
+                        <b>Município:</b> ', $_municipio, '
                     </div>
                     <div class="col-sm-3">
-                        Estado: ', $nomeEstado[$_idestado-1] ,'
+                        <b>Estado:</b> ', $nomeEstado[$_idestado-1] ,'
                     </div>
                     <div class="col-sm-6">
-                        Telefone Fixo: ', $_telefoneff  ,'
+                        <b>Telefone Fixo:</b> ', $_telefoneff  ,'
                     </div>
                     <div class="col-sm-6">
-                        Telefone Celular: ', $_telefonec , '
+                        <b>Telefone Celular:</b> ', $_telefonec , '
                     </div>
                     <div class="col-sm-6">
-                        Email: ', $_email , '
+                        <b>Email:</b> ', $_email , '
                     </div>
                 </div>
             </div>
@@ -133,43 +134,43 @@ elseif($_tipo == "pj"){
                        <br><br> <input type="button" onclick ="adicionarFoto()" value = "Adicionar"> </input>
                     </div>
                     <div class="col-sm-3">
-                      Nome: ', $_nome ,'
+                      <b>Nome:</b> ', $_nome ,'
                     </div>
                     <div class="col-sm-3">
-                        Nome Fantasia: ', $_nomeFantasia ,'
+                        <b>Nome Fantasia:</b> ', $_nomeFantasia ,'
                     </div>
                     <div class="col-sm-2">
-                        <button type="button" onclick="myEditar()" >Editar Informações</button>
+                        <button type="button" onclick="myEditar2()" >Editar Informações</button>
                     </div>
                     <div class="col-sm-6">
-                        Logradouro: ', $_logradouro ,'
+                        <b>Logradouro:</b> ', $_logradouro ,'
                     </div>
                     <div class="col-sm-3">
-                        Número: ', $_numero,'
+                        <b>Número:</b> ', $_numero,'
                     </div>
-                    <div class="col-sm-2">-->
-                        Complemento: ', $_complemento ,'
-                    </div>""
                     <div class="col-sm-2">
-                        CEP: ',$_cep ,'
+                        <b>Complemento:</b> ', $_complemento ,'
+                    </div>
+                    <div class="col-sm-2">
+                        <b>CEP:</b> ',$_cep ,'
                     </div>
                      <div class="col-sm-3">
-                        Bairro: ', $_bairro ,'
+                        <b>Bairro:</b> ', $_bairro ,'
                     </div>
                     <div class="col-sm-3">
-                        Município: ', $_municipio,'
+                        <b>Município:</b> ', $_municipio,'
                     </div>
                     <div class="col-sm-3">
-                        Estado: ', $nomeEstado[$_idestado-1],'
+                        <b>Estado:</b> ', $nomeEstado[$_idestado-1],'
                     </div>
                     <div class="col-sm-6">
-                        Telefone Fixo: ', $_telefonef,'
+                        <b>Telefone Fixo:</b> ', $_telefonef,'
                     </div>
                     <div class="col-sm-6">
-                        Telefone Fixo 2: ', $_telefonef2 ,'
+                        <b>Telefone Fixo 2:</b> ', $_telefonef2 ,'
                     </div>
                     <div class="col-sm-6">
-                        Email: ', $_email,'
+                        <b>Email:</b> ', $_email,'
                     </div>
                 </div>
             </div>
