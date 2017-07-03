@@ -85,12 +85,12 @@ if(LOGADO === TRUE){
     <![endif]-->
 </head>
 
-<body>
+<body class="fundo">
 
     <div id="wrapper">
 
         <!-- Navigation -->
-        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+        <nav class="barra-cima navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                     <span class="sr-only">Toggle navigation</span>
@@ -106,8 +106,8 @@ if(LOGADO === TRUE){
 
             <ul class="nav navbar-top-links navbar-right">
                 <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        <i class="fa fa-envelope fa-fw"></i> <i class="fa fa-caret-down"></i>
+                    <a class="icones-barra dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="icones-barra-cima fa fa-envelope fa-fw"></i> <i class="icones-barra-cima fa fa-caret-down"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-messages">
                         <?php 
@@ -143,7 +143,7 @@ if(LOGADO === TRUE){
                 </li>
                 <!-- /.dropdown -->
                 <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                    <a class="icones-barra icones-barra-cima dropdown-toggle" data-toggle="dropdown" href="#">
                         <i class="fa fa-user fa-fw"></i> <?php echo $_SESSION['nome']; ?> <i class="fa fa-caret-down"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-user">

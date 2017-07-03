@@ -20,7 +20,7 @@ $permissao = array (
 $permissao = (json_decode(json_encode($permissao))->$_tipo);
 
 if ($_tipo == 'pf' || $_tipo == 'pj'){
-    $requisicao = '<li><a href="#"><i class="fa fa-heart fa-fw"></i> Requisição<span class="fa arrow"></span></a><ul class="nav nav-second-level collapse" aria-expanded="true"><li><a href="'.BASEPAINEL.'requisicao/novo"><span class="fa fa-plus"></span> Nova requisição</a></li><li><a href="'.BASEPAINEL.'requisicao/meus"><span class="fa fa-list"></span> Minhas requisições</a></li></ul></li>';
+    $requisicao = '<li><a class="barra-cima-side icones-barra icones-barra-cima" href="#"><i class="fa fa-heart fa-fw"></i> Requisição<span class="fa arrow"></span></a><ul class="icones-barra-cima barra-cima-side icones-barra nav nav-second-level collapse" aria-expanded="true"><li><a class="barra-cima-side icones-barra icones-barra-cima" href="'.BASEPAINEL.'requisicao/novo"><span class="fa fa-plus"></span> Nova requisição</a></li><li><a class="barra-cima-side icones-barra icones-barra-cima" href="'.BASEPAINEL.'requisicao/meus"><span class="fa fa-list"></span> Minhas requisições</a></li></ul></li>';
 } else {
     $requisicao = '';
 }

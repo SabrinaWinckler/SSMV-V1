@@ -656,3 +656,37 @@ a.req-category:hover, a.req-category:focus{
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+
+
+.fundo {
+  background-color: #ff6a6a;
+}
+
+.barra-cima {
+  background-color: rgba(181,67,66, 0.7);
+}
+
+.icones-barra-cima {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.icones-barra-cima:hover {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.icones-barra-cima:focus {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.icones-barra:hover {
+  background-color: rgba(243,127,115, 0.7) !important;
+}
+
+.icones-barra:focus {
+  background-color: rgba(243,127,115, 0.7) !important;
+}
+
+.barra-cima-side {
+  background-color: rgba(235, 75, 75, 0.7) !important;
+}
+
