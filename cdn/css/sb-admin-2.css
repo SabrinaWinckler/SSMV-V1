@@ -690,3 +690,6 @@ a.req-category:hover, a.req-category:focus{
   background-color: rgba(235, 75, 75, 0.7) !important;
 }
 
+.botao-add {
+  margin-left: 11%;
+}

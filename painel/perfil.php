@@ -57,7 +57,7 @@ if($_tipo == "pf"){
                        <div class = "imagem"><img src="'.BASECDN.'img/fotos/1.jpg" style="width:100%;"></div>
                        
                        
-                       <br><br> <input type="button" onclick ="adicionarFoto()" value = "Adicionar"> </input>
+                       <br><br> <input class="botao-add" type="button" onclick ="adicionarFoto()" value = "Adicionar"> </input>
                     </div>
                     <div class="col-sm-3">
                         <b>Nome:</b> ', $_nome ,' ', $_sobrenome , '
