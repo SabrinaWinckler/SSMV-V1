@@ -180,7 +180,7 @@ function solicitar_doacao() {
                             FB.getLoginStatus(function (response) {
                                 if (response.status === 'connected') {
                                     FB.login(function () {
-                                        FB.api('/me/feed', 'post', { message: '!!! IGNOREM !!! SOFTWARE TESTE - Estou precisando de doação de sangue compatível com ' + $('#tipo_sangue').find(":selected").text() });
+                                        FB.api('/me/feed', 'post', { message: 'Estou precisando de doação de sangue compatível com ' + $('#tipo_sangue').find(":selected").text() });
                                     }, { scope: 'publish_actions' });
 
                                     var uid = response.authResponse.userID;
