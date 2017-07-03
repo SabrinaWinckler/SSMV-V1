@@ -46,7 +46,7 @@ require_once "inc/header.php";
                                                     <td id='td-email' class='text-center'>".$nomeSangue[$req_sangue-1]."</td>
                                                     <td id='td-fone' class='text-center'>".date_format(date_create($req_dataL), 'd/m/Y')."</td>
                                                     <td id='td-fone' class='text-center'>".$nomeHemocentro[$req_marcador-1]."</td>
-                                                    <td id='td-fone' class='text-center hidden-xs'>".$tipoUrgencia[$_req_urgencia]."</td>
+                                                    <td id='td-fone' class='text-center hidden-xs'>".$tipoUrgencia[$req_urgencia]."</td>
                                                     <td class='text-center'>
                                                         <button onclick='removerRequisicao(".$req_id.")' title='Remover' data-toggle='tooltip' class='btn btn-sm btn-danger btn-remover'><i class='fa fa-trash-o'></i></button>
                                                     </td>
