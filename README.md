@@ -1,31 +1,18 @@
 # [Unipampa](http://unipampa.edu.br/) - [Engenharia de Software](http://cursos.unipampa.edu.br/cursos/engenhariadesoftware/)
 
-Seu sangue, minha vida é um projeto que vem para sanar a necessidade de sangue no Brasil o tema utilizado vai ser o ["Creative Theme"](https://startbootstrap.com/template-overviews/creative/) e ["SB Admin 2"](https://startbootstrap.com/template-overviews/sb-admin-2/) baseado em [Bootstrap](http://getbootstrap.com/) criado por [Start Bootstrap](http://startbootstrap.com/).
+Seu sangue, minha vida é um projeto que vem para sanar a necessidade de divulgação de doação de sangue no Brasil o tema utilizado vai ser o ["Creative Theme"](https://startbootstrap.com/template-overviews/creative/) e ["SB Admin 2"](https://startbootstrap.com/template-overviews/sb-admin-2/) baseado em [Bootstrap](http://getbootstrap.com/) criado por [Start Bootstrap](http://startbootstrap.com/).
 
 ## Primeiros passos
 
 Para começar a usar este repositorio, siga os passos abaixo:
 
-* Clone o repo: `git clone git@bitbucket.org:rpissmv/ssmv.git`
-
-* E coloque como pasta raiz do seu servidor APACHE
+* Recomendo fortemente clonar este repositório na raiz de projetos do seu APACHE
 
 ## Erros e problemas
 
 De inicio tem vários bug's.
 
 ## Desenvolvedores responsáveis
-
-** Emails:
-
-* Facilitador para email
-fabriciotrindadea7x@gmail.com; gustavo.satheler@alunos.unipampa.edu.br; jessicafaveror@gmail.com; roliveira.loki@gmail.com; sabrinacarlew@gmail.com;
-
-**[Fabricio Trindade da Silva](mailto:fabriciotrindadea7x@gmail.com)** (fabriciotrindadea7x@gmail.com)
-
-* https://facebook.com/fabriciotrindade1999
-* https://bitbucket.org/fabriciotrindade1999
-
 
 **[Gustavo Bittencourt Satheler](mailto:gustavo.satheler@alunos.unipampa.edu.br)** (gustavo.satheler@alunos.unipampa.edu.br)
 
